@@ -1,7 +1,7 @@
 entries:
-- title: STU3 | FHIR A2SI Appointments |
-  product: STU3 | FHIR A2SI Appointments |
-  version: 1.0.0-alpha
+- title: STU3 | FHIR NHS Scheduling |
+  product: STU3 | FHIR NHS Scheduling |
+  version: 1.0.2-alpha |
   levels: one
   folders:
 
@@ -22,58 +22,53 @@ entries:
       url: /overview_glossary.html
       output: web
 
-  - title: Case Studies
-    output: web
-    folderitems:
-        - title: "A2SI Appointments Case Studies"
-          url: /engage_a2siappointments.html
-          output: web
-
   - title: FHIR Resources
     output: web
     folderitems:
     - title: Overview FHIR Profiles
       url: /explore.html
       output: web
-    - title: Data Flow Diagrams
-      url: /explore_data_flow_diagrams.html
+    - title: Patient
+      url: /api_uec_appointments_entity_patient.html
       output: web
-      subfolders:
-      - title: API Guidance | FHIR&reg;
-        output: web
-        subfolderitems:
-        - title: Care Connect Versioning
-          url: /explore_cc_versioning.html
-          output: web
-  
+    - title: Practitioner
+      url: /api_uec_appointments_entity_practitioner.html
+      output: web
+    - title: PractitionerRole
+      url: /api_uec_appointments_entity_practitioner_role.html
+      output: web
+    - title: Organization
+      url: /api_uec_appointments_organisation.html
+      output: web
+    - title: HealthcareService
+      url: /api_uec_appointments_healthcare_service.html
+      output: web
+    - title: Location
+      url: /api_uec_appointments_location.html
+      output: web
+    - title: Slot
+      url: /api_uec_appointments_slot.html
+      output: web
+    - title: Schedule
+      url: /api_uec_appointments_schedule.html
+      output: web
+    - title: Appointment
+      url: /api_uec_appointments_appointment.html
+      output: web
+
+  - title: Development
+    output: web
+    folderitems:
+    - title: Search for free slots
+      url: /search_free_slots.html
+      output: web
+    - title: Book an appointment
+      url: /book_an_appointment.html
+      output: web 
+      
   - title: Help & Support
     output: web
     folderitems:
     - title: Frequently Asked Questions (FAQ)
       url: /support_faq.html
-      output: web
-
-  - title: Tags
-    output: web
-    folderitems:
-    - title: Introduction
-      url: /tag_overview.html
-      output: web
-    - title: FHIR&reg;
-      url: /tag_fhir.html
-      output: web
-    - title: User Stories
-      url: /tag_user_stories.html
-      output: web
-    - title: Case Studies
-      url: /tag_casestudies.html
-      output: web
-    - title: Design
-      url: /tag_design.html
-      output: web
-    - title: Development
-      url: /tag_development.html
-      output: web
-    - title: Support
-      url: /tag_support.html
       output: web

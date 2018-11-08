@@ -1,7 +1,6 @@
 ---
 title: Glossary
 keywords: abbreviations, definitions, glossaries, terms
-tags: [overview]
 sidebar: overview_sidebar
 permalink: overview_glossary.html
 summary: "Glossary of terms used by NHS Digital"

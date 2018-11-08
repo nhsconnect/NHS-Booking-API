@@ -2,14 +2,6 @@
 topnav_dropdowns:
 - title: Topnav dropdowns
   folders:
-    - title: Care Connect
-      folderitems:
-        - title: HL7 UK Care Connect Profiles
-          external_url: https://fhir.hl7.org.uk/
-        - title: NHS Digital Profiles
-          external_url: https://fhir.nhs.uk/
-        - title: Care Connect Reference Implementation
-          external_url: http://yellow.testlab.nhs.uk/careconnect-ri/
     - title: FHIR
       folderitems:
         - title: HL7 FHIR

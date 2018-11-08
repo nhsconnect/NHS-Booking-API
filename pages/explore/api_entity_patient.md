@@ -9,7 +9,7 @@ summary: Demographics and other administrative information about an individual r
 
 {% include custom/search.warnbanner.html %}
 
-{% include custom/fhir.STU3.reference.html resource="Patient" page="CareConnect-Patient-1" fhirname="Patient" fhirlink="patient.html" content="[DSTU2] Bristol Connecting Care POC" userlink="engage_poc_bristolcc.html" %}
+{% include custom/fhir.reference.html resource="Patient" page="CareConnect-Patient-1" fhirname="Patient" fhirlink="patient.html" content="-" userlink="-" %}
 
 ## 1. Read ##
 
