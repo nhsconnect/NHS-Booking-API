@@ -34,12 +34,31 @@ Provider systems SHALL support the following include parameters:
 
 | Name | Description | Paths |
 |---|---|---|
-| `_include=Slot:schedule` | Include Schedule Resources referenced within the returned Slot Resources | `Slot.schedule` |
-| `_include:recurse= Schedule:actor:Practitioner` | Include Practitioner Resources referenced within the returned Schedule Resources | `Schedule.actor:Practitioner` |
-| `_include:recurse= Schedule:actor:PractitionerRole` | Include Practitioner Role Resources referenced within the returned Schedule Resources | `Schedule.actor:PractitionerRole` |
-| `_include:recurse= Schedule:actor:HealthcareService` | Include HealthcareService Resources referenced within the returned Schedule Resources | `Schedule.actor:HealthcareService` |
-| `_include:recurse= HealthcareService:providedBy:Organization` | Include Organization Resources referenced within the returned HealthcareService Resources | `HealthcareService.providedBy:Organization` |
-| `_include:recurse= HealthcareService:location:Location` | Include Location Resources referenced within the returned HealthcareService Resources | `HealthcareService.location:Location` |
+| `&_include=Slot:schedule` | Include Schedule Resources referenced within the returned Slot Resources | `Slot.schedule` |
+| `&_include:recurse= Schedule:actor:Practitioner` | Include Practitioner Resources referenced within the returned Schedule Resources | `Schedule.actor:Practitioner` |
+| `&_include:recurse= Schedule:actor:PractitionerRole` | Include Practitioner Role Resources referenced within the returned Schedule Resources | `Schedule.actor:PractitionerRole` |
+| `&_include:recurse= Schedule:actor:HealthcareService` | Include HealthcareService Resources referenced within the returned Schedule Resources | `Schedule.actor:HealthcareService` |
+| `&_include:recurse= HealthcareService:providedBy` | Include Organization Resources referenced within the returned HealthcareService Resources | `HealthcareService.providedBy` |
+| `&_include:recurse= HealthcareService:location` | Include Location Resources referenced within the returned HealthcareService Resources | `HealthcareService.location` |
+
+## RESTful Query ##
+
+The following query demonstrates a full request for information:
+
+<table>
+<tr>
+<td>
+http://[hostname]/Slot?status=free&start=le2018-10-29T09:49:18.705+01:00
+&schedule.actor:healthcareservice=24337
+&_include:recurse=Slot:schedule
+&_include:recurse=Schedule:actor:HealthcareService
+&_include:recurse=Schedule:actor:Practitioner
+&_include:recurse=Schedule:actor:PractitionerRole
+&_include:recurse=HealthcareService:location
+&_include:recurse=HealthcareService:providedBy:organization
+</td>
+</tr>
+</table>
 
 The following parameters SHALL be included in the request:
 
@@ -77,7 +96,7 @@ Provider systems:
   "contained": [
     {
       	"resourceType": "HealthcareService",
-	"id": "example",
+	"id": "79",
 	"identifier": [
 		{
 		"system": "http://example.org/shared-ids",
