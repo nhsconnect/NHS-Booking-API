@@ -1,0 +1,126 @@
+{
+    "resourceType": "Appointment",
+    "meta": {
+        "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
+    },
+    "language": "en",
+    "text": "<div>Appointment</div>",
+    "contained": [
+        {
+
+            "resourceType": "DocumentReference",
+            "id": "123",
+            "identifier": {
+                "system": "https://tools.ietf.org/html/rfc4122",
+                "value": "A709A442-3CF4-476E-8377-376500E829C9"
+            },
+            "status": "current",
+            "type": {
+                "coding": [
+                    {
+                        "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.17",
+                        "code": "POCD_MT200001GB02",
+                        "display": "Integrated Urgent Care Report"
+                    }
+                ]
+            },
+            "indexed": "2018-12-20T09:43:41+11:00",
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/hl7-v3+xml",
+                        "language": "en"
+                    }
+                }
+            ]
+        },
+        {
+            "resourceType": "Patient",
+            "meta": {
+            "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
+        },
+            "id": "P1",
+              "identifier": [
+    {
+      "extension": [
+        {
+          "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.hl7.org.uk/STU3/CodeSystem/CareConnect-NHSNumberVerificationStatus-1",
+                "code": "01",
+                "display": "Number present and verified"
+              }
+            ]
+          }
+        }
+      ],
+      "use": "official",
+      "system": "https://fhir.nhs.uk/Id/nhs-number",
+      "value": "9476719931"
+    }
+  ],
+            "name": [
+                {
+                  "use": "official",
+                    "prefix": "Mr",
+                    "given": "John",
+                    "family": "Smith"
+                }
+            ],
+            "telecom": [
+                {
+                    "system": "phone",
+                    "value": "01234 567 890",
+                    "use": "home",
+                    "rank": 1
+                }
+            ],
+            "gender": "male",
+            "birthDate": "1974-12-25",
+            "address": [
+                {
+                    "use": "home",
+                    "text": "123 High Street, Leeds LS1 4HR",
+                    "line": [
+                        "123 High Street",
+                        "Leeds"
+                    ],
+                    "city": "Leeds",
+                    "postalCode": "LS1 4HR"
+                }
+            ]
+        }
+    ],
+    "status": "booked",
+    "start": "2019-01-17T15:00:00.000Z",
+    "end": "2019-01-17T15:10:00.000Z",
+    "supportingInformation": [
+      {
+            "reference": "#123"
+        }
+    ],
+    "description": "Reason for calling",
+    "slot": [
+        {
+            "reference": "Slot/slot002"
+        }
+    ],
+    "created": "2019-01-18T14:32:22.579+00:00",
+
+    "participant": [
+        {
+            "actor": {
+                "reference": "#P1",
+                "identifier": {
+                    "use": "official",
+                    "system": "https://fhir.nhs.uk/Id/nhs-number",
+                    "value": "1234554321"
+                },
+                "display": "Peter James Chalmers"
+            },
+            "status": "accepted"
+        }
+    ]
+}
