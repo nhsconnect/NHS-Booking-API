@@ -13,5 +13,5 @@ GP Connect <a href='https://nhsconnect.github.io/gpconnect/appointments.html'>Ap
 <a href='https://digital.nhs.uk/services/nhs-e-referral-service/'>NHS e-Referral Service</a> which has several <a href='https://developer.nhs.uk/apis/'>APIs listed here</a>
 
 ### Versions ###
-<a href="https://developer.nhs.uk/apis/nhsscheduling/">1.0.2 Alpha</a> 
-<a href="https://developer.nhs.uk/apis/nhsscheduling-1.0.3-alpha/"/>1.0.3 Alpha</a>
+<ul><li><a href="https://developer.nhs.uk/apis/nhsscheduling/">1.0.2 Alpha</a></li>
+<li><a href="https://developer.nhs.uk/apis/nhsscheduling-1.0.3-alpha/"/>1.0.3 Alpha</a></li></ul>
