@@ -27,7 +27,7 @@ The DocumentReference resource **MUST** include the following data items:
 | identifier.system | `https://tools.ietf.org/html/rfc4122` | Indicates that the associated value is a UUID. |
 | identifier.value | [UUID] | The UUID of the associated document |
 | status | "current" | Indicates that the associated document is current. No other value is expected. |
-| type | A value from [https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-DocumentType-1](https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-DocumentType-1) | Indicates the type of document |
+| type | A value from `[https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-DocumentType-1](https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-DocumentType-1)` | Indicates the type of document |
 | content | see below | Describes the actual document |
 | content.attachment | Describes the actual document |
 | content.attachment.contentType | A valid mime type | Indicates the mime type of the document |
