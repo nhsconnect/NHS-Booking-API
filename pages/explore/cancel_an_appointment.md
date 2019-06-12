@@ -1,16 +1,16 @@
 ---
-title: Book an appointment
+title: Cancel an appointment
 keywords: getcarerecord, structured, rest, resource
 sidebar: foundations_sidebar
-permalink: book_an_appointment.html
-summary: "Details the Book an Appointment interaction"
+permalink: cancel_an_appointment.html
+summary: "Details the Cancel an Appointment interaction"
 ---
 
 {% include important.html content="Site under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
 
 ## Use case ##
 
-A consuming system wishes to book an Appointment for a Patient into <a href="search_free_slots.html">a previously retrieved</a> Slot.
+A consuming system wishes to cancel an Appointment which was previously <a href='book_an_appointment.html'>booked</a>.
 
 ## Security ##
 
@@ -20,19 +20,22 @@ A consuming system wishes to book an Appointment for a Patient into <a href="sea
 
 ## Request ##
 
-The request body is sent using an http `POST` method.
+The request body is sent using an http `PUT` method.
 
-The body is a valid Appointment resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1'>the relevant profile</a>, for full details of the payload body, see the <a href='appointment.html'>Appointment resource details</a>.
+The body is a valid Appointment resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1'>the relevant profile</a>. **NB The appointment resource **MUST** be <a href='get_an_appointment.html'>retrieved from the Provider system</a> in order to ensure that no data is lost.**, for full details of the payload body, see the <a href='appointment.html'>Appointment resource details</a>.
+
+- Provider systems **SHOULD** store previous versions of the resource to defend against any such loss of data.
+- Provider systems **SHOULD** reject cancellation requests where differences (other than those specified) are detected between the original and updated resource.
 
 ## Response ##
 
 ### Success ###
-Where the request succeeded, the response **MUST** include a status of `201` **Created**.
+Where the request succeeded, the response **MUST** include a status of `200` **OK**.
 The response **MUST** include a Location header giving the absolute URL of the created Appointment. This URL **MUST** remain stable, and the resource **SHOULD** support RESTful updates using a PUT request to this URL.
-The response body **MUST** include the created Appointment, this resource **MUST** include the newly assigned id of the resource.
+The response body **MUST** include the updated Appointment, this resource **MUST** include the newly assigned id of the resource.
 
 ### Failure ###
-- If the request fails because of a business rule (for example if the requested Slot is no longer free), the response **MUST** include a status of `422` **Unprocessable Entity** <a href='http://hl7.org/fhir/STU3/http.html#2.21.0.10.1'>as described here</a>.
+- If the request fails because of a business rule (for example if differences are detected between the existing and updated Appointment), the response **MUST** include a status of `422` **Unprocessable Entity** <a href='http://hl7.org/fhir/STU3/http.html#2.21.0.10.1'>as described here</a>.
 This **SHOULD** be accompanied by an OperationOutcome resource providing additional detail.
 - If the request fails because the request body failed validation against the relevant profiles, the response **MUST** include a status of `422` **Unprocessable Entity** <a href='http://hl7.org/fhir/STU3/http.html#2.21.0.10.1'>as described here</a>.
 This **SHOULD** be accompanied by an OperationOutcome resource providing additional detail.
@@ -45,3 +48,4 @@ This **SHOULD** be accompanied by an OperationOutcome resource providing additio
 Failure responses with a `4xx` status **SHOULD NOT** be retried without taking steps to address the underlying cause of the failure.
 
 Failure responses with a `500` status **MAY** be retried.
+

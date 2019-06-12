@@ -1,7 +1,7 @@
 entries:
 - title: STU3 | FHIR NHS Scheduling |
   product: STU3 | FHIR NHS Scheduling |
-  version: 1.0.2-alpha |
+  version: 1.0.4-alpha |
   levels: one
   folders:
 
@@ -12,60 +12,81 @@ entries:
       url: /index.html
       output: web, pdf
       type: homepage
-    - title: Guide Versioning
-      url: /overview_guide_versioning.html
+    - title: Process
+      url: /process.html
+      output: web
+    - title: Appointment Registry
+      url: /registry_overview.html
       output: web
     - title: Release Notes
       url: /overview_release_notes.html
-      output: web
-    - title: Glossary
-      url: /overview_glossary.html
       output: web
 
   - title: FHIR Resources
     output: web
     folderitems:
     - title: Overview FHIR Profiles
-      url: /explore.html
-      output: web
-    - title: Patient
-      url: /api_uec_appointments_entity_patient.html
-      output: web
-    - title: Practitioner
-      url: /api_uec_appointments_entity_practitioner.html
-      output: web
-    - title: PractitionerRole
-      url: /api_uec_appointments_entity_practitioner_role.html
-      output: web
-    - title: Organization
-      url: /api_uec_appointments_organisation.html
-      output: web
-    - title: HealthcareService
-      url: /api_uec_appointments_healthcare_service.html
-      output: web
-    - title: Location
-      url: /api_uec_appointments_location.html
+      url: /resources_overview.html
       output: web
     - title: Slot
-      url: /api_uec_appointments_slot.html
+      url: /slot.html
+      output: web
+    - title: HealthcareService
+      url: /healthcare_service.html
       output: web
     - title: Schedule
-      url: /api_uec_appointments_schedule.html
+      url: /schedule.html
       output: web
     - title: Appointment
-      url: /api_uec_appointments_appointment.html
+      url: /appointment.html
+      output: web
+    - title: Patient
+      url: /patient.html
+      output: web
+    - title: DocumentReference
+      url: document_reference.html
+      output: web
+    - title: Practitioner
+      url: /practitioner.html
+      output: web
+    - title: PractitionerRole
+      url: /practitioner_role.html
+      output: web
+    - title: Organization
+      url: /organisation.html
+      output: web
+    - title: Location
+      url: /location.html
       output: web
 
   - title: Development
     output: web
     folderitems:
+    - title: Overview
+      url: /developing.html
+      output: web
     - title: Search for free slots
       url: /search_free_slots.html
       output: web
     - title: Book an appointment
       url: /book_an_appointment.html
-      output: web 
-      
+      output: web
+    - title: Register an appointment
+      url: /register_an_appointment.html
+      output: web
+    - title: Search for appointments
+      url: /search_patient_appointments.html
+      output: web
+    - title: Get an appointment
+      url: /get_an_appointment.html
+      output: web
+    - title: Cancel an appointment
+      url: /cancel_an_appointment.html
+      output: web
+    - title: Cancel a registered appointment
+      url: /cancel_registered_appointment.html
+      output: web
+
   - title: Help & Support
     output: web
     folderitems:

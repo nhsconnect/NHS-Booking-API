@@ -4,7 +4,7 @@ topnav_dropdowns:
   folders:
     - title: FHIR
       folderitems:
-        - title: HL7 FHIR
-          external_url: https://www.hl7.org/fhir/
-        - title: SMART on FHIR
-          external_url: http://docs.smarthealthit.org/
+        - title: HL7 FHIR STU3
+          external_url: http://hl7.org/fhir/stu3/
+        - title: NHS Developer Network API Hub
+          external_url: https://developer.nhs.uk/apis/
