@@ -11,3 +11,7 @@ The initial scope that this API is being used in is <a href='https://developer.n
 ### See Also ###
 GP Connect <a href='https://nhsconnect.github.io/gpconnect/appointments.html'>Appointment Management</a>
 <a href='https://digital.nhs.uk/services/nhs-e-referral-service/'>NHS e-Referral Service</a> which has several <a href='https://developer.nhs.uk/apis/'>APIs listed here</a>
+
+### Versions ###
+<ul><li><a href="https://developer.nhs.uk/apis/nhsscheduling/">1.0.2 Alpha</a></li>
+<li><a href="https://developer.nhs.uk/apis/nhsscheduling-1.0.3-alpha/"/>1.0.3 Alpha</a></li></ul>
