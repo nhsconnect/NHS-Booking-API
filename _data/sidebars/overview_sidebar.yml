@@ -1,0 +1,95 @@
+entries:
+- title: STU3 | FHIR NHS Scheduling |
+  product: STU3 | FHIR NHS Scheduling |
+  version: 1.0.4-alpha |
+  levels: one
+  folders:
+
+  - title: Overview
+    output: web
+    folderitems:
+    - title: Introduction
+      url: /index.html
+      output: web, pdf
+      type: homepage
+    - title: Process
+      url: /process.html
+      output: web
+    - title: Appointment Registry
+      url: /registry_overview.html
+      output: web
+    - title: Release Notes
+      url: /overview_release_notes.html
+      output: web
+
+  - title: FHIR Resources
+    output: web
+    folderitems:
+    - title: Overview FHIR Profiles
+      url: /resources_overview.html
+      output: web
+    - title: Slot
+      url: /slot.html
+      output: web
+    - title: HealthcareService
+      url: /healthcare_service.html
+      output: web
+    - title: Schedule
+      url: /schedule.html
+      output: web
+    - title: Appointment
+      url: /appointment.html
+      output: web
+    - title: Patient
+      url: /patient.html
+      output: web
+    - title: DocumentReference
+      url: document_reference.html
+      output: web
+    - title: Practitioner
+      url: /practitioner.html
+      output: web
+    - title: PractitionerRole
+      url: /practitioner_role.html
+      output: web
+    - title: Organization
+      url: /organisation.html
+      output: web
+    - title: Location
+      url: /location.html
+      output: web
+
+  - title: Development
+    output: web
+    folderitems:
+    - title: Overview
+      url: /developing.html
+      output: web
+    - title: Search for free slots
+      url: /search_free_slots.html
+      output: web
+    - title: Book an appointment
+      url: /book_an_appointment.html
+      output: web
+    - title: Register an appointment
+      url: /register_an_appointment.html
+      output: web
+    - title: Search for appointments
+      url: /search_patient_appointments.html
+      output: web
+    - title: Get an appointment
+      url: /get_an_appointment.html
+      output: web
+    - title: Cancel an appointment
+      url: /cancel_an_appointment.html
+      output: web
+    - title: Cancel a registered appointment
+      url: /cancel_registered_appointment.html
+      output: web
+
+  - title: Help & Support
+    output: web
+    folderitems:
+    - title: Frequently Asked Questions (FAQ)
+      url: /support_faq.html
+      output: web
