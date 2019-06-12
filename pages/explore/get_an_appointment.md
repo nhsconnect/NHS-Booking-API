@@ -110,7 +110,7 @@ The Patient resource **MUST** include the following data items:
 | address | Address | Patient's full address as retrieved from PDS |
 
 #### DocumentReference ####
-A contained DocumentReference resource which conforms to <b>TBC</b> profile.
+A contained DocumentReference resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1'>CareConnect-DocumentReference-1</a> profile.
 This resource is referenced in the appointment's supportingInformation element, it describes the type and identifier(s) of any supporting information, for example a CDA document which may be transferred separately.
 The DocumentReference resource **MUST** include the following data items:
 

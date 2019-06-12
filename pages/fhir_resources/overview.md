@@ -42,5 +42,5 @@ summary: "This page provides an overview of the FHIR STU3 Resources that are req
 | <a href='organisation.html'>Organization</a> | An Organisation which delivers one or more HealthcareServices | <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Organization-1'>CareConnect-Organization-1</a> |
 | <a href='location.html'>Location</a> | A Location at which an Organisation delivers one or more HealthcareServices | <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Location-1'>CareConnect-Location-1</a> |
 | <a href='patient.html'>Patient</a> | A Patient for whom an appointment is being booked | <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>CareConnect-Patient-1</a> |
-| <a href='document_reference.html'>DocumentReference</a> | A DocumentReference which points to a document which gives information supporting the Appointment | <a href='#'>TBC</a> |
+| <a href='document_reference.html'>DocumentReference</a> | A DocumentReference which points to a document which gives information supporting the Appointment | <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1'>CareConnect-DocumentReference-1</a> |
 

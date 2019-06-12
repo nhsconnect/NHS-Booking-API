@@ -57,7 +57,7 @@ The Appointment resource **MUST** include the following data items:
 | --- | --- | --- | --- |
 | status | [1..1] | Status of this Appointment | **MUST** be one of: `booked` \| `cancelled` \| `entered in error` |
 | contained | [1..1] | Contained resources |  |
-| contained[0] | [1..1] | A Contained DocumentReference resource conforming to **TBC** profile. | **See example resource below** |
+| contained[0] | [1..1] | A Contained DocumentReference resource conforming to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1'>CareConnect-DocumentReference-1</a> profile. | **See example resource below** |
 | contained[1] | [1..1] | A Contained Patient resource conforming to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>CareConnect-Patient-1</a> profile. | **See example resource below** |
 | start | [1..1] | The time the Appointment starts in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:00:00.000Z` |
 | end | [1..1] | The time the Appointment ends in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:00:00.000Z` |
@@ -93,7 +93,7 @@ The Patient resource **MUST** include the following data items:
 
 
 #### DocumentReference ####
-A contained DocumentReference resource which conforms to <b>TBC</b> profile.
+A contained DocumentReference resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1'>CareConnect-DocumentReference-1</a> profile.
 This resource is referenced in the appointment's supportingInformation element, it describes the type and identifier(s) of any supporting information, for example a CDA document which may be transferred separately.
 The DocumentReference resource **MUST** include the following data items:
 
