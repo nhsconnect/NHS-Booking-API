@@ -24,8 +24,9 @@ The request body is sent using an http `PUT` method.
 
 The body is a valid Appointment resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1'>the relevant profile</a>. **NB The appointment resource **MUST** be <a href='get_an_appointment.html'>retrieved from the Provider system</a> in order to ensure that no data is lost.**, for full details of the payload body, see the <a href='appointment.html'>Appointment resource details</a>.
 
-- Provider systems **SHOULD** store previous versions of the resource to defend against any such loss of data.
-- Provider systems **SHOULD** reject cancellation requests where differences (other than those specified) are detected between the original and updated resource.
+The update is protected using <a href='http://hl7.org/fhir/stu3/http.html#concurrency'>the approach described in the FHIR standard</a> therefore an update may be rejected to prevent the loss of data.
+
+- Provider systems **MUST** store previous versions of the resource to defend against any such loss of data.
 
 ## Response ##
 
@@ -40,6 +41,10 @@ This **SHOULD** be accompanied by an OperationOutcome resource providing additio
 - If the request fails because the request body failed validation against the relevant profiles, the response **MUST** include a status of `422` **Unprocessable Entity** <a href='http://hl7.org/fhir/STU3/http.html#2.21.0.10.1'>as described here</a>.
 This **SHOULD** be accompanied by an OperationOutcome resource providing additional detail.
 - If the request fails because either no valid JWT is supplied or the supplied JWT failed validation, the response **MUST** include a status of `403` **Forbidden**.
+This **SHOULD** be accompanied by an OperationOutcome resource providing additional detail.
+- If the request fails because a version conflict was detected, the response **MUST** include a status of `409` **Conflict**.
+This **SHOULD** be accompanied by an OperationOutcome resource providing additional detail.
+- If the request fails because an update is attempted which does not include an `If-Match` header, the response **MUST** include a status of `412` **Pre-condition failed**.
 This **SHOULD** be accompanied by an OperationOutcome resource providing additional detail.
 
 - If the request fails because the request body was simply invalid, the response **MUST** include a status of `400` **Bad Request**.

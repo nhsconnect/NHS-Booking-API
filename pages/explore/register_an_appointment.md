@@ -27,9 +27,7 @@ The body is a valid Appointment resource which conforms to <a href='https://fhir
 ## Response ##
 
 ### Success ###
-Where the request succeeded, the response **MUST** include a status of `201` **Created**.
-The response **MUST** include a Location header giving the absolute URL of the created Appointment. This URL **WILL** remain stable, and the resource **WILL** support RESTful updates using a PUT request to this URL.
-The response body **WILL** include the created Appointment, this resource **WILL** include the newly assigned id of the resource.
+Where the request succeeded, the response MUST include a status of 201 Created. The response MUST include a Location header giving the absolute URL of the created Appointment including the version as per <a href='http://hl7.org/fhir/stu3/http.html#create'>the FHIR standard</a> i.e: Location: [base]/Appointment/[id]/_history/[vid] where [id] and [vid] are the newly created id and version id for the resource version. Servers SHOULD return an ETag header with the versionId and a Last-Modified header. This URL WILL remain stable, and the resource WILL support RESTful updates using a PUT request to this URL (a version aware update as per http://hl7.org/fhir/stu3/http.html#concurrency ). The response body WILL include the created Appointment including the newly created id (with version id) value, The response body MUST include the created Appointment, this response resource WILL include the newly assigned id and version id of the resource.
 
 ### Failure ###
 - If the request fails because of a business rule, the response **WILL** include a status of `422` **Unprocessable Entity** <a href='http://hl7.org/fhir/STU3/http.html#2.21.0.10.1'>as described here</a>.

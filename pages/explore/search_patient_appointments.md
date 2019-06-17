@@ -89,7 +89,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
         <url value="http://FHIRBaseURL/Appointment?Appointment.participant.actor=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C1234554321"></url>
     </link>
     <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/8f9312e1-ec99-4369-a511-d8f9882d4388"></fullUrl>
+        <fullUrl value="http://FHIRBaseURL/Appointment/8f9312e1-ec99-4369-a511-d8f9882d4388/_history/1"></fullUrl>
         <resource>
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="8f9312e1-ec99-4369-a511-d8f9882d4388"></id>
@@ -116,7 +116,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
         </resource>
     </entry>
     <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/d57e81ec-9886-42d8-8504-ee1e54ed63f1"></fullUrl>
+        <fullUrl value="http://FHIRBaseURL/Appointment/d57e81ec-9886-42d8-8504-ee1e54ed63f1/_history/1"></fullUrl>
         <resource>
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="d57e81ec-9886-42d8-8504-ee1e54ed63f1"></id>
@@ -143,7 +143,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
         </resource>
     </entry>
     <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/bd908180-fcdc-4afe-baf2-ef9533fbe0fd"></fullUrl>
+        <fullUrl value="http://FHIRBaseURL/Appointment/bd908180-fcdc-4afe-baf2-ef9533fbe0fd/_history/1"></fullUrl>
         <resource>
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="bd908180-fcdc-4afe-baf2-ef9533fbe0fd"></id>
@@ -170,7 +170,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
         </resource>
     </entry>
     <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/a925cc65-e6e5-4dd7-b634-b81901e68f2e"></fullUrl>
+        <fullUrl value="http://FHIRBaseURL/Appointment/a925cc65-e6e5-4dd7-b634-b81901e68f2e/_history/1"></fullUrl>
         <resource>
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="a925cc65-e6e5-4dd7-b634-b81901e68f2e"></id>
@@ -197,7 +197,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
         </resource>
     </entry>
     <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/99729e6f-2651-4444-b1c0-3633177f742e"></fullUrl>
+        <fullUrl value="http://FHIRBaseURL/Appointment/99729e6f-2651-4444-b1c0-3633177f742e/_history/1"></fullUrl>
         <resource>
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="99729e6f-2651-4444-b1c0-3633177f742e"></id>
@@ -224,7 +224,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
         </resource>
     </entry>
     <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/2f5accb1-23fe-477f-b90a-2c0cef4ab6c3"></fullUrl>
+        <fullUrl value="http://FHIRBaseURL/Appointment/2f5accb1-23fe-477f-b90a-2c0cef4ab6c3/_history/1"></fullUrl>
         <resource>
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="2f5accb1-23fe-477f-b90a-2c0cef4ab6c3"></id>
