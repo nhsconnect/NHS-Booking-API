@@ -8,6 +8,9 @@ toc: false
 
 {% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
 
+## Versioning of Appointment resources ##
+In order to prevent any loss of data, Appointment resources are protected against concurrency problems, as <a href='http://hl7.org/fhir/stu3/http.html#concurrency'>described in the FHIR standard</a>. The use of a version identifier for each resource prevents that resource being a newer version of that resource being unwittingly overwritten.
+
 ## Use of the SSP and associated HTTP Headers ##
 All calls to Provider systems are made through the Spine Secure Proxy (SSP). This gives a number of benefits:
 - It allows Provider systems to only allow inbound connections from a known address (i.e. the SSP), and also means that Consumer systems only need to make connections to a single network address.
