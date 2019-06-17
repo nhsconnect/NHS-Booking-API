@@ -56,6 +56,7 @@ Failure responses with a `500` status **MAY** be retried.
 ```xml
 <Appointment xmlns="http://hl7.org/fhir">
     <meta>
+        <versionId value="1"></versionId>
         <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
     </meta>
     <id value="b7e99463-00a1-45fc-98aa-02301c103aba"></id>

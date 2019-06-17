@@ -1,5 +1,5 @@
 ---
-title: Search for free slots
+title: Search for Appointments for a Patient
 keywords: getcarerecord, structured, rest, resource
 sidebar: foundations_sidebar
 permalink: search_patient_appointments.html
@@ -8,10 +8,12 @@ summary: "Details the Search for appointments for a given Patient"
 
 {% include important.html content="Site under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
 
-## Use case ##
+## Use cases ##
 
-A system requests appointments from the registry which have been registered for a specific patient.
+1 A system requests appointments from the registry which have been registered for a specific patient.
 **NB The registry has not yet been delivered.**
+
+2 A system requests appointments which have been registered for a specific patient from a Provider system.
 
 ## Security ##
 
@@ -20,7 +22,7 @@ A system requests appointments from the registry which have been registered for 
 
 ## Search parameters ##
 
-The registry system supports the following search parameters that MAY be passed to the API:
+The registry and Provider systems support the following search parameters that SHOULD be passed to the API:
 
 | Name | Type | Description | Paths |
 |---|---|---|---|
@@ -51,6 +53,13 @@ The Registry:
 - WILL NOT implement <a href='http://hl7.org/fhir/STU3/http.html#paging'>paging as described here</a> to limit the number of resources returned.
 - WILL implement a limit such that Appointments in the past will not be returned.
 
+Provider systems:
+
+- MUST return a `200` **OK** HTTP status code on successful retrieval of Appointments.
+- MUST include the (Zero to Many) `Appointment` resources which meet the requested criteria.
+- MUST NOT implement <a href='http://hl7.org/fhir/STU3/http.html#paging'>paging as described here</a> to limit the number of resources returned.
+- SHOULD implement a limit such that Appointments in the past will not be returned.
+
 ### Failure ###
 The registry:
 
@@ -59,6 +68,15 @@ This WILL be accompanied by an OperationOutcome resource providing additional de
 
 - If the request fails because the query string parameters were invalid or unsupported, the response WILL include a status of `400` **Bad Request**.
 - If the request fails because of a server error, the response WILL include a status of `500` **Internal Server Error**.
+
+Provider systems:
+
+- If the request fails because either no valid JWT is supplied or the supplied JWT failed validation, the response MUST include a status of `403` **Forbidden**.
+This SHOULD be accompanied by an OperationOutcome resource providing additional detail.
+
+- If the request fails because the query string parameters were invalid or unsupported, the response SHOULD include a status of `400` **Bad Request**.
+- If the request fails because of a server error, the response SHOULD include a status of `500` **Internal Server Error**.
+
 
 Failure responses with a `4xx` status SHOULD NOT be retried without taking steps to address the underlying cause of the failure.
 
@@ -69,6 +87,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
 
 | Name | Value | Description |
 |---|---|---|
+| fullURL | [base]/Appointment/[id]/_history/[version] | The version specific (indicating the current version) logical identifier of the resource. |
 | status | `booked` \| `cancelled` \| `entered in error` | Indicates the state of the Appointment. |
 | start | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) of when the Appointment starts |
 | created | instant | When the resource was last updated <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). |
@@ -94,6 +113,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="8f9312e1-ec99-4369-a511-d8f9882d4388"></id>
                 <meta>
+                    <versionId value="1"></versionId>
                     <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
                 </meta>
                 <identifier>
@@ -121,6 +141,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="d57e81ec-9886-42d8-8504-ee1e54ed63f1"></id>
                 <meta>
+                    <versionId value="1"></versionId>
                     <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
                 </meta>
                 <identifier>
@@ -148,6 +169,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="bd908180-fcdc-4afe-baf2-ef9533fbe0fd"></id>
                 <meta>
+                    <versionId value="1"></versionId>
                     <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
                 </meta>
                 <identifier>
@@ -175,6 +197,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="a925cc65-e6e5-4dd7-b634-b81901e68f2e"></id>
                 <meta>
+                    <versionId value="1"></versionId>
                     <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
                 </meta>
                 <identifier>
@@ -202,6 +225,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="99729e6f-2651-4444-b1c0-3633177f742e"></id>
                 <meta>
+                    <versionId value="1"></versionId>
                     <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
                 </meta>
                 <identifier>
@@ -229,6 +253,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
             <Appointment xmlns="http://hl7.org/fhir">
                 <id value="2f5accb1-23fe-477f-b90a-2c0cef4ab6c3"></id>
                 <meta>
+                    <versionId value="1"></versionId>
                     <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
                 </meta>
                 <identifier>

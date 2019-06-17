@@ -139,8 +139,9 @@ The DocumentReference resource **MUST** include the following data items:
 
 ```xml
 <Appointment xmlns="http://hl7.org/fhir">
-    <id value="8f9312e1-ec99-4369-a511-d8f9882d4388/_history/1"></id>
+    <id value="8f9312e1-ec99-4369-a511-d8f9882d4388"></id>
     <meta>
+        <versionId value="1"></versionId>
         <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
     </meta>
     <identifier>
@@ -168,9 +169,10 @@ The DocumentReference resource **MUST** include the following data items:
 {
     "resourceType": "Appointment",
     "meta": {
+        "versionId": 2,
         "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
     },
-    "id": "cfd9eba2-cc66-4195-a70c-10112ab1c838/_history/2",
+    "id": "cfd9eba2-cc66-4195-a70c-10112ab1c838",
     "language": "en",
     "text": "<div>Appointment</div>",
     "contained": [
