@@ -23,13 +23,13 @@ The request body is sent using an http `PUT` method.
 
 The body is a valid Appointment resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1'>the relevant profile</a>. **NB The appointment resource MUST be <a href='get_an_appointment.html'>retrieved from the Registry</a> in order to ensure that no data is lost.**
 
-- The registry WILL reject cancellation requests where differences (other than those specified) are detected between the original and updated resource.
+The update is protected using <a href='http://hl7.org/fhir/stu3/http.html#concurrency'>the approach described in the FHIR standard</a> therefore an update may be rejected to prevent the loss of data.
 
 ## Response ##
 
 ### Success ###
 Where the request succeeded, the response WILL include a status of `200` **OK**.
-The response WILL include a Location header giving the absolute URL of the created Appointment. This URL WILL remain stable, and the resource WILL support RESTful updates using a PUT request to this URL.
+The response WILL include a Location header giving the absolute URL including the version as per <a href='http://hl7.org/fhir/stu3/http.html#create'>the FHIR standard</a> i.e: Location: [base]/Appointment/[id]/_history/[vid] where [id] and [vid] are the newly created id and version id for the resource version. This URL WILL remain stable, and the resource WILL support RESTful updates using a PUT request to this URL.
 The response body WILL include the updated Appointment.
 
 ### Failure ###
@@ -38,6 +38,10 @@ This WILL be accompanied by an OperationOutcome resource providing additional de
 - If the request fails because the request body failed validation against the relevant profiles, the response **WILL** include a status of `422` **Unprocessable Entity** <a href='http://hl7.org/fhir/STU3/http.html#2.21.0.10.1'>as described here</a>.
 This **WILL** be accompanied by an OperationOutcome resource providing additional detail.
 - If the request fails because either no valid JWT is supplied or the supplied JWT failed validation, the response **WILL** include a status of `403` **Forbidden**.
+This **WILL** be accompanied by an OperationOutcome resource providing additional detail.
+- If the request fails because a version conflict was detected, the response **WILL** include a status of `409` **Conflict**.
+This **WILL** be accompanied by an OperationOutcome resource providing additional detail.
+- If the request fails because an update is attempted which does not include an `If-Match` header, the response **WILL** include a status of `412` **Pre-condition failed**.
 This **WILL** be accompanied by an OperationOutcome resource providing additional detail.
 
 - If the request fails because the request body was simply invalid, the response **WILL** include a status of `400` **Bad Request**.
@@ -52,6 +56,7 @@ Failure responses with a `500` status **MAY** be retried.
 ```xml
 <Appointment xmlns="http://hl7.org/fhir">
     <meta>
+        <versionId value="1"></versionId>
         <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
     </meta>
     <id value="b7e99463-00a1-45fc-98aa-02301c103aba"></id>

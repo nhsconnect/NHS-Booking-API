@@ -15,6 +15,7 @@ permalink: overview_release_notes.html
 - Cleaned out some redundant files.
 - Added validated example resources.
 - Added links to demonstrator, validator and JWT utilities.
+- Added references to versioning of Appointment resources.
 
 ## 1.0.3-alpha Released: 05-12-2018 ##
 
