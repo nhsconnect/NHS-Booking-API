@@ -19,25 +19,26 @@ A system requests a specific appointment from either the registry or a Provider 
 - Is routed through the SSP (Spine secure Proxy)
 - Utilises TLS Mutual Authentication for system level authentication.
 
-## Search parameters ##
-
-The registry system supports the following search parameters that MAY be passed to the API:
-
-| Name | Type | Description | Paths |
-|---|---|---|---|
-| `Patient` | reference | The national service identifier of the Patient for whom Slots are being requested | `Appointment.participant.actor` |
-
 ## RESTful Query ##
 
 The request body is sent using an http `GET` method.
 
-The following query demonstrates a full request for information:
+The following query demonstrates a request:
 
 <table>
 <tr>
 <td>
-http://[FHIR base URL]/Appointment<br>
-?Appointment.participant.actor=https://demographics.spineservices.nhs.uk|1234554321
+http://[FHIR base URL]/Appointment/eef4f241-e276-4c9e-8d1f-6d12dcdc0086
+</td>
+</tr>
+</table>
+
+The following query demonstrates a <a href='http://hl7.org/fhir/stu3/http.html#vread'>version specific request</a>:
+
+<table>
+<tr>
+<td>
+http://[FHIR base URL]/Appointment/eef4f241-e276-4c9e-8d1f-6d12dcdc0086/_history/2
 </td>
 </tr>
 </table>
@@ -47,14 +48,19 @@ http://[FHIR base URL]/Appointment<br>
 ### Success ###
 The Registry:
 
-- WILL return a `200` **OK** HTTP status code on successful retrieval of Appointments.
-- WILL include the (Zero to Many) `Appointment` resources which meet the requested criteria.
-- WILL NOT implement <a href='http://hl7.org/fhir/STU3/http.html#paging'>paging as described here</a> to limit the number of resources returned.
-- WILL implement a limit such that Appointments in the past will not be returned.
+- WILL return a `200` **OK** HTTP status code on successful retrieval of the Appointment.
+- WILL include the specified `Appointment` resource.
+
+A Provider system:
+
+- WILL return a `200` **OK** HTTP status code on successful retrieval of the Appointment.
+- WILL include the specified `Appointment` resource.
 
 ### Failure ###
+- If the request fails because the resource does not exist on the server, the response will be a `404` **Not found**.
+This SHOULD be accompanied by an OperationOutcome resource providing additional detail.
 - If the request fails because either no valid JWT is supplied or the supplied JWT failed validation, the response WILL include a status of `403` **Forbidden**.
-This WILL be accompanied by an OperationOutcome resource providing additional detail.
+This SHOULD be accompanied by an OperationOutcome resource providing additional detail.
 
 - If the request fails because the query string parameters were invalid or unsupported, the response WILL include a status of `400` **Bad Request**.
 - If the request fails because of a server error, the response WILL include a status of `500` **Internal Server Error**.
@@ -64,23 +70,25 @@ Failure responses with a `4xx` status SHOULD NOT be retried without taking steps
 Failure responses with a `500` status MAY be retried.
 
 ## Response body structure ##
-The response body WILL be a FHIR `Bundle` resource containing zero to many Appointment resources, meeting the appropriate profile.
+The succesful response body WILL be a FHIR `Appointment` resource, meeting <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1'>the appropriate profile</a>.
 
 ### From the registry ###
-Where the request is made against the registry, the resources will contain limited details as defined in <a href='register_an_appointment.html'>Register an Appointment</a>, specifically:
+Where the request is made against the registry, the returned resource will ONLY contain limited details as defined in <a href='register_an_appointment.html'>Register an Appointment</a>, specifically:
 
 | Name | Value | Description |
 |---|---|---|
+| id | `[id]/_history/[version]` | Version specific identifier of the resource |
 | status | `booked` \| `cancelled` \| `entered in error` | Indicates the state of the Appointment. |
 | start | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) of when the Appointment starts |
 | created | instant | When the resource was last updated <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). |
-| participant | reference | A <a href='https://nhsconnect.github.io/fhir-policy/national-services.html#FHIR-NAT-01'>national service reference</a> to the Patient for whom this Appointment was booked, for example: `https://demographics.spineservices.nhs.uk|1234567890` where the Patient's NHS Number is 1234567890|
+| participant | reference | A <a href='https://nhsconnect.github.io/fhir-policy/national-services.html#FHIR-NAT-01'>national service reference</a> to the Patient for whom this Appointment was booked, for example: `https://demographics.spineservices.nhs.uk|1234567890` where the Patient's NHS Number is 1234567890 |
 
 ### From a provider system ###
-Where the request is made against a provider system, the resources will contain the details as defined in <a href='book_an_appointment.html'>Book an Appointment</a>, specifically:
+Where the request is made against a provider system, the resource will contain the details as defined in <a href='book_an_appointment.html'>Book an Appointment</a>, specifically:
 
 | Name | Value | Description |
 |---|---|---|
+| id | `[id]/_history/[version]` | Version specific identifier of the resource |
 | status | `booked` \| `cancelled` \| `entered in error` | Indicates the state of the Appointment. |
 | start | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
 | end | instant |  A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
@@ -92,7 +100,7 @@ Where the request is made against a provider system, the resources will contain 
 
 ### Contained resources ###
 
-The appointment resource WILL have two <a href='http://hl7.org/fhir/STU3/references.html#contained'>contained</a> resources. Note that contained resources are given an identifier which is only required to be unique within the scope of the containing resource, and are referenced using that identifier prefixed with a Hash `#` character.
+The appointment resource retrieved from a Provider System WILL have two <a href='http://hl7.org/fhir/STU3/references.html#contained'>contained</a> resources. Note that contained resources are given an identifier which is only required to be unique within the scope of the containing resource, and are referenced using that identifier prefixed with a Hash `#` character.
 
 #### Patient ####
 A contained Patient resource which conforms to the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a>.
@@ -121,7 +129,7 @@ The DocumentReference resource **MUST** include the following data items:
 | identifier.system | `https://tools.ietf.org/html/rfc4122` | Indicates that the associated value is a UUID. |
 | identifier.value | [UUID] | The UUID of the associated CDA (XPath: `/ClinicalDocument/id/@root`) |
 | status | "current" | Indicates that the associated document is current. No other value is expected. |
-| type | A value from `urn:oid:2.16.840.1.113883.2.1.3.2.4.18.17` | Indicates the type of document |
+| type | A value from `https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-DocumentType-1` | Indicates the type of document |
 | content | see below | Describes the actual document |
 | content.attachment | Describes the actual document |
 | content.attachment.contentType | A valid mime type | Indicates the mime type of the document |
@@ -133,7 +141,8 @@ The DocumentReference resource **MUST** include the following data items:
 <Appointment xmlns="http://hl7.org/fhir">
     <id value="8f9312e1-ec99-4369-a511-d8f9882d4388"></id>
     <meta>
-        <profile value="https://profile.url/"></profile>
+        <versionId value="1"></versionId>
+        <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
     </meta>
     <identifier>
         <system value="urn:ietf:rfc:3986"></system>
@@ -160,6 +169,7 @@ The DocumentReference resource **MUST** include the following data items:
 {
     "resourceType": "Appointment",
     "meta": {
+        "versionId": 2,
         "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
     },
     "id": "cfd9eba2-cc66-4195-a70c-10112ab1c838",
@@ -170,6 +180,9 @@ The DocumentReference resource **MUST** include the following data items:
 
             "resourceType": "DocumentReference",
             "id": "123",
+            "meta": {
+                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+            },
             "identifier": {
                 "system": "https://tools.ietf.org/html/rfc4122",
                 "value": "A709A442-3CF4-476E-8377-376500E829C9"
@@ -197,77 +210,77 @@ The DocumentReference resource **MUST** include the following data items:
         {
             "resourceType": "Patient",
             "meta": {
-            "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
-        },
+                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
+            },
             "id": "P1",
-              "identifier": [
-    {
-      "extension": [
-        {
-          "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "https://fhir.hl7.org.uk/STU3/CodeSystem/CareConnect-NHSNumberVerificationStatus-1",
-                "code": "01",
-                "display": "Number present and verified"
-              }
-            ]
-          }
-        }
-      ],
-      "use": "official",
-      "system": "https://fhir.nhs.uk/Id/nhs-number",
-      "value": "9476719931"
-    }
-  ],
-            "name": [
+            "identifier": [
+            {
+                "extension": [
                 {
-                  "use": "official",
-                    "prefix": "Mr",
-                    "given": "John",
-                    "family": "Smith"
+                    "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+                    "valueCodeableConcept": {
+                        "coding": [
+                        {
+                            "system": "https://fhir.hl7.org.uk/STU3/CodeSystem/CareConnect-NHSNumberVerificationStatus-1",
+                            "code": "01",
+                            "display": "Number present and verified"
+                        }
+                        ]
+                    }
                 }
             ],
+            "use": "official",
+            "system": "https://fhir.nhs.uk/Id/nhs-number",
+            "value": "9476719931"
+            }
+            ],
+            "name": [
+            {
+                "use": "official",
+                "prefix": "Mr",
+                "given": "John",
+                "family": "Smith"
+            }
+            ],
             "telecom": [
-                {
-                    "system": "phone",
-                    "value": "01234 567 890",
-                    "use": "home",
-                    "rank": 1
-                }
+            {
+                "system": "phone",
+                "value": "01234 567 890",
+                "use": "home",
+                "rank": 1
+            }
             ],
             "gender": "male",
             "birthDate": "1974-12-25",
             "address": [
-                {
-                    "use": "home",
-                    "text": "123 High Street, Leeds LS1 4HR",
-                    "line": [
-                        "123 High Street",
-                        "Leeds"
-                    ],
-                    "city": "Leeds",
-                    "postalCode": "LS1 4HR"
-                }
+            {
+                "use": "home",
+                "text": "123 High Street, Leeds LS1 4HR",
+                "line": [
+                    "123 High Street",
+                    "Leeds"
+                ],
+                "city": "Leeds",
+                "postalCode": "LS1 4HR"
+            }
             ]
         }
-    ],
-    "status": "booked",
-    "start": "2019-01-17T15:00:00.000Z",
-    "end": "2019-01-17T15:10:00.000Z",
-    "supportingInformation": [
-      {
+        ],
+        "status": "booked",
+        "start": "2019-01-17T15:00:00.000Z",
+        "end": "2019-01-17T15:10:00.000Z",
+        "supportingInformation": [
+        {
             "reference": "#123"
         }
-    ],
-    "description": "Reason for calling",
-    "slot": [
+        ],
+        "description": "Reason for calling",
+        "slot": [
         {
             "reference": "Slot/slot002"
         }
-    ],
-    "created": "2019-01-18T14:32:22.579+00:00",
+        ],
+        "created": "2019-01-18T14:32:22.579+00:00",
 
     "participant": [
         {
