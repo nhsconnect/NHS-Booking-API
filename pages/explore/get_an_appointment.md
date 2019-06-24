@@ -70,14 +70,15 @@ Failure responses with a `4xx` status SHOULD NOT be retried without taking steps
 Failure responses with a `500` status MAY be retried.
 
 ## Response body structure ##
-The succesful response body WILL be a FHIR `Appointment` resource, meeting <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1'>the appropriate profile</a>.
+The successful response body WILL be a FHIR `Appointment` resource, meeting <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1'>the appropriate profile</a>.
 
 ### From the registry ###
 Where the request is made against the registry, the returned resource will ONLY contain limited details as defined in <a href='register_an_appointment.html'>Register an Appointment</a>, specifically:
 
 | Name | Value | Description |
 |---|---|---|
-| id | `[id]/_history/[version]` | Version specific identifier of the resource |
+| id | `[id]` | Identifier of the resource |
+| versionId | `[id]` | Version specific identifier of the resource |
 | status | `booked` \| `cancelled` \| `entered in error` | Indicates the state of the Appointment. |
 | start | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) of when the Appointment starts |
 | created | instant | When the resource was last updated <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). |
@@ -88,7 +89,8 @@ Where the request is made against a provider system, the resource will contain t
 
 | Name | Value | Description |
 |---|---|---|
-| id | `[id]/_history/[version]` | Version specific identifier of the resource |
+| id | `[id]` | Identifier of the resource |
+| versionId | `[id]` | Version specific identifier of the resource |
 | status | `booked` \| `cancelled` \| `entered in error` | Indicates the state of the Appointment. |
 | start | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
 | end | instant |  A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
