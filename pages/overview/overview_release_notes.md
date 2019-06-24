@@ -7,7 +7,7 @@ permalink: overview_release_notes.html
 
 {% include important.html content="Site under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
 
-## 1.0.4-alpha Released: TBC ##
+## 1.0.4-alpha Released: 24-06-2019 ##
 
 - Added missing resources.
 - Added overall sequence diagram and more detailed process steps.
