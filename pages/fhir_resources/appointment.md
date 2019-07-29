@@ -65,7 +65,7 @@ The Appointment resource **MUST** include the following data items:
 | description | [1..1] | Text describing the need for the appointment, to be shown for example in an appointment list | Call to 111 about Headache |
 | slot | [1..1] | The Slot that this appointment is booked into | [ { "reference": "Slot/slot002" } ] |
 | supportingInformation | [1..1] | Reference to a contained resource (see below) which describes an associated document. | [ { "reference": "#123" } ] |
-| participant | [1..1] | A reference to a contained resource (see below) which describes the Patient for whom this Appointment is being booked | [ { "actor": { "reference": "#P1", "identifier": { "use": "official", "system": "https://demographics.spineservices.nhs.uk/", "value": "1234554321" }, "display": "Peter James Chalmers" }, "status": "accepted" } ] |
+| participant | [1..1] | A reference to a contained resource (see below) which describes the Patient for whom this Appointment is being booked | [ { "actor": { "reference": "#P1", "identifier": { "use": "official", "system": "https://fhir.nhs.uk/Id/nhs-number", "value": "1234554321" }, "display": "Peter James Chalmers" }, "status": "accepted" } ] |
 
 
 
@@ -142,7 +142,7 @@ When registering, the Appointment resource **MUST** include the following data i
 | identifier | [1..1] | The details of the appointment which is being registered | ... |
 | identifier.system | [1..1] | Defines that the value is a URL | Fixed value: `urn:ietf:rfc:3986` |
 | identifier.value | [1..1] | The URL of the appointment that is being registered | `https://ProviderBaseURL/Appointment/1234567890` |
-| participant | [1..1] | A reference to a contained resource (see below) which describes the <a href='patient.html'>Patient</a> for whom this Appointment is being booked | [ { "actor": { "reference": "#P1", "identifier": { "use": "official", "system": "https://demographics.spineservices.nhs.uk/", "value": "1234554321" }, "display": "Peter James Chalmers" }, "status": "accepted" } ] |
+| participant | [1..1] | A reference to a contained resource (see below) which describes the <a href='patient.html'>Patient</a> for whom this Appointment is being booked | [ { "actor": { "reference": "#P1", "identifier": { "use": "official", "system": "https://fhir.nhs.uk/Id/nhs-number", "value": "1234554321" }, "display": "Peter James Chalmers" }, "status": "accepted" } ] |
 
 
 
