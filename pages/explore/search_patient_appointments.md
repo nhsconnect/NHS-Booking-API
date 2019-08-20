@@ -91,7 +91,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
 | status | `booked` \| `cancelled` \| `entered in error` | Indicates the state of the Appointment. |
 | start | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) of when the Appointment starts |
 | created | instant | When the resource was last updated <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). |
-| participant | reference | A <a href='https://nhsconnect.github.io/fhir-policy/national-services.html#FHIR-NAT-01'>national service reference</a> to the Patient for whom this Appointment was booked, for example: `https://fhir.nhs.uk/Id/nhs-number|1234567890` where the Patient's NHS Number is 1234567890 |
+| participant | reference | A <a href='https://nhsconnect.github.io/fhir-policy/national-services.html#FHIR-NAT-01'>national service reference</a> to the Patient for whom this Appointment was booked, for example: `https://demographics.spineservices.nhs.uk/1234567890` where the Patient's NHS Number is 1234567890 |
 
 ## Sample response ##
 
