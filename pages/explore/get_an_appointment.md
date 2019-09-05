@@ -185,6 +185,9 @@ The DocumentReference resource **MUST** include the following data items:
             "meta": {
                 "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
             },
+            "meta": {
+                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+            },
             "identifier": {
                 "system": "https://tools.ietf.org/html/rfc4122",
                 "value": "A709A442-3CF4-476E-8377-376500E829C9"

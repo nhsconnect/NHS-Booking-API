@@ -205,6 +205,9 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
         {
             "resourceType": "DocumentReference",
             "id": "123",
+            "meta": {
+                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+            },
             "identifier": {
                 "system": "https://tools.ietf.org/html/rfc4122",
                 "value": "A709A442-3CF4-476E-8377-376500E829C9"
@@ -371,6 +374,9 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
 
             "resourceType": "DocumentReference",
             "id": "123",
+            "meta": {
+                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+            },
             "identifier": {
                 "system": "https://tools.ietf.org/html/rfc4122",
                 "value": "A709A442-3CF4-476E-8377-376500E829C9"
