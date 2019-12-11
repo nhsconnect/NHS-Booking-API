@@ -15,6 +15,7 @@ The end to end process includes some existing processes, as well as new processe
 
 <img src="images/UEC-Appointments/images/UEC-Appointments/Sequence diagram - FHIR Scheduling - UEC.png">
 
+
 The interactions are detailed further here:
 
 ### GetServices ###
