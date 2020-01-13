@@ -62,7 +62,7 @@ The Appointment resource **MUST** include the following data items:
 | start | [1..1] | The time the Appointment starts in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:00:00.000Z` |
 | end | [1..1] | The time the Appointment ends in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:00:00.000Z` |
 | created | [1..1] | When the appointment is booked <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). | `2019-01-17T15:00:00.000Z` |
-| description | [1..1] | Text describing the need for the appointment, to be shown for example in an appointment list | Call to 111 about Headache |
+| description | [1..1] | Text describing the need for the appointment, to be shown for example in an appointment list. Note that developers should follow guidance for their use case as to appropriate content in this field. | 111 Referral |
 | slot | [1..1] | The Slot that this appointment is booked into | [ { "reference": "Slot/slot002" } ] |
 | supportingInformation | [1..1] | Reference to a contained resource (see below) which describes an associated document. | [ { "reference": "#123" } ] |
 | participant | [1..1] | A reference to a contained resource (see below) which describes the Patient for whom this Appointment is being booked | [ { "actor": { "reference": "#P1", "identifier": { "use": "official", "system": "https://fhir.nhs.uk/Id/nhs-number", "value": "1234554321" }, "display": "Peter James Chalmers" }, "status": "accepted" } ] |
