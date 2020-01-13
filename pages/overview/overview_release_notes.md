@@ -7,6 +7,12 @@ permalink: overview_release_notes.html
 
 {% include important.html content="Site under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
 
+## 1.0.5-alpha Released: 13-01-2020 ##
+
+- Updates to the patient identifier system.
+- Updated JWT guidance.
+- Updated appointment description field.
+
 ## 1.0.4-alpha Released: 24-06-2019 ##
 
 - Added missing resources.
@@ -26,7 +32,7 @@ permalink: overview_release_notes.html
 
 ## 1.0.2-alpha Released: 01-11-2018 ##
 
-Changes made in response to the wider team review including business analysts/technical arcitects.
+Changes made in response to the wider team review including business analysts/technical architects.
 
 - Overview diagram updated with cardinality changes
 - Search for free slots diagram UI mock up refined
@@ -44,7 +50,7 @@ Changes made in response to the internal team review.
 - Top navigation links removed
 - Profile pages fixed to point to correct FHIR profiles
 - Sidebar menu "FHIR" wording removed
-- Overview FHIR Profiles page, added clearer defnition of the process
+- Overview FHIR Profiles page, added clearer definition of the process
 - FHIR profile pages, added FHIR elements detailed descriptions
 - Warning banner text updated
 - FAQ section edited
