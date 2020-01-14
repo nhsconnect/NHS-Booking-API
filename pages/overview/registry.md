@@ -53,7 +53,7 @@ The response to this will be something like:
 }
 ```
 
-Requests to The Registry **MUST** include a http header as below (using the above token as an example) with a Key of Authorization and a value of `Bearer ` + the value in `access_token` from the above response:
+Requests to The Registry **MUST** include a http header as below (using the above token as an example) with a Key of Authorization and a value of `Bearer` + the value in `access_token` from the above response:
 
 | Key | Value |
 | --- | --- |

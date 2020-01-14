@@ -119,7 +119,7 @@ The DocumentReference resource **MUST** include the following data items:
 
 The following FHIR elements are key to this implementation when <a href='register_an_appointment.html'>Registering an appointment</a>:
 
-See <a href='##registering-example-resource'>example resource</a>.
+See <a href='#registering-example-resource'>example resource</a>.
 
 When registering, the Appointment resource **MUST NOT** include the following data items:
 
@@ -154,7 +154,7 @@ When registering, the Appointment resource **MUST** include the following data i
 
 The body is a valid Appointment resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1'>the relevant profile</a>. **NB The appointment resource MUST be <a href='get_an_appointment.html'>retrieved from the Provider system</a> in order to ensure that no data is lost.**.
 
-See <a href='##cancelling-example-resource'>example resource</a>.
+See <a href='#cancelling-example-resource'>example resource</a>.
 
 The following data items in the <a href='get_an_appointment.html'>retrieved Appointment</a> resource **MUST** be changed as defined:
 

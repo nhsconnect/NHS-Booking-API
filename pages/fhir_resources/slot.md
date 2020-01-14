@@ -13,7 +13,7 @@ This resource is fundamental to the Appointment Booking process, it represents t
 
 Slots are returned following a <a href='search_free_slots.html'>search for free Slots</a>. The slot is linked to other resources through a referenced Schedule resource.
 
-{% include custom/fhir.reference.html resource="Slot" page="CareConnect-Slot-1" fhirname="Schedule" fhirlink="slot.html" content="-" userlink="" %}
+{% include custom/fhir.reference.html resource="Slot" page="CareConnect-Slot-1" fhirname="Slot" fhirlink="slot.html" content="-" userlink="" %}
 
 ## Key FHIR Elements ##
 

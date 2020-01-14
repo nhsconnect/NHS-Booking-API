@@ -44,7 +44,7 @@ entries:
       url: /patient.html
       output: web
     - title: DocumentReference
-      url: document_reference.html
+      url: /document_reference.html
       output: web
     - title: Practitioner
       url: /practitioner.html
