@@ -24,7 +24,7 @@ Provider systems **MUST** support the following search parameters that **MAY** b
 
 | Name | Type | Description | Paths |
 |---|---|---|---|
-| `service` | `token` | The ASID of the service for which Slots are being requested | `schedule.actor:healthcareservice` |
+| `service` | `token` | The appropriate service id of the service for which Slots are being requested | `schedule.actor:healthcareservice` |
 | `status` | `token` | The free/busy status of the slots | `status` |
 | `start` | `date` | Slot start date/time. | `start` |
 | `start` | `date` | Slot start date/time. | `start` |
