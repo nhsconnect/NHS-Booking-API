@@ -371,7 +371,10 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
     },
     "id": "efea8f22-0c33-4000-b4e7-a28569d65e91",
     "language": "en",
-    "text": "<div>Appointment</div>",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Appointment</div>"
+    },
     "contained": [
         {
 
