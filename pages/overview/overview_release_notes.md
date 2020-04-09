@@ -7,6 +7,11 @@ permalink: overview_release_notes.html
 
 {% include important.html content="Site under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
 
+## 1.0.6-alpha Released: 09-04-2020 ##
+
+- Updated guidance on the use of use of ASID.
+- Updated appointment examples.
+
 ## 1.0.5-alpha Released: 13-01-2020 ##
 
 - Updates to the patient identifier system.
