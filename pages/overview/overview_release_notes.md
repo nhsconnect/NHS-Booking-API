@@ -9,7 +9,7 @@ permalink: overview_release_notes.html
 
 ## 1.0.6-alpha Released: 09-04-2020 ##
 
-- Updated guidance on the use of use of ASID.
+- Updated guidance on the use of ASID.
 - Updated appointment examples.
 
 ## 1.0.5-alpha Released: 13-01-2020 ##
