@@ -70,4 +70,4 @@ To support development, a <a href='http://appointments.directoryofservices.nhs.u
 FHIR resources used in this specification can be valiated against their profiles <a href='https://data.developer.nhs.uk/ccri/term/validate'>using this site</a>, alternatively the resources can be POSTed to: https://data.developer.nhs.uk/ccri-fhir/STU3/[ResourceType]/$validate (making sure to set [ResourceType] to the appropriate type of Resource) using a REST client (such as <a href='https://www.getpostman.com/'>POSTman</a>).
 
 ## JWT utilities ##
-Once a JWT has been created, there are a couple of useful public resources for decoding them, <a href='https://jwt.io/'>jwt.io</a> is useful, however <a href='http://jwt.ms/'>Jwt.ms</a>Is slightly more user friendly.
+Once a JWT has been created, there are a couple of useful public resources for decoding them, <a href='https://jwt.io/'>jwt.io</a> is useful, however <a href='http://jwt.ms/'>Jwt.ms</a> is slightly more user friendly.
