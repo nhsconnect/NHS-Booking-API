@@ -4,7 +4,7 @@ keywords: homepage
 sidebar: overview_sidebar
 permalink: index.html
 toc: false
-summary: A brief introduction to getting started with the FHIR NHS Scheduling API.
+summary: A brief introduction to getting started with the FHIR NHS Booking API.
 ---
 
 {% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
