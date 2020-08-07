@@ -10,6 +10,11 @@ permalink: overview_release_notes.html
 ## 2.0.0-beta Released: TBA ##
 
 - Renamed from NHS FHIR Scheduling API to NHS FHIR Booking API.
+- Updated Appointment guidance to include mandatory Appointment.end to align with the FHIR standard.
+- Updated Appointment.created guidance to align with the FHIR standard.
+- Updated Appointment examples.
+- Updated Patient identifier guidance in line with <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>CareConnect-Patient-1</a> profile.
+
 
 ## 1.0.6-alpha Released: 09-04-2020 ##
 

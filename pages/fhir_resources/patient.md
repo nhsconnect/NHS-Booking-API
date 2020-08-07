@@ -24,9 +24,10 @@ The Patient resource **MUST** include the following data items:
 | Element | Cardinality | Description | Example(s) |
 | --- | --- | --- | --- |
 | id | [1..1] | An id which is unique within the containing <a href='appointment.html'>Appointment</a> resource. | 123 |
-| identifier | [1..1] | The Patient's NHS Number | ... |
+| identifier | [0..*] | The Patient's identifier | ... |
+| identifier (nhsNumber)| [0..1] | The Patient's NHS number | ... |
 | identifier.extension | [1..1] | A <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1'>Care Connect extension</a> that fixes this identifier to be an NHS Number | <a href='#example-resource'>see example</a> |
-| identifier.use | [1..1] | Shows that this identifier is a nationally recognised one. | Fixed value: `official` |
+| identifier.use | [0..1] | Shows that this identifier is a nationally recognised one. | Fixed value: `official` |
 | identifier.system | [1..1] | Shows that the value is an NHS Number | Fixed value: `https://fhir.nhs.uk/Id/nhs-number` |
 | identifier.value | [1..1] | The Patient's NHS Number | `11122233333` |
 | name | [1..1] | The Patient's name, as retrieved from PDS | <a href='#example-resource'>see example</a> |

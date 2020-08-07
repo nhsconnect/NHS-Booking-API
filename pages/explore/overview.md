@@ -18,7 +18,7 @@ All calls to Provider systems are made through the Spine Secure Proxy (SSP). Thi
 
 It does however require some minor additional overhead:
 - The URL of the SSP **MUST** be concatenated with the Provider system URL.
-- Custom HTTP headers **MUST** be included in all resuests to Provider systems.
+- Custom HTTP headers **MUST** be included in all requests to Provider systems.
 
 ### Concatenating the URLs ###
 The actual URL of the SSP will depend on the environment in use, therefore an artificial URL will be used here for demonstration purposes.
@@ -46,7 +46,7 @@ The following http headers are required by the SSP. **NB These are in addition t
 
 | Key | Value | Description
 | --- | --- | --- |
-| Ssp-TraceID | A UUID | A traceable Identifier which can later be used at both Consumer and Provider to trace back to this request. This UUID **SHOULD** be unique to either the individual http request being made, but at a a minimum **MUST** be unique to the Patient call being handled. |
+| Ssp-TraceID | A UUID | A traceable Identifier which can later be used at both Consumer and Provider to trace back to this request. This UUID **SHOULD** be unique to either the individual http request being made, but at a minimum **MUST** be unique to the Patient call being handled. |
 | Ssp-From | An ASID | The ASID value which has been assigned by NHS Digital to the Consumer system. |
 | Ssp-To | An ASID | The ASID value of the Provider system being called. |
 | Ssp-InteractionID | One of the Interaction IDs shown below. | The Interaction ID retrieved from SDS and described below. |
@@ -67,7 +67,7 @@ The following http headers are required by the SSP. **NB These are in addition t
 To support development, a <a href='http://appointments.directoryofservices.nhs.uk:443/poc/index'>synthetic Provider system</a> has been created. This allows development to proceed without being tightly coupled to the timescales of another system supplier.
 
 ## Validating resources ##
-FHIR resources used in this specification can be valiated against their profiles <a href='https://data.developer.nhs.uk/ccri/term/validate'>using this site</a>, alternatively the resources can be POSTed to: https://data.developer.nhs.uk/ccri-fhir/STU3/[ResourceType]/$validate (making sure to set [ResourceType] to the appropriate type of Resource) using a REST client (such as <a href='https://www.getpostman.com/'>POSTman</a>).
+FHIR resources used in this specification can be validated against their profiles <a href='https://data.developer.nhs.uk/ccri/term/validate'>using this site</a>, alternatively the resources can be POSTed to: https://data.developer.nhs.uk/ccri-fhir/STU3/[ResourceType]/$validate (making sure to set [ResourceType] to the appropriate type of Resource) using a REST client (such as <a href='https://www.getpostman.com/'>POSTman</a>).
 
 ## JWT utilities ##
 Once a JWT has been created, there are a couple of useful public resources for decoding them, <a href='https://jwt.io/'>jwt.io</a> is useful, however <a href='http://jwt.ms/'>Jwt.ms</a> is slightly more user friendly.
