@@ -136,8 +136,8 @@ When registering, the Appointment resource **MUST** include the following data i
 | Element | Cardinality | Description | Example(s) |
 | --- | --- | --- | --- |
 | status | [1..1] | Status of this Appointment | **MUST** be one of: `booked` \| `cancelled` \| `entered in error` |
-| start | [1..1] | The time the Appointment starts in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | 2019-01-17T15:00:00.000Z |
-| end | [1..1] | The time the Appointment ends in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | 2019-01-17T15:10:00.000Z |
+| start | [1..1] | The time the Appointment starts in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:00:00.000Z` |
+| end | [1..1] | The time the Appointment ends in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:10:00.000Z` |
 | created | [1..1] | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). | `2019-01-17T15:00:00.000Z` |
 | identifier | [1..1] | The details of the appointment which is being registered | ... |
 | identifier.system | [1..1] | Defines that the value is a URL | Fixed value: `urn:ietf:rfc:3986` |
