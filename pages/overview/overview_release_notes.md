@@ -15,6 +15,7 @@ permalink: overview_release_notes.html
 - Updated Appointment examples.
 - Updated Patient identifier guidance in line with <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>CareConnect-Patient-1</a> profile.
 - Updated 'success' behaviour for cancelling an Appointment.
+- Updated Slot elements.
 
 
 ## 1.0.6-alpha Released: 09-04-2020 ##
