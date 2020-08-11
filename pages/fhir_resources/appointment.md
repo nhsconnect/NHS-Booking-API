@@ -157,7 +157,7 @@ When registering, the Appointment resource **MUST** include the following data i
 | identifier | [1..1] | The details of the appointment which is being registered | ... |
 | identifier.system | [1..1] | Defines that the value is a URL | Fixed value: `urn:ietf:rfc:3986` |
 | identifier.value | [1..1] | The URL of the appointment that is being registered | `https://ProviderBaseURL/Appointment/1234567890` |
-| participant | [1..1] | A reference to a contained resource (see below) which describes the <a href='patient.html'>Patient</a> for whom this Appointment is being booked | [ { "actor": { "reference": "#P1", "identifier": { "use": "official", "system": "https://fhir.nhs.uk/Id/nhs-number", "value": "1234554321" }, "display": "Peter James Chalmers" }, "status": "accepted" } ] |
+| participant | [1..1] | A reference to a contained resource (see below) which describes the <a href='patient.html'>Patient</a> for whom this Appointment is being booked | [ { "actor": { "reference":  "identifier": { "use": "official", "system": "https://fhir.nhs.uk/Id/nhs-number", "value": "1234554321" }, "display": "Peter James Chalmers" }, "status": "accepted" } ] |
 
 
 
@@ -212,27 +212,28 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
 {
     "resourceType": "Appointment",
     "meta": {
-        "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
+        "profile":  [
+            "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
+        ]
     },
-    "language": "en",
-    "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Appointment</div>"
-    },
-    "contained": [
+    "contained":  [
         {
             "resourceType": "DocumentReference",
             "id": "123",
             "meta": {
-                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+                "profile":  [
+                    "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+                ]
             },
-            "identifier": {
-                "system": "https://tools.ietf.org/html/rfc4122",
-                "value": "6b9c59dd-675b-4026-98db-f608ef501e6e"
-            },
+            "identifier":  [
+                {
+                    "system": "https://tools.ietf.org/html/rfc4122",
+                    "value": "6b9c59dd-675b-4026-98db-f608ef501e6e"
+                }
+            ],
             "status": "current",
             "type": {
-                "coding": [
+                "coding":  [
                     {
                         "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.17",
                         "code": "POCD_MT200001GB02",
@@ -241,7 +242,7 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
                 ]
             },
             "indexed": "2018-12-20T09:43:41+11:00",
-            "content": [
+            "content":  [
                 {
                     "attachment": {
                         "contentType": "application/hl7-v3+xml",
@@ -252,17 +253,19 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
         },
         {
             "resourceType": "Patient",
-            "meta": {
-                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
-            },
             "id": "P1",
-            "identifier": [
+            "meta": {
+                "profile":  [
+                    "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
+                ]
+            },
+            "identifier":  [
                 {
-                    "extension": [
+                    "extension":  [
                         {
                             "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
                             "valueCodeableConcept": {
-                                "coding": [
+                                "coding":  [
                                     {
                                         "system": "https://fhir.hl7.org.uk/STU3/CodeSystem/CareConnect-NHSNumberVerificationStatus-1",
                                         "code": "01",
@@ -277,15 +280,19 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
                     "value": "1234554321"
                 }
             ],
-            "name": [
+            "name":  [
                 {
                     "use": "official",
-                    "prefix": "Mr",
-                    "given": "Peter",
-                    "family": "Chalmers"
+                    "family": "Chalmers",
+                    "given":  [
+                        "Peter"
+                    ],
+                    "prefix":  [
+                        "Mr"
+                    ]
                 }
             ],
-            "telecom": [
+            "telecom":  [
                 {
                     "system": "phone",
                     "value": "01234 567 890",
@@ -295,11 +302,11 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
             ],
             "gender": "male",
             "birthDate": "1974-12-25",
-            "address": [
+            "address":  [
                 {
                     "use": "home",
                     "text": "123 High Street, Leeds LS1 4HR",
-                    "line": [
+                    "line":  [
                         "123 High Street",
                         "Leeds"
                     ],
@@ -307,24 +314,40 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
                     "postalCode": "LS1 4HR"
                 }
             ]
+        },
+        {
+            "resourceType": "Slot",
+            "id": "slot002",
+            "identifier":  [
+                {
+                    "system": "https://tools.ietf.org/html/rfc4122",
+                    "value": "1db79eb3-72f8-4569-a8dc-af8759797e0f"
+                }
+            ],
+            "schedule": {
+                "reference": "Schedule/sched1111"
+            },
+            "status": "busy",
+            "start": "2019-01-17T15:00:00.000Z",
+            "end": "2019-01-17T15:30:00.000Z"
         }
     ],
     "status": "booked",
-    "start": "2019-01-17T15:00:00.000Z",
-    "end": "2019-01-17T15:10:00.000Z",
-    "supportingInformation": [
+    "description": "Reason for calling",
+    "supportingInformation":  [
         {
             "reference": "#123"
         }
     ],
-    "description": "Reason for calling",
-    "slot": [
+    "start": "2019-01-17T15:00:00.000Z",
+    "end": "2019-01-17T15:10:00.000Z",
+    "slot":  [
         {
-            "reference": "Slot/slot002"
+            "reference": "#slot002"
         }
     ],
     "created": "2019-01-17T14:32:22.579+00:00",
-    "participant": [
+    "participant":  [
         {
             "actor": {
                 "reference": "#P1",
@@ -384,27 +407,28 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
 {
     "resourceType": "Appointment",
     "meta": {
-        "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
+        "profile":  [
+            "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
+        ]
     },
-    "language": "en",
-    "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Appointment</div>"
-    },
-    "contained": [
+    "contained":  [
         {
             "resourceType": "DocumentReference",
             "id": "123",
             "meta": {
-                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+                "profile":  [
+                    "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+                ]
             },
-            "identifier": {
-                "system": "https://tools.ietf.org/html/rfc4122",
-                "value": "6b9c59dd-675b-4026-98db-f608ef501e6e"
-            },
+            "identifier":  [
+                {
+                    "system": "https://tools.ietf.org/html/rfc4122",
+                    "value": "6b9c59dd-675b-4026-98db-f608ef501e6e"
+                }
+            ],
             "status": "current",
             "type": {
-                "coding": [
+                "coding":  [
                     {
                         "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.17",
                         "code": "POCD_MT200001GB02",
@@ -413,7 +437,7 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
                 ]
             },
             "indexed": "2018-12-20T09:43:41+11:00",
-            "content": [
+            "content":  [
                 {
                     "attachment": {
                         "contentType": "application/hl7-v3+xml",
@@ -424,17 +448,19 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
         },
         {
             "resourceType": "Patient",
-            "meta": {
-                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
-            },
             "id": "P1",
-            "identifier": [
+            "meta": {
+                "profile":  [
+                    "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
+                ]
+            },
+            "identifier":  [
                 {
-                    "extension": [
+                    "extension":  [
                         {
                             "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
                             "valueCodeableConcept": {
-                                "coding": [
+                                "coding":  [
                                     {
                                         "system": "https://fhir.hl7.org.uk/STU3/CodeSystem/CareConnect-NHSNumberVerificationStatus-1",
                                         "code": "01",
@@ -449,15 +475,19 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
                     "value": "1234554321"
                 }
             ],
-            "name": [
+            "name":  [
                 {
                     "use": "official",
-                    "prefix": "Mr",
-                    "given": "Peter",
-                    "family": "Chalmers"
+                    "family": "Chalmers",
+                    "given":  [
+                        "Peter"
+                    ],
+                    "prefix":  [
+                        "Mr"
+                    ]
                 }
             ],
-            "telecom": [
+            "telecom":  [
                 {
                     "system": "phone",
                     "value": "01234 567 890",
@@ -467,11 +497,11 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
             ],
             "gender": "male",
             "birthDate": "1974-12-25",
-            "address": [
+            "address":  [
                 {
                     "use": "home",
                     "text": "123 High Street, Leeds LS1 4HR",
-                    "line": [
+                    "line":  [
                         "123 High Street",
                         "Leeds"
                     ],
@@ -479,24 +509,40 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
                     "postalCode": "LS1 4HR"
                 }
             ]
+        },
+        {
+            "resourceType": "Slot",
+            "id": "slot002",
+            "identifier":  [
+                {
+                    "system": "https://tools.ietf.org/html/rfc4122",
+                    "value": "1db79eb3-72f8-4569-a8dc-af8759797e0f"
+                }
+            ],
+            "schedule": {
+                "reference": "Schedule/sched1111"
+            },
+            "status": "busy",
+            "start": "2019-01-17T15:00:00.000Z",
+            "end": "2019-01-17T15:30:00.000Z"
         }
     ],
     "status": "cancelled",
-    "start": "2019-01-17T15:00:00.000Z",
-    "end": "2019-01-17T15:10:00.000Z",
-    "supportingInformation": [
+    "description": "Reason for calling",
+    "supportingInformation":  [
         {
             "reference": "#123"
         }
     ],
-    "description": "Reason for calling",
-    "slot": [
+    "start": "2019-01-17T15:00:00.000Z",
+    "end": "2019-01-17T15:10:00.000Z",
+    "slot":  [
         {
-            "reference": "Slot/slot002"
+            "reference": "#slot002"
         }
     ],
     "created": "2019-01-17T14:32:22.579+00:00",
-    "participant": [
+    "participant":  [
         {
             "actor": {
                 "reference": "#P1",
