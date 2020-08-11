@@ -152,7 +152,8 @@ The DocumentReference resource **MUST** include the following data items:
     </identifier>
     <status value="booked"></status>
     <start value="2019-02-01T10:51:23.620+00:00"></start>
-    <created value="2019-02-06T10:43:22+00:00"></created>
+    <end value="2019-02-01T11:11:23.620+00:00"></end>
+    <created value="2019-01-06T10:43:22+00:00"></created>
     <participant>
         <actor>
             <identifier>
@@ -161,6 +162,7 @@ The DocumentReference resource **MUST** include the following data items:
                 <value value="1234554321"></value>
             </identifier>
         </actor>
+        <status value="accepted"/>
     </participant>
 </Appointment>
 ```
@@ -170,31 +172,36 @@ The DocumentReference resource **MUST** include the following data items:
 ```json
 {
     "resourceType": "Appointment",
-    "meta": {
-        "versionId": 2,
-        "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
-    },
     "id": "cfd9eba2-cc66-4195-a70c-10112ab1c838",
+    "meta": {
+        "versionId": "2",
+        "profile":  [
+            "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
+        ]
+    },
     "language": "en",
-    "text": "<div>Appointment</div>",
-    "contained": [
+    "text": {
+        "status": "generated",
+        "div": "Appointment"
+    },
+    "contained":  [
         {
-
             "resourceType": "DocumentReference",
             "id": "123",
             "meta": {
-                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+                "profile":  [
+                    "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+                ]
             },
-            "meta": {
-                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
-            },
-            "identifier": {
-                "system": "https://tools.ietf.org/html/rfc4122",
-                "value": "A709A442-3CF4-476E-8377-376500E829C9"
-            },
+            "identifier":  [
+                {
+                    "system": "https://tools.ietf.org/html/rfc4122",
+                    "value": "6b9c59dd-675b-4026-98db-f608ef501e6e"
+                }
+            ],
             "status": "current",
             "type": {
-                "coding": [
+                "coding":  [
                     {
                         "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.17",
                         "code": "POCD_MT200001GB02",
@@ -203,7 +210,7 @@ The DocumentReference resource **MUST** include the following data items:
                 ]
             },
             "indexed": "2018-12-20T09:43:41+11:00",
-            "content": [
+            "content":  [
                 {
                     "attachment": {
                         "contentType": "application/hl7-v3+xml",
@@ -214,80 +221,101 @@ The DocumentReference resource **MUST** include the following data items:
         },
         {
             "resourceType": "Patient",
-            "meta": {
-                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
-            },
             "id": "P1",
-            "identifier": [
-            {
-                "extension": [
+            "meta": {
+                "profile":  [
+                    "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
+                ]
+            },
+            "identifier":  [
                 {
-                    "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
-                    "valueCodeableConcept": {
-                        "coding": [
+                    "extension":  [
                         {
-                            "system": "https://fhir.hl7.org.uk/STU3/CodeSystem/CareConnect-NHSNumberVerificationStatus-1",
-                            "code": "01",
-                            "display": "Number present and verified"
+                            "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+                            "valueCodeableConcept": {
+                                "coding":  [
+                                    {
+                                        "system": "https://fhir.hl7.org.uk/STU3/CodeSystem/CareConnect-NHSNumberVerificationStatus-1",
+                                        "code": "01",
+                                        "display": "Number present and verified"
+                                    }
+                                ]
+                            }
                         }
-                        ]
-                    }
+                    ],
+                    "use": "official",
+                    "system": "https://fhir.nhs.uk/Id/nhs-number",
+                    "value": "1234554321"
                 }
             ],
-            "use": "official",
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9476719931"
-            }
+            "name":  [
+                {
+                    "use": "official",
+                    "family": "Chalmers",
+                    "given":  [
+                        "Peter"
+                    ],
+                    "prefix":  [
+                        "Mr"
+                    ]
+                }
             ],
-            "name": [
-            {
-                "use": "official",
-                "prefix": "Mr",
-                "given": "John",
-                "family": "Smith"
-            }
-            ],
-            "telecom": [
-            {
-                "system": "phone",
-                "value": "01234 567 890",
-                "use": "home",
-                "rank": 1
-            }
+            "telecom":  [
+                {
+                    "system": "phone",
+                    "value": "01234 567 890",
+                    "use": "home",
+                    "rank": 1
+                }
             ],
             "gender": "male",
             "birthDate": "1974-12-25",
-            "address": [
-            {
-                "use": "home",
-                "text": "123 High Street, Leeds LS1 4HR",
-                "line": [
-                    "123 High Street",
-                    "Leeds"
-                ],
-                "city": "Leeds",
-                "postalCode": "LS1 4HR"
-            }
+            "address":  [
+                {
+                    "use": "home",
+                    "text": "123 High Street, Leeds LS1 4HR",
+                    "line":  [
+                        "123 High Street",
+                        "Leeds"
+                    ],
+                    "city": "Leeds",
+                    "postalCode": "LS1 4HR"
+                }
             ]
+        },
+        {
+            "resourceType": "Slot",
+            "id": "slot002",
+            "identifier":  [
+                {
+                    "system": "https://tools.ietf.org/html/rfc4122",
+                    "value": "1db79eb3-72f8-4569-a8dc-af8759797e0f"
+                }
+            ],
+            "schedule": {
+                "reference": "Schedule/sched1111"
+            },
+            "status": "busy",
+            "start": "2019-01-17T15:00:00.000Z",
+            "end": "2019-01-17T15:30:00.000Z"
         }
-        ],
-        "status": "booked",
-        "start": "2019-01-17T15:00:00.000Z",
-        "end": "2019-01-17T15:10:00.000Z",
-        "supportingInformation": [
+    ],
+    "status": "booked",
+    "description": "Reason for calling",
+    "supportingInformation":  [
         {
             "reference": "#123"
         }
-        ],
-        "description": "Reason for calling",
-        "slot": [
+    ],
+    "start": "2019-01-17T15:00:00.000Z",
+    "end": "2019-01-17T15:10:00.000Z",
+    "slot":  [
         {
-            "reference": "Slot/slot002"
+            "reference": "#slot002"
         }
-        ],
-        "created": "2019-01-18T14:32:22.579+00:00",
-
-    "participant": [
+    ],
+    "created": "2019-01-17T14:32:22.579+00:00",
+    "participant":  [
         {
             "actor": {
                 "reference": "#P1",
