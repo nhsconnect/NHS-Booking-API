@@ -104,23 +104,29 @@ Failure responses with a `500` status **MAY** be retried.
     },
     "type": "searchset",
     "total": 8,
-    "link": [
+    "link":  [
         {
             "relation": "self",
             "url": "http://a2sibookingprovidertest.directoryofservices.nhs.uk:443/poc/Slot?_format=json&_include=Slot%3Aschedule&_include=Schedule%3Aactor%3APractitioner&_include=Schedule%3Aactor%3APractitionerRole&_include=Schedule%3Aactor%3AHealthcareService&_include=HealthcareService.location&schedule.actor%3Ahealthcareservice=918999198999&start=ge2019-05-09T10%3A00%3A00%2000%3A00&start=le2019-05-09T10%3A30%3A00%2000%3A00&status=free"
         }
     ],
-    "entry": [
+    "entry":  [
         {
             "fullUrl": "http://a2sibookingprovidertest.directoryofservices.nhs.uk:443/poc/Slot/slot005",
             "resource": {
                 "resourceType": "Slot",
                 "id": "slot005",
                 "meta": {
-                    "profile": [
+                    "profile":  [
                         "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Slot-1"
                     ]
                 },
+                "identifier":  [
+                    {
+                        "system": "https://tools.ietf.org/html/rfc4122",
+                        "value": "5a889965-3db4-4c29-8003-676c247a763e"
+                    }
+                ],
                 "schedule": {
                     "reference": "Schedule/sched1111"
                 },
@@ -135,10 +141,16 @@ Failure responses with a `500` status **MAY** be retried.
                 "resourceType": "Slot",
                 "id": "slot006",
                 "meta": {
-                    "profile": [
+                    "profile":  [
                         "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Slot-1"
                     ]
                 },
+                "identifier":  [
+                    {
+                        "system": "https://tools.ietf.org/html/rfc4122",
+                        "value": "d939f0e0-d434-4962-a327-7ed52fde2b2e"
+                    }
+                ],
                 "schedule": {
                     "reference": "Schedule/sched1111"
                 },
@@ -153,10 +165,16 @@ Failure responses with a `500` status **MAY** be retried.
                 "resourceType": "Slot",
                 "id": "slot007",
                 "meta": {
-                    "profile": [
+                    "profile":  [
                         "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Slot-1"
                     ]
                 },
+                "identifier":  [
+                    {
+                        "system": "https://tools.ietf.org/html/rfc4122",
+                        "value": "50360c34-c1e0-42dd-b965-8e4dd79ed902"
+                    }
+                ],
                 "schedule": {
                     "reference": "Schedule/sched1111"
                 },
@@ -171,17 +189,17 @@ Failure responses with a `500` status **MAY** be retried.
                 "resourceType": "Schedule",
                 "id": "sched1111",
                 "meta": {
-                    "profile": [
+                    "profile":  [
                         "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Schedule-1"
                     ]
                 },
-                "identifier": [
+                "identifier":  [
                     {
                         "system": "https://system.supplier.co.uk/MyDiary/Numbering",
                         "value": "1015432"
                     }
                 ],
-                "actor": [
+                "actor":  [
                     {
                         "reference": "HealthcareService/918999198999"
                     },
@@ -197,11 +215,11 @@ Failure responses with a `500` status **MAY** be retried.
                 "resourceType": "HealthcareService",
                 "id": "918999198999",
                 "meta": {
-                    "profile": [
+                    "profile":  [
                         "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-HealthcareService-1"
                     ]
                 },
-                "identifier": [
+                "identifier":  [
                     {
                         "system": "https://system.supplier.co.uk/My/Services",
                         "value": "357"
@@ -210,7 +228,7 @@ Failure responses with a `500` status **MAY** be retried.
                 "providedBy": {
                     "reference": "https://directory.spineservices.nhs.uk/STU3/Organization/RR8"
                 },
-                "location": [
+                "location":  [
                     {
                         "reference": "Location/loc2222"
                     }
@@ -224,11 +242,11 @@ Failure responses with a `500` status **MAY** be retried.
                 "resourceType": "Practitioner",
                 "id": "ABCD123456",
                 "meta": {
-                    "profile": [
+                    "profile":  [
                         "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Practitioner-1"
                     ]
                 },
-                "identifier": [
+                "identifier":  [
                     {
                         "system": "https://fhir.nhs.uk/Id/sds-user-id",
                         "value": "ABCD123456"
@@ -238,13 +256,13 @@ Failure responses with a `500` status **MAY** be retried.
                         "value": "R0260"
                     }
                 ],
-                "name": [
+                "name":  [
                     {
                         "family": "Webber",
-                        "given": [
+                        "given":  [
                             "Libbie"
                         ],
-                        "prefix": [
+                        "prefix":  [
                             "Dr"
                         ]
                     }
@@ -257,13 +275,13 @@ Failure responses with a `500` status **MAY** be retried.
                 "resourceType": "PractitionerRole",
                 "id": "R0260",
                 "meta": {
-                    "profile": [
+                    "profile":  [
                         "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-PractitionerRole-1"
                     ]
                 },
-                "code": [
+                "code":  [
                     {
-                        "coding": [
+                        "coding":  [
                             {
                                 "system": "https://fhir.hl7.org.uk/STU3/CodeSystem/CareConnect-SDSJobRoleName-1",
                                 "code": "R0260",
@@ -280,7 +298,7 @@ Failure responses with a `500` status **MAY** be retried.
                 "resourceType": "Location",
                 "id": "loc1111",
                 "meta": {
-                    "profile": [
+                    "profile":  [
                         "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Location-1"
                     ]
                 },
