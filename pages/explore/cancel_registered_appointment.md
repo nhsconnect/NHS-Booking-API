@@ -55,26 +55,28 @@ Failure responses with a `500` status **MAY** be retried.
 
 ```xml
 <Appointment xmlns="http://hl7.org/fhir">
-    <meta>
-        <versionId value="1"></versionId>
-        <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
-    </meta>
-    <id value="b7e99463-00a1-45fc-98aa-02301c103aba"></id>
-    <identifier>
-        <system value="urn:ietf:rfc:3986"></system>
-        <value value="http://test.nhs.uk/test3"></value>
-    </identifier>
-    <status value="cancelled"></status>
-    <start value="2019-02-01T10:51:23.620+00:00"></start>
-    <created value="2019-02-01T10:51:23+00:00"></created>
-    <participant>
-        <actor>
-            <identifier>
-                <use value="official"></use>
-                <system value="https://fhir.nhs.uk/Id/nhs-number"></system>
-                <value value="1234554321"></value>
-            </identifier>
-        </actor>
-    </participant>
+	<id value="b7e99463-00a1-45fc-98aa-02301c103aba"/>
+	<meta>
+		<versionId value="1"/>
+		<profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"/>
+	</meta>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="http://test.nhs.uk/test3"/>
+	</identifier>
+	<status value="cancelled"/>
+	<start value="2019-02-01T10:51:23.620+00:00"/>
+	<end value="2019-01-17T15:10:00.000Z"/>
+	<created value="2019-01-17T14:00:00.000Z"/>
+	<participant>
+		<actor>
+			<identifier>
+				<use value="official"/>
+				<system value="https://fhir.nhs.uk/Id/nhs-number"/>
+				<value value="1234554321"/>
+			</identifier>
+		</actor>
+		<status value="accepted"/>
+	</participant>
 </Appointment>
 ```
