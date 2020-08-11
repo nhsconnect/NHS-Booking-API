@@ -96,184 +96,197 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
 ## Sample response ##
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir">
-    <id value="aaf4ec55-8a7f-4ff4-ab2a-0336ccb9708f"></id>
-    <meta>
-        <lastUpdated value="2019-05-09T13:08:25.180+00:00"></lastUpdated>
-    </meta>
-    <type value="searchset"></type>
-    <total value="6"></total>
-    <link>
-        <relation value="self"></relation>
-        <url value="http://FHIRBaseURL/Appointment?Appointment.participant.actor=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C1234554321"></url>
-    </link>
-    <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/8f9312e1-ec99-4369-a511-d8f9882d4388/_history/1"></fullUrl>
-        <resource>
-            <Appointment xmlns="http://hl7.org/fhir">
-                <id value="8f9312e1-ec99-4369-a511-d8f9882d4388"></id>
-                <meta>
-                    <versionId value="1"></versionId>
-                    <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
-                </meta>
-                <identifier>
-                    <system value="urn:ietf:rfc:3986"></system>
-                    <value value="http://test.nhs.uk/test3"></value>
-                </identifier>
-                <status value="booked"></status>
-                <start value="2019-02-01T10:51:23.620+00:00"></start>
-                <created value="2019-02-06T10:43:22+00:00"></created>
-                <participant>
-                    <actor>
-                        <identifier>
-                            <use value="official"></use>
-                            <system value="https://fhir.nhs.uk/Id/nhs-number"></system>
-                            <value value="1234554321"></value>
-                        </identifier>
-                    </actor>
-                </participant>
-            </Appointment>
-        </resource>
-    </entry>
-    <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/d57e81ec-9886-42d8-8504-ee1e54ed63f1/_history/1"></fullUrl>
-        <resource>
-            <Appointment xmlns="http://hl7.org/fhir">
-                <id value="d57e81ec-9886-42d8-8504-ee1e54ed63f1"></id>
-                <meta>
-                    <versionId value="1"></versionId>
-                    <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
-                </meta>
-                <identifier>
-                    <system value="urn:ietf:rfc:3986"></system>
-                    <value value="http://test.nhs.uk/test1"></value>
-                </identifier>
-                <status value="booked"></status>
-                <start value="2019-02-01T10:51:23.620+00:00"></start>
-                <created value="2019-02-04T09:40:12+00:00"></created>
-                <participant>
-                    <actor>
-                        <identifier>
-                            <use value="official"></use>
-                            <system value="https://fhir.nhs.uk/Id/nhs-number"></system>
-                            <value value="1234554321"></value>
-                        </identifier>
-                    </actor>
-                </participant>
-            </Appointment>
-        </resource>
-    </entry>
-    <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/bd908180-fcdc-4afe-baf2-ef9533fbe0fd/_history/1"></fullUrl>
-        <resource>
-            <Appointment xmlns="http://hl7.org/fhir">
-                <id value="bd908180-fcdc-4afe-baf2-ef9533fbe0fd"></id>
-                <meta>
-                    <versionId value="1"></versionId>
-                    <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
-                </meta>
-                <identifier>
-                    <system value="urn:ietf:rfc:3986"></system>
-                    <value value="http://test.nhs.uk/test4"></value>
-                </identifier>
-                <status value="booked"></status>
-                <start value="2019-02-01T10:51:23.620+00:00"></start>
-                <created value="2019-02-06T12:57:10+00:00"></created>
-                <participant>
-                    <actor>
-                        <identifier>
-                            <use value="official"></use>
-                            <system value="https://fhir.nhs.uk/Id/nhs-number"></system>
-                            <value value="1234554321"></value>
-                        </identifier>
-                    </actor>
-                </participant>
-            </Appointment>
-        </resource>
-    </entry>
-    <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/a925cc65-e6e5-4dd7-b634-b81901e68f2e/_history/1"></fullUrl>
-        <resource>
-            <Appointment xmlns="http://hl7.org/fhir">
-                <id value="a925cc65-e6e5-4dd7-b634-b81901e68f2e"></id>
-                <meta>
-                    <versionId value="1"></versionId>
-                    <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
-                </meta>
-                <identifier>
-                    <system value="urn:ietf:rfc:3986"></system>
-                    <value value="http://test.nhs.uk/test5"></value>
-                </identifier>
-                <status value="booked"></status>
-                <start value="2019-02-01T10:51:23.620+00:00"></start>
-                <created value="2019-02-06T12:57:24+00:00"></created>
-                <participant>
-                    <actor>
-                        <identifier>
-                            <use value="official"></use>
-                            <system value="https://fhir.nhs.uk/Id/nhs-number"></system>
-                            <value value="1234554321"></value>
-                        </identifier>
-                    </actor>
-                </participant>
-            </Appointment>
-        </resource>
-    </entry>
-    <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/99729e6f-2651-4444-b1c0-3633177f742e/_history/1"></fullUrl>
-        <resource>
-            <Appointment xmlns="http://hl7.org/fhir">
-                <id value="99729e6f-2651-4444-b1c0-3633177f742e"></id>
-                <meta>
-                    <versionId value="1"></versionId>
-                    <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
-                </meta>
-                <identifier>
-                    <system value="urn:ietf:rfc:3986"></system>
-                    <value value="http://test.nhs.uk/test"></value>
-                </identifier>
-                <status value="booked"></status>
-                <start value="2019-02-01T10:51:23.620+00:00"></start>
-                <created value="2019-02-04T09:39:49+00:00"></created>
-                <participant>
-                    <actor>
-                        <identifier>
-                            <use value="official"></use>
-                            <system value="https://fhir.nhs.uk/Id/nhs-number"></system>
-                            <value value="1234554321"></value>
-                        </identifier>
-                    </actor>
-                </participant>
-            </Appointment>
-        </resource>
-    </entry>
-    <entry>
-        <fullUrl value="http://FHIRBaseURL/Appointment/2f5accb1-23fe-477f-b90a-2c0cef4ab6c3/_history/1"></fullUrl>
-        <resource>
-            <Appointment xmlns="http://hl7.org/fhir">
-                <id value="2f5accb1-23fe-477f-b90a-2c0cef4ab6c3"></id>
-                <meta>
-                    <versionId value="1"></versionId>
-                    <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
-                </meta>
-                <identifier>
-                    <system value="urn:ietf:rfc:3986"></system>
-                    <value value="http://test.nhs.uk/test8"></value>
-                </identifier>
-                <status value="booked"></status>
-                <start value="2019-02-01T10:51:23.620+00:00"></start>
-                <created value="2019-02-07T09:41:47+00:00"></created>
-                <participant>
-                    <actor>
-                        <identifier>
-                            <use value="official"></use>
-                            <system value="https://fhir.nhs.uk/Id/nhs-number"></system>
-                            <value value="1234554321"></value>
-                        </identifier>
-                    </actor>
-                </participant>
-            </Appointment>
-        </resource>
-    </entry>
+	<id value="aaf4ec55-8a7f-4ff4-ab2a-0336ccb9708f"/>
+	<meta>
+		<lastUpdated value="2019-05-09T13:08:25.180+00:00"/>
+	</meta>
+	<type value="searchset"/>
+	<total value="6"/>
+	<link>
+		<relation value="self"/>
+		<url value="http://FHIRBaseURL/Appointment?Appointment.participant.actor=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C1234554321"/>
+	</link>
+	<entry>
+		<fullUrl value="http://FHIRBaseURL/Appointment/8f9312e1-ec99-4369-a511-d8f9882d4388"/>
+		<resource>
+			<Appointment xmlns="http://hl7.org/fhir">
+				<id value="8f9312e1-ec99-4369-a511-d8f9882d4388"/>
+				<meta>
+					<versionId value="1"/>
+					<profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"/>
+				</meta>
+				<identifier>
+					<system value="urn:ietf:rfc:3986"/>
+					<value value="http://test.nhs.uk/test3"/>
+				</identifier>
+				<status value="booked"/>
+				<start value="2019-02-01T10:51:23.620+00:00"/>
+				<end value="2019-02-01T11:01:23.620+00:00"/>
+				<created value="2019-01-06T10:43:22+00:00"/>
+				<participant>
+					<actor>
+						<identifier>
+							<use value="official"/>
+							<system value="https://fhir.nhs.uk/Id/nhs-number"/>
+							<value value="1234554321"/>
+						</identifier>
+					</actor>
+					<status value="accepted"/>
+				</participant>
+			</Appointment>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://FHIRBaseURL/Appointment/d57e81ec-9886-42d8-8504-ee1e54ed63f1"/>
+		<resource>
+			<Appointment xmlns="http://hl7.org/fhir">
+				<id value="d57e81ec-9886-42d8-8504-ee1e54ed63f1"/>
+				<meta>
+					<versionId value="1"/>
+					<profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"/>
+				</meta>
+				<identifier>
+					<system value="urn:ietf:rfc:3986"/>
+					<value value="http://test.nhs.uk/test1"/>
+				</identifier>
+				<status value="booked"/>
+				<start value="2019-02-01T10:51:23.620+00:00"/>
+				<end value="2019-02-01T11:01:23.620+00:00"/>
+				<created value="2019-01-06T09:40:12+00:00"/>
+				<participant>
+					<actor>
+						<identifier>
+							<use value="official"/>
+							<system value="https://fhir.nhs.uk/Id/nhs-number"/>
+							<value value="1234554321"/>
+						</identifier>
+					</actor>
+					<status value="accepted"/>
+				</participant>
+			</Appointment>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://FHIRBaseURL/Appointment/bd908180-fcdc-4afe-baf2-ef9533fbe0fd"/>
+		<resource>
+			<Appointment xmlns="http://hl7.org/fhir">
+				<id value="bd908180-fcdc-4afe-baf2-ef9533fbe0fd"/>
+				<meta>
+					<versionId value="1"/>
+					<profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"/>
+				</meta>
+				<identifier>
+					<system value="urn:ietf:rfc:3986"/>
+					<value value="http://test.nhs.uk/test4"/>
+				</identifier>
+				<status value="booked"/>
+				<start value="2019-02-01T10:51:23.620+00:00"/>
+				<end value="2019-02-01T11:01:23.620+00:00"/>
+				<created value="2019-01-06T12:57:10+00:00"/>
+				<participant>
+					<actor>
+						<identifier>
+							<use value="official"/>
+							<system value="https://fhir.nhs.uk/Id/nhs-number"/>
+							<value value="1234554321"/>
+						</identifier>
+					</actor>
+					<status value="accepted"/>
+				</participant>
+			</Appointment>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://FHIRBaseURL/Appointment/a925cc65-e6e5-4dd7-b634-b81901e68f2e"/>
+		<resource>
+			<Appointment xmlns="http://hl7.org/fhir">
+				<id value="a925cc65-e6e5-4dd7-b634-b81901e68f2e"/>
+				<meta>
+					<versionId value="1"/>
+					<profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"/>
+				</meta>
+				<identifier>
+					<system value="urn:ietf:rfc:3986"/>
+					<value value="http://test.nhs.uk/test5"/>
+				</identifier>
+				<status value="booked"/>
+				<start value="2019-02-01T10:51:23.620+00:00"/>
+				<end value="2019-02-01T11:01:23.620+00:00"/>
+				<created value="2019-01-06T12:57:24+00:00"/>
+				<participant>
+					<actor>
+						<identifier>
+							<use value="official"/>
+							<system value="https://fhir.nhs.uk/Id/nhs-number"/>
+							<value value="1234554321"/>
+						</identifier>
+					</actor>
+					<status value="accepted"/>
+				</participant>
+			</Appointment>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://FHIRBaseURL/Appointment/99729e6f-2651-4444-b1c0-3633177f742e"/>
+		<resource>
+			<Appointment xmlns="http://hl7.org/fhir">
+				<id value="99729e6f-2651-4444-b1c0-3633177f742e"/>
+				<meta>
+					<versionId value="1"/>
+					<profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"/>
+				</meta>
+				<identifier>
+					<system value="urn:ietf:rfc:3986"/>
+					<value value="http://test.nhs.uk/test"/>
+				</identifier>
+				<status value="booked"/>
+				<start value="2019-02-01T10:51:23.620+00:00"/>
+				<end value="2019-02-01T11:01:23.620+00:00"/>
+				<created value="2019-01-04T09:39:49+00:00"/>
+				<participant>
+					<actor>
+						<identifier>
+							<use value="official"/>
+							<system value="https://fhir.nhs.uk/Id/nhs-number"/>
+							<value value="1234554321"/>
+						</identifier>
+					</actor>
+					<status value="accepted"/>
+				</participant>
+			</Appointment>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://FHIRBaseURL/Appointment/2f5accb1-23fe-477f-b90a-2c0cef4ab6c3"/>
+		<resource>
+			<Appointment xmlns="http://hl7.org/fhir">
+				<id value="2f5accb1-23fe-477f-b90a-2c0cef4ab6c3"/>
+				<meta>
+					<versionId value="1"/>
+					<profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"/>
+				</meta>
+				<identifier>
+					<system value="urn:ietf:rfc:3986"/>
+					<value value="http://test.nhs.uk/test8"/>
+				</identifier>
+				<status value="booked"/>
+				<start value="2019-02-01T10:51:23.620+00:00"/>
+				<end value="2019-02-01T11:01:23.620+00:00"/>
+				<created value="2019-01-07T09:41:47+00:00"/>
+				<participant>
+					<actor>
+						<identifier>
+							<use value="official"/>
+							<system value="https://fhir.nhs.uk/Id/nhs-number"/>
+							<value value="1234554321"/>
+						</identifier>
+					</actor>
+					<status value="accepted"/>
+				</participant>
+			</Appointment>
+		</resource>
+	</entry>
 </Bundle>
 ```
