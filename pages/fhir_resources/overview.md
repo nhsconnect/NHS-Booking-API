@@ -24,11 +24,11 @@ summary: "This page provides an overview of the FHIR STU3 Resources that are req
 ## Appointment structure ##
 
 - The Appointment resource is <a href='book_an_appointment.html'>POSTed to the FHIR endpoint</a> in a FHIR RESTful Create.
-- The Appointment resource refers to a Slot retrieved above.
+- The Appointment resource contains a Slot retrieved above.
 - The Appointment resource contains a Patient resource.
 - The Appointment resource contains a DocumentReference resource.
 
-<img src="images/UEC-Appointments/Appointment.png">
+<img src="images/UEC-Appointments/Appointment1.png">
 
 
 | Resource | Description | Profile |
