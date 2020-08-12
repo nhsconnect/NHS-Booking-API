@@ -85,7 +85,7 @@ The Patient resource **MUST** include the following data items:
 | Name | Value | Description |
 |---|---|---|
 | id | Any | Any identifier, used to reference the resource from the `Appointment.Participant` element |
-| identifier | identifier | The Patient's NHS Number as defined in the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a>* |
+| identifier | identifier | The Patient's NHS Number* as defined in the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a> |
 | name | Patient's name | Name, including Prefix, Given and Family components |
 | telecom | Contact number | The number the Patient can be called back on |
 | gender | `male` \| `female` \| `other` \| `unknown` | The Patient's gender |
