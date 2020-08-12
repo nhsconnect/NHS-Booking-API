@@ -96,7 +96,7 @@ Where the request is made against a provider system, the resource will contain t
 | end | instant |  A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
 | supportingInformation | reference | A reference to a contained resource (see below) which describes an associated document. |
 | description | Call reason | Text describing the need for the appointment, to be shown for example in an appointment list |
-| slot | reference | A reference to a Slot. |
+| slot | reference | A reference to a contained resource (see below) which describes the Slot for this Appointment |
 | created | instant | When the appointment was last updated <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
 | participant | reference | A reference to a contained resource (see below) which describes the Patient for whom this Appointment is being booked |
 
@@ -112,12 +112,14 @@ The Patient resource **MUST** include the following data items:
 | Name | Value | Description |
 |---|---|---|
 | id | Any | Any identifier, used to reference the resource from the `Appointment.Participant` element |
-| identifier | NHS Number | The Patient's NHS Number as defined in the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a> |
+| identifier | NHS Number | The Patient's NHS Number as defined in the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a>* |
 | name | Patient's name | Name as retrieved from PDS, including Prefix, Given and Family components |
 | telecom | Contact number | The number the Patient can be called back on |
 | gender | `male` \| `female` \| `other` \| `unknown` | The gender as retrieved from PDS |
 | birthdate | yyyy-mm-dd | Patient's DOB |
 | address | Address | Patient's full address as retrieved from PDS |
+
+*Where the Consumer did not provide a patient identifier, then the Provider system **MUST** populate this with their local identifier when accepting the booking, therefore making their identifier available in any subsequent requests for the appointment (e.g. <a href='search_patient_appointments.html'>search for Appointments for a Patient</a>, <a href='cancel_an_appointment.html'>cancel an Appointment</a> etc.)
 
 #### DocumentReference ####
 A contained DocumentReference resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1'>CareConnect-DocumentReference-1</a> profile.
@@ -136,6 +138,22 @@ The DocumentReference resource **MUST** include the following data items:
 | content.attachment | Describes the actual document |
 | content.attachment.contentType | A valid mime type | Indicates the mime type of the document |
 | content.attachment.language | `en` | States that the document is in English |
+
+#### Slot ####
+A contained Slot resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Slot-1'>CareConnect-Slot-1</a> profile.
+This resource is referenced in the appointment's slot element. The Slot resource must be contained to ensure that when booking an Appointment the correct Slot and Schedule combination are marked as 'busy'. 
+The Slot resource **MUST** include the following data items:
+
+| Name | Value | Description |
+|---|---|---|
+| identifier | See below | An identifier that identifies this Slot |
+| identifier.system | `https://tools.ietf.org/html/rfc4122` | Indicates that the associated value is a UUID. |
+| identifier.value | [UUID] | The UUID of the Slot |
+| status | One of `busy` \| `free` | The current status of the Slot |
+| start | `2019-01-17T15:00:00.000Z` |  The start time of this Slot in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
+| end | `2019-01-17T15:00:00.000Z` |  The end time of this Slot in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
+| schedule | Reference(Schedule) |  Identifies the Schedule, which links the Slot to a HealthcareService, and optionally to a <a href='practitioner.html'>Practitioner</a> and <a href='practitioner_role.html'>PractitionerRole</a> |
+
 
 ## Sample response from the registry ##
 

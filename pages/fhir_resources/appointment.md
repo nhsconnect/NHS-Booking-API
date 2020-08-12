@@ -79,21 +79,20 @@ The appointment resource **MUST** have three <a href='http://hl7.org/fhir/STU3/r
 #### Patient ####
 A contained Patient resource which conforms to the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a>.
 This resource is referenced in the Appointment's participant element, and is used to convey the details of the Patient for whom the Appointment is being booked.
-The Patient resource **MUST** include the following data items*:
+The Patient resource **MUST** include the following data items:
 
-*If you **DO NOT** have an NHS Number for the Patient, then you **MUST NOT** provide an identifier. **NB** If the Consumer does not provide a patient identifier, then the Provider system **MUST** populate this with their local identifier when accepting the booking, therefore making their identifier available in any subsequent requests for the appointment (e.g. <a href='search_patient_appointments.html'>search for Appointments for a Patient</a>, <a href='cancel_an_appointment.html'>cancel an Appointment</a> etc.)
 
 | Name | Value | Description |
 |---|---|---|
 | id | Any | Any identifier, used to reference the resource from the `Appointment.Participant` element |
-| identifier | identifier | The Patient's NHS Number as defined in the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a> |
+| identifier | identifier | The Patient's NHS Number as defined in the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a>* |
 | name | Patient's name | Name, including Prefix, Given and Family components |
 | telecom | Contact number | The number the Patient can be called back on |
 | gender | `male` \| `female` \| `other` \| `unknown` | The Patient's gender |
 | birthdate | yyyy-mm-dd | Patient's DOB |
 | address | Address | Patient's full address |
 
-
+*If you **DO NOT** have an NHS Number for the Patient, then you **MUST NOT** provide an identifier. **NB** If the Consumer does not provide a patient identifier, then the Provider system **MUST** populate this with their local identifier when accepting the booking, therefore making their identifier available in any subsequent requests for the appointment (e.g. <a href='search_patient_appointments.html'>search for Appointments for a Patient</a>, <a href='cancel_an_appointment.html'>cancel an Appointment</a> etc.)
 
 #### DocumentReference ####
 A contained DocumentReference resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1'>CareConnect-DocumentReference-1</a> profile.
@@ -116,7 +115,7 @@ The DocumentReference resource **MUST** include the following data items:
 
 #### Slot ####
 A contained Slot resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Slot-1'>CareConnect-Slot-1</a> profile.
-This resource is referenced in the appointment's slot element. The Slot resource must be contained to ensure that when booking an Appointment the correct Slot and Schedule combination is marked as 'busy'. 
+This resource is referenced in the appointment's slot element. The Slot resource must be contained to ensure that when booking an Appointment the correct Slot and Schedule combination are marked as 'busy'. 
 The Slot resource **MUST** include the following data items:
 
 | Name | Value | Description |
@@ -154,7 +153,7 @@ When registering, the Appointment resource **MUST** include the following data i
 | start | [1..1] | The time the Appointment starts in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:00:00.000Z` |
 | end | [1..1] | The time the Appointment ends in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:10:00.000Z` |
 | created | [1..1] | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). | `2019-01-17T15:00:00.000Z` |
-| identifier | [1..1] | The details of the appointment which is being registered | ... |
+| identifier | [1..1] | The details of the appointment which is being registered |  |
 | identifier.system | [1..1] | Defines that the value is a URL | Fixed value: `urn:ietf:rfc:3986` |
 | identifier.value | [1..1] | The URL of the appointment that is being registered | `https://ProviderBaseURL/Appointment/1234567890` |
 | participant | [1..1] | A reference to a contained resource (see below) which describes the <a href='patient.html'>Patient</a> for whom this Appointment is being booked | [ { "actor": { "reference":  "identifier": { "use": "official", "system": "https://fhir.nhs.uk/Id/nhs-number", "value": "1234554321" }, "display": "Peter James Chalmers" }, "status": "accepted" } ] |
