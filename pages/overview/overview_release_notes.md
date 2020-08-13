@@ -20,6 +20,7 @@ permalink: overview_release_notes.html
 - Updated 'Search for free slots' example.
 - Updated 'Search for appointments' example.
 - Updated 'Get an appointment' examples.
+- Updated development guidance on validating resources.
 
 
 ## 1.0.6-alpha Released: 09-04-2020 ##
