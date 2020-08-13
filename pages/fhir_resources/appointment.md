@@ -175,7 +175,6 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
 | Name | Value | Description |
 |---|---|---|
 | status | `cancelled` | Indicates that the Appointment is being changed to a `cancelled` state. |
-| created | instant | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
 
 **No other elements of the Appointment resource may be changed**
 
@@ -196,7 +195,6 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
 | Name | Value | Description |
 |---|---|---|
 | status | `cancelled` | Indicates that the Appointment is being changed to a `cancelled` state. |
-| created | instant | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
 
 **No other elements of the Appointment resource may be changed**
 
