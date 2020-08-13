@@ -97,7 +97,7 @@ Where the request is made against a provider system, the resource will contain t
 | supportingInformation | reference | A reference to a contained resource (see below) which describes an associated document. |
 | description | Call reason | Text describing the need for the appointment, to be shown for example in an appointment list |
 | slot | reference | A reference to a contained resource (see below) which describes the Slot for this Appointment |
-| created | instant | When the appointment was last updated <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
+| created | instant | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
 | participant | reference | A reference to a contained resource (see below) which describes the Patient for whom this Appointment is being booked |
 
 ### Contained resources ###
@@ -119,7 +119,7 @@ The Patient resource **MUST** include the following data items:
 | birthdate | yyyy-mm-dd | Patient's DOB |
 | address | Address | Patient's full address as retrieved from PDS |
 
-*Where the Consumer did not provide a patient identifier, then the Provider system **MUST** populate this with their local identifier when accepting the booking, therefore making their identifier available in any subsequent requests for the appointment (e.g. <a href='search_patient_appointments.html'>search for Appointments for a Patient</a>, <a href='cancel_an_appointment.html'>cancel an Appointment</a> etc.)
+*If you **DO NOT** have an NHS Number for the Patient, then you **MUST NOT** provide an identifier. **NB** If the Consumer does not provide a patient identifier, then the Provider system **MUST** populate this with their local identifier when accepting the booking, therefore making their identifier available in any subsequent requests for the appointment (e.g. <a href='search_patient_appointments.html'>search for Appointments for a Patient</a>, <a href='cancel_an_appointment.html'>cancel an Appointment</a> etc.)
 
 #### DocumentReference ####
 A contained DocumentReference resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1'>CareConnect-DocumentReference-1</a> profile.
