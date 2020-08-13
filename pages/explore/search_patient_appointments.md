@@ -88,9 +88,10 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
 | Name | Value | Description |
 |---|---|---|
 | fullURL | [base]/Appointment/[id]/_history/[version] | The version specific (indicating the current version) logical identifier of the resource. |
-| status | `booked` \| `cancelled` \| `entered in error` | Indicates the state of the Appointment. |
+| status | `booked` \| `cancelled` \| `entered in error` | Indicates the status of the Appointment. |
 | start | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) of when the Appointment starts |
-| created | instant | When the resource was last updated <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). |
+| end | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) of when the Appointment ends |
+| created | instant | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). |
 | participant | reference | A <a href='https://nhsconnect.github.io/fhir-policy/national-services.html#FHIR-NAT-01'>national service reference</a> to the Patient for whom this Appointment was booked, for example: `https://demographics.spineservices.nhs.uk/1234567890` where the Patient's NHS Number is 1234567890 |
 
 ## Sample response ##
