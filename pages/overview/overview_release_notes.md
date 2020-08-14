@@ -47,7 +47,7 @@ permalink: overview_release_notes.html
 ## 1.0.3-alpha Released: 05-12-2018 ##
 
 - Clarified Search for free slots text and added RESTful parameter query
-- Added DocumentRefeerence resource for attaching CDA documents to Appointments
+- Added DocumentReference resource for attaching CDA documents to Appointments
 - DocumentReference resource added to the example in Book an Appointment
 
 

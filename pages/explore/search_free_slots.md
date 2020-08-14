@@ -26,8 +26,8 @@ Provider systems **MUST** support the following search parameters that **MAY** b
 |---|---|---|---|
 | `service` | `token` | The appropriate service id of the service for which Slots are being requested | `schedule.actor:healthcareservice` |
 | `status` | `token` | The free/busy status of the slots | `status` |
-| `start` | `date` | Slot start date/time. | `start` |
-| `start` | `date` | Slot start date/time. | `start` |
+| `start` | `date` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
+| `start` | `date` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
 
 **NB start is included twice to allow for the definition of the start and end of 'The time window within which Slots must start'**.
 
