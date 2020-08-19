@@ -5,7 +5,23 @@ sidebar: overview_sidebar
 permalink: overview_release_notes.html
 ---
 
-{% include important.html content="Site under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
+
+## 2.0.0-beta Released: 19-08-20 ##
+
+- Renamed from NHS FHIR Scheduling API to NHS FHIR Booking API.
+- Updated Appointment guidance to include mandatory Appointment.end to align with the FHIR standard.
+- Updated Appointment.created guidance to align with the FHIR standard.
+- Updated Appointment.contained to include Slot as a contained resource.
+- Updated Appointment examples.
+- Updated Patient identifier guidance in line with <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>CareConnect-Patient-1</a> profile.
+- Updated 'success' behaviour for cancelling an Appointment.
+- Updated Slot elements.
+- Updated 'Search for free slots' example.
+- Updated 'Search for appointments' example.
+- Updated 'Get an appointment' examples.
+- Updated development guidance on validating resources.
+
 
 ## 1.0.6-alpha Released: 09-04-2020 ##
 
@@ -31,7 +47,7 @@ permalink: overview_release_notes.html
 ## 1.0.3-alpha Released: 05-12-2018 ##
 
 - Clarified Search for free slots text and added RESTful parameter query
-- Added DocumentRefeerence resource for attaching CDA documents to Appointments
+- Added DocumentReference resource for attaching CDA documents to Appointments
 - DocumentReference resource added to the example in Book an Appointment
 
 

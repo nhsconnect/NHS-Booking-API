@@ -6,7 +6,7 @@ permalink: healthcare_service.html
 summary: A Healthcare Service delivered by an Organisation at a Location which provides a number of Schedules containing Slots in Appointment booking.
 ---
 
-{% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 ## Introduction ##
 This resource is optionally returned linked to a <a href='schedule.html'>Schedule resource</a> which provides one or more <a href='slot.html'>Slots</a>. For more clarification see <a href='resources_overview.html#urgent--emergency-care-appointments-apis'>the diagram on the FHIR Resources overview page</a>.
