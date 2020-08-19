@@ -6,7 +6,7 @@ permalink: practitioner_role.html
 summary: A practitioner role optionally linked to a Schedule in Appointment booking.
 ---
 
-{% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 ## Introduction ##
 This resource is optionally returned linked to a <a href='schedule.html'>Schedule resource</a>. It is used to describe the Professional Role of the Practitioner delivering that Schedule. It represents a specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.

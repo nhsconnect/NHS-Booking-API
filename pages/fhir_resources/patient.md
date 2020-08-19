@@ -6,7 +6,7 @@ permalink: patient.html
 summary: A Patient as used in Appointment booking.
 ---
 
-{% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 ## Introduction ##
 This resource is contained within the <a href='appointment.html'>Appointment resource</a>.

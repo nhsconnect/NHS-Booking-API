@@ -6,7 +6,7 @@ permalink: developing.html
 toc: false
 ---
 
-{% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 ## Versioning of Appointment resources ##
 In order to prevent any loss of data, Appointment resources are protected against concurrency problems, as <a href='http://hl7.org/fhir/stu3/http.html#concurrency'>described in the FHIR standard</a>. The use of a version identifier for each resource prevents that resource being a newer version of that resource being unwittingly overwritten as per <a href='http://hl7.org/fhir/stu3/http.html#versioning'>the FHIR Standard</a>.

@@ -6,7 +6,7 @@ permalink: search_free_slots.html
 summary: "Details the Search for free slots interaction"
 ---
 
-{% include important.html content="Site under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 ## Use case ##
 

@@ -6,7 +6,7 @@ permalink: practitioner.html
 summary: A practitioner optionally linked to a Slot in Appointment booking.
 ---
 
-{% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 ## Introduction ##
 This resource is optionally returned linked to a <a href='slot.html'>Slot resource</a>.

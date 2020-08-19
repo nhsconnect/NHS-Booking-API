@@ -6,7 +6,7 @@ permalink: slot.html
 summary: A Slot into which an Appointment can be booked.
 ---
 
-{% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 ## Introduction ##
 This resource is fundamental to the Appointment Booking process, it represents time allocations determined by a Provider organisation which are made available to Consumers. For more clarification see <a href='resources_overview.html#urgent--emergency-care-appointments-apis'>the diagram on the FHIR Resources overview page</a>.

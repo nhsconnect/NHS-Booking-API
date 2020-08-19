@@ -6,7 +6,7 @@ permalink: organisation.html
 summary: An organisation optionally linked to a Healthcare Service in Appointment booking.
 ---
 
-{% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 ## Introduction ##
 This resource is optionally returned linked to a <a href='healthcare_service.html'>Healthcare Service resource</a> which is delivering a specific Schedule of Slots. For more clarification see <a href='resources_overview.html#urgent--emergency-care-appointments-apis'>the diagram on the FHIR Resources overview page</a>.

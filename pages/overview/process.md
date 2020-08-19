@@ -7,7 +7,7 @@ toc: false
 summary: An overview of the end to end booking process
 ---
 
-{% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 # Sequence Diagram #
 

@@ -7,7 +7,7 @@ toc: false
 summary: A brief introduction to getting started with the FHIR NHS Booking API.
 ---
 
-{% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 # Introduction #
 This API was previously called "FHIR NHS Scheduling API", it has been renamed to make it more closely reflect the purpose.

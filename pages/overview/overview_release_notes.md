@@ -5,9 +5,9 @@ sidebar: overview_sidebar
 permalink: overview_release_notes.html
 ---
 
-{% include important.html content="Site under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
-## 2.0.0-beta Released: TBA ##
+## 2.0.0-beta Released: 19-08-20 ##
 
 - Renamed from NHS FHIR Scheduling API to NHS FHIR Booking API.
 - Updated Appointment guidance to include mandatory Appointment.end to align with the FHIR standard.
