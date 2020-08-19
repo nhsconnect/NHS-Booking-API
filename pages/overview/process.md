@@ -7,7 +7,7 @@ toc: false
 summary: An overview of the end to end booking process
 ---
 
-{% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 # Sequence Diagram #
 
@@ -156,7 +156,7 @@ As described booked Appointments subsequently need to be <a href='registry.html'
 
 ## Quick Links ##
 
-FHIR Profiles: <a href="resources_overview.html">NHS Scheduling FHIR Profiles</a><br/>
+FHIR Profiles: <a href="resources_overview.html">NHS Booking FHIR Profiles</a><br/>
 How to Search for a free slot: <a href="search_free_slots.html">Search free slots</a><br/>
 How to Book an Appointment: <a href="book_an_appointment.html">Book an Appointment</a>
 

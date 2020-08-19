@@ -6,7 +6,7 @@ permalink: get_an_appointment.html
 summary: "Details the Get a specific appointment"
 ---
 
-{% include important.html content="Site under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 ## Use case ##
 
@@ -81,7 +81,7 @@ Where the request is made against the registry, the returned resource will ONLY 
 | versionId | `[id]` | Version specific identifier of the resource |
 | status | `booked` \| `cancelled` \| `entered in error` | Indicates the state of the Appointment. |
 | start | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) of when the Appointment starts |
-| created | instant | When the resource was last updated <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). |
+| created | instant | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). |
 | participant | reference | A reference to the Patient for whom this Appointment was booked, for example: `https://demographics.spineservices.nhs.uk/1234567890` where the Patient's NHS Number is 1234567890 |
 
 ### From a provider system ###
@@ -96,8 +96,8 @@ Where the request is made against a provider system, the resource will contain t
 | end | instant |  A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
 | supportingInformation | reference | A reference to a contained resource (see below) which describes an associated document. |
 | description | Call reason | Text describing the need for the appointment, to be shown for example in an appointment list |
-| slot | reference | A reference to a Slot. |
-| created | instant | When the appointment was last updated <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
+| slot | reference | A reference to a contained resource (see below) which describes the Slot for this Appointment |
+| created | instant | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
 | participant | reference | A reference to a contained resource (see below) which describes the Patient for whom this Appointment is being booked |
 
 ### Contained resources ###
@@ -112,12 +112,14 @@ The Patient resource **MUST** include the following data items:
 | Name | Value | Description |
 |---|---|---|
 | id | Any | Any identifier, used to reference the resource from the `Appointment.Participant` element |
-| identifier | NHS Number | The Patient's NHS Number as defined in the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a> |
+| identifier | NHS Number | The Patient's NHS Number* as defined in the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a> |
 | name | Patient's name | Name as retrieved from PDS, including Prefix, Given and Family components |
 | telecom | Contact number | The number the Patient can be called back on |
 | gender | `male` \| `female` \| `other` \| `unknown` | The gender as retrieved from PDS |
 | birthdate | yyyy-mm-dd | Patient's DOB |
 | address | Address | Patient's full address as retrieved from PDS |
+
+*If you **DO NOT** have an NHS Number for the Patient, then you **MUST NOT** provide an identifier. **NB** If the Consumer does not provide a patient identifier, then the Provider system **MUST** populate this with their local identifier when accepting the booking, therefore making their identifier available in any subsequent requests for the appointment (e.g. <a href='search_patient_appointments.html'>search for Appointments for a Patient</a>, <a href='cancel_an_appointment.html'>cancel an Appointment</a> etc.)
 
 #### DocumentReference ####
 A contained DocumentReference resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1'>CareConnect-DocumentReference-1</a> profile.
@@ -131,11 +133,27 @@ The DocumentReference resource **MUST** include the following data items:
 | identifier.system | `https://tools.ietf.org/html/rfc4122` | Indicates that the associated value is a UUID. |
 | identifier.value | [UUID] | The UUID of the associated CDA (XPath: `/ClinicalDocument/id/@root`) |
 | status | "current" | Indicates that the associated document is current. No other value is expected. |
-| type | A value from `https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-DocumentType-1` | Indicates the type of document |
+| type | A value from `urn:oid:2.16.840.1.113883.2.1.3.2.4.18.17` | Indicates the type of document |
 | content | see below | Describes the actual document |
 | content.attachment | Describes the actual document |
 | content.attachment.contentType | A valid mime type | Indicates the mime type of the document |
 | content.attachment.language | `en` | States that the document is in English |
+
+#### Slot ####
+A contained Slot resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Slot-1'>CareConnect-Slot-1</a> profile.
+This resource is referenced in the appointment's slot element. The Slot resource must be contained to ensure that when booking an Appointment the correct Slot and Schedule combination are marked as 'busy'. 
+The Slot resource **MUST** include the following data items:
+
+| Name | Value | Description |
+|---|---|---|
+| identifier | See below | An identifier that identifies this Slot |
+| identifier.system | `https://tools.ietf.org/html/rfc4122` | Indicates that the associated value is a UUID. |
+| identifier.value | [UUID] | The UUID of the Slot |
+| status | One of `busy` \| `free` | The current status of the Slot |
+| start | `2019-01-17T15:00:00.000Z` |  The start time of this Slot in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
+| end | `2019-01-17T15:00:00.000Z` |  The end time of this Slot in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
+| schedule | Reference(Schedule) |  Identifies the Schedule, which links the Slot to a HealthcareService, and optionally to a <a href='practitioner.html'>Practitioner</a> and <a href='practitioner_role.html'>PractitionerRole</a> |
+
 
 ## Sample response from the registry ##
 
@@ -152,7 +170,8 @@ The DocumentReference resource **MUST** include the following data items:
     </identifier>
     <status value="booked"></status>
     <start value="2019-02-01T10:51:23.620+00:00"></start>
-    <created value="2019-02-06T10:43:22+00:00"></created>
+    <end value="2019-02-01T11:11:23.620+00:00"></end>
+    <created value="2019-01-06T10:43:22+00:00"></created>
     <participant>
         <actor>
             <identifier>
@@ -161,6 +180,7 @@ The DocumentReference resource **MUST** include the following data items:
                 <value value="1234554321"></value>
             </identifier>
         </actor>
+        <status value="accepted"/>
     </participant>
 </Appointment>
 ```
@@ -170,31 +190,36 @@ The DocumentReference resource **MUST** include the following data items:
 ```json
 {
     "resourceType": "Appointment",
-    "meta": {
-        "versionId": 2,
-        "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
-    },
     "id": "cfd9eba2-cc66-4195-a70c-10112ab1c838",
+    "meta": {
+        "versionId": "2",
+        "profile":  [
+            "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
+        ]
+    },
     "language": "en",
-    "text": "<div>Appointment</div>",
-    "contained": [
+    "text": {
+        "status": "generated",
+        "div": "Appointment"
+    },
+    "contained":  [
         {
-
             "resourceType": "DocumentReference",
             "id": "123",
             "meta": {
-                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+                "profile":  [
+                    "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
+                ]
             },
-            "meta": {
-                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1"
-            },
-            "identifier": {
-                "system": "https://tools.ietf.org/html/rfc4122",
-                "value": "A709A442-3CF4-476E-8377-376500E829C9"
-            },
+            "identifier":  [
+                {
+                    "system": "https://tools.ietf.org/html/rfc4122",
+                    "value": "6b9c59dd-675b-4026-98db-f608ef501e6e"
+                }
+            ],
             "status": "current",
             "type": {
-                "coding": [
+                "coding":  [
                     {
                         "system": "urn:oid:2.16.840.1.113883.2.1.3.2.4.18.17",
                         "code": "POCD_MT200001GB02",
@@ -203,7 +228,7 @@ The DocumentReference resource **MUST** include the following data items:
                 ]
             },
             "indexed": "2018-12-20T09:43:41+11:00",
-            "content": [
+            "content":  [
                 {
                     "attachment": {
                         "contentType": "application/hl7-v3+xml",
@@ -214,80 +239,101 @@ The DocumentReference resource **MUST** include the following data items:
         },
         {
             "resourceType": "Patient",
-            "meta": {
-                "profile": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
-            },
             "id": "P1",
-            "identifier": [
-            {
-                "extension": [
+            "meta": {
+                "profile":  [
+                    "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
+                ]
+            },
+            "identifier":  [
                 {
-                    "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
-                    "valueCodeableConcept": {
-                        "coding": [
+                    "extension":  [
                         {
-                            "system": "https://fhir.hl7.org.uk/STU3/CodeSystem/CareConnect-NHSNumberVerificationStatus-1",
-                            "code": "01",
-                            "display": "Number present and verified"
+                            "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-NHSNumberVerificationStatus-1",
+                            "valueCodeableConcept": {
+                                "coding":  [
+                                    {
+                                        "system": "https://fhir.hl7.org.uk/STU3/CodeSystem/CareConnect-NHSNumberVerificationStatus-1",
+                                        "code": "01",
+                                        "display": "Number present and verified"
+                                    }
+                                ]
+                            }
                         }
-                        ]
-                    }
+                    ],
+                    "use": "official",
+                    "system": "https://fhir.nhs.uk/Id/nhs-number",
+                    "value": "1234554321"
                 }
             ],
-            "use": "official",
-            "system": "https://fhir.nhs.uk/Id/nhs-number",
-            "value": "9476719931"
-            }
+            "name":  [
+                {
+                    "use": "official",
+                    "family": "Chalmers",
+                    "given":  [
+                        "Peter"
+                    ],
+                    "prefix":  [
+                        "Mr"
+                    ]
+                }
             ],
-            "name": [
-            {
-                "use": "official",
-                "prefix": "Mr",
-                "given": "John",
-                "family": "Smith"
-            }
-            ],
-            "telecom": [
-            {
-                "system": "phone",
-                "value": "01234 567 890",
-                "use": "home",
-                "rank": 1
-            }
+            "telecom":  [
+                {
+                    "system": "phone",
+                    "value": "01234 567 890",
+                    "use": "home",
+                    "rank": 1
+                }
             ],
             "gender": "male",
             "birthDate": "1974-12-25",
-            "address": [
-            {
-                "use": "home",
-                "text": "123 High Street, Leeds LS1 4HR",
-                "line": [
-                    "123 High Street",
-                    "Leeds"
-                ],
-                "city": "Leeds",
-                "postalCode": "LS1 4HR"
-            }
+            "address":  [
+                {
+                    "use": "home",
+                    "text": "123 High Street, Leeds LS1 4HR",
+                    "line":  [
+                        "123 High Street",
+                        "Leeds"
+                    ],
+                    "city": "Leeds",
+                    "postalCode": "LS1 4HR"
+                }
             ]
+        },
+        {
+            "resourceType": "Slot",
+            "id": "slot002",
+            "identifier":  [
+                {
+                    "system": "https://tools.ietf.org/html/rfc4122",
+                    "value": "1db79eb3-72f8-4569-a8dc-af8759797e0f"
+                }
+            ],
+            "schedule": {
+                "reference": "Schedule/sched1111"
+            },
+            "status": "busy",
+            "start": "2019-01-17T15:00:00.000Z",
+            "end": "2019-01-17T15:30:00.000Z"
         }
-        ],
-        "status": "booked",
-        "start": "2019-01-17T15:00:00.000Z",
-        "end": "2019-01-17T15:10:00.000Z",
-        "supportingInformation": [
+    ],
+    "status": "booked",
+    "description": "Reason for calling",
+    "supportingInformation":  [
         {
             "reference": "#123"
         }
-        ],
-        "description": "Reason for calling",
-        "slot": [
+    ],
+    "start": "2019-01-17T15:00:00.000Z",
+    "end": "2019-01-17T15:10:00.000Z",
+    "slot":  [
         {
-            "reference": "Slot/slot002"
+            "reference": "#slot002"
         }
-        ],
-        "created": "2019-01-18T14:32:22.579+00:00",
-
-    "participant": [
+    ],
+    "created": "2019-01-17T14:32:22.579+00:00",
+    "participant":  [
         {
             "actor": {
                 "reference": "#P1",

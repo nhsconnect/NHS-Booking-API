@@ -6,7 +6,7 @@ permalink: document_reference.html
 summary: A DocumentReference which is used to point to a Document that contains information supporting an Appointment.
 ---
 
-{% include important.html content="This site is under development by NHS Digital, It is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
 ## Introduction ##
 This resource is contained within the <a href='appointment.html#contained-resources'>Appointment</a>, it is also described in the description of the <a href='appointment.html#documentreference'>Appointment</a> resource.
@@ -27,7 +27,7 @@ The DocumentReference resource **MUST** include the following data items:
 | identifier.system | `https://tools.ietf.org/html/rfc4122` | Indicates that the associated value is a UUID. |
 | identifier.value | [UUID] | The UUID of the associated document. |
 | status | "current" | Indicates that the associated document is current. No other value is expected. |
-| type | A value from [https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-DocumentType-1](https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-DocumentType-1) | Indicates the type of document. |
+| type | A value from `urn:oid:2.16.840.1.113883.2.1.3.2.4.18.17` | Indicates the type of document. |
 | content | see below | Describes the actual document. |
 | content.attachment | Describes the actual document. |
 | content.attachment.contentType | A valid mime type | Indicates the mime type of the document. |
