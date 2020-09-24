@@ -17,4 +17,5 @@ GP Connect <a href='https://nhsconnect.github.io/gpconnect/appointments.html'>Ap
 <li><a href="https://developer.nhs.uk/apis/nhsscheduling-1.0.3-alpha/"/>1.0.3 Alpha</a></li>
 <li><a href="https://developer.nhs.uk/apis/nhsscheduling-1.0.4-alpha/"/>1.0.4 Alpha</a></li>
 <li><a href="https://developer.nhs.uk/apis/nhsscheduling-1.0.5-alpha/"/>1.0.5 Alpha</a></li>
-<li><a href="https://developer.nhs.uk/apis/nhsscheduling-1.0.6-alpha/"/>1.0.6 Alpha</a></li></ul>
+<li><a href="https://developer.nhs.uk/apis/nhsscheduling-1.0.6-alpha/"/>1.0.6 Alpha</a></li>
+<li><a href="https://developer.nhs.uk/apis/nhsbooking-2.0.0-beta/"/>2.0.0 Beta</a></li></ul>
