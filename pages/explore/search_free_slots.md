@@ -20,7 +20,7 @@ A consuming system requests available slots from a provider system matching the 
 
 ## Search parameters ##
 
-Provider systems **MUST** support the following search parameters that **MAY** be passed to the API:
+Servers **MUST** support the following search parameters that MAY be passed to the API. In some use cases clients may not be able to support the complete parameter list, so may omit unsupported parameters (so Servers must cater for parameters not being present).
 
 | Name | Type | Description | Paths |
 |---|---|---|---|
@@ -29,11 +29,12 @@ Provider systems **MUST** support the following search parameters that **MAY** b
 | `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
 | `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
 
-**NB start is included twice to allow for the definition of the start and end of 'The time window within which Slots must start'**.
+**NB start is included twice to allow for the definition of the start and end of 'The time window within which Slots must start'.**
+**Additional query parameters MAY be used. However, if these are not supported by the Server, they SHOULD be ignored.**
 
 ## _include parameters ##
 
-Provider systems **MUST** support the following include parameters:
+Provider systems **MUST** support the following include parameters. However, if a resource is not supported, then only supported resources **MUST** be returned, rather than an error:
 
 | Name | Description | Paths |
 |---|---|---|

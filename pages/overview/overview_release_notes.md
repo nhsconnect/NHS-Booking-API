@@ -7,6 +7,14 @@ permalink: overview_release_notes.html
 
 {% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
+## 2.0.1-beta Released: 19-10-20 ##
+
+- Updated description for 'supportingInfo' element for the Appointment resource.
+- Updated description for 'particpant' element for the Appointment resource.
+- Added guidance for using 'incomingReferral' element for the Appointment resource.
+- Updated contained resource guidance for the Appointment resource.
+- Updated search parameters guidance when searching for free slots  
+
 ## 2.0.0-beta Released: 19-08-20 ##
 
 - Renamed from NHS FHIR Scheduling API to NHS FHIR Booking API.
