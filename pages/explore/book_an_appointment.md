@@ -44,3 +44,20 @@ This **SHOULD** be accompanied by an OperationOutcome resource providing additio
 Failure responses with a `4xx` status **SHOULD NOT** be retried without taking steps to address the underlying cause of the failure.
 
 Failure responses with a `500` status **MAY** be retried.
+
+
+## Headers ##
+
+This specification defines or recommends some custom headers that implementers can use:
+
+
+|--|--|
+|X-Request-Id	|A unique id to for the request/response assigned by either client or server. <br/>Request: assigned by the client. <br/>Response: assigned by the server|
+|X-Correlation-Id	|A client assigned request id echoed back in the response|
+
+The request id in X-Request-Id is purely to help connect between requests and logs/audit trails. The client can assign an id to the request, and send that in the X-Request-Id header. The server can either use that id or assign it's own, which it returns as the X-Request-Id header in the response. 
+
+When the server assigned id is different to the client assigned id, the server SHOULD also return the X-Correlation-Id header with the client's original id in it. 
+
+
+The headers can be useful in the event of any retries that is using the same request id. The X-Correlation-Id can be sent back with the original id. 
