@@ -21,6 +21,6 @@ The following FHIR elements are key to this implementation :
 
 | Element | Cardinality | Description | Example(s) |
 | --- | --- | --- | --- |
-| id | [1..1] | An id which has been retrieved from an agreed Service Directory for the use case e.g the UEC Directory of Services (DoS) for UEC Appointment Booking, issued to the service when it is added to the agreed directory. This id will be the link to this resource from any Schedules. | 1231231234 |
+| identifier | [1..1] | The identifier which has been retrieved from an agreed Service Directory for the use case e.g the UEC Directory of Services (DoS) for UEC Appointment Booking, issued to the service when it is added to the agreed directory. This identifer will be the link to this resource from any Schedules. | 1231231234 |
 | providedBy | [0..1] | An optional reference to the <a href='organisation.html'>Organisation</a> which delivers this service | `{ "reference": "https://directory.spineservices.nhs.uk/STU3/Organization/RR8" }` |
 | location | [0..1] | An optional reference to a <a href='location.html'>Location</a> resource, which describes where the service is. **NB: The 'user friendly' location of the service will already have been determined from the DoS when selecting this service, so this Location is far less important** | `{ "reference": "/Location/1237654" }` |
