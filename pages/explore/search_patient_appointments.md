@@ -28,6 +28,16 @@ The registry and Provider systems support the following search parameters that S
 |---|---|---|---|
 | `Patient` | reference | The national service identifier of the Patient for whom Slots are being requested | `Appointment.participant.actor` |
 
+
+## _format ##
+
+The request can be formatted to the following MIME types:
+
+|--|--|
+|JSON|`_format=xml`|
+|XML|`_format=json`|
+
+
 ## RESTful Query ##
 
 The request body is sent using an http `GET` method.

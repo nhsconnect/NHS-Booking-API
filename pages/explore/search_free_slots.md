@@ -34,7 +34,17 @@ Servers **MUST** support the following search parameters that MAY be passed to t
 
 ## _include parameters ##
 
-Provider systems **MUST** support the following include parameters. However, if a resource is not supported, then only supported resources **MUST** be returned, rather than an error:
+Provider systems **MUST** support the following include parameters. However, if a resource is not supported, then only supported resources **MUST** be returned, rather than an error: 
+
+### Parameter format ###
+
+Parameter values for both _include and _revinclude have three parts, separated by a : character:
+
+- The name of the source resource from which the join comes
+- The name of the search parameter which must be of type reference
+- (Optional) A specific of type of target resource (for when the search parameter refers to multiple possible target types)
+
+
 
 | Name | Description | Paths |
 |---|---|---|
@@ -43,7 +53,17 @@ Provider systems **MUST** support the following include parameters. However, if 
 | `&_include=Schedule:actor:PractitionerRole` | Include Practitioner Role Resources referenced within the returned Schedule Resources | `Schedule:actor:PractitionerRole` |
 | `&_include=Schedule:actor:HealthcareService` | Include HealthcareService Resources referenced within the returned Schedule Resources | `Schedule:actor:HealthcareService` |
 | `&_include=HealthcareService.providedBy` | Include Organization Resources referenced within the returned HealthcareService Resources | `HealthcareService.providedBy` |
-| `&_include=HealthcareService.location` | Include Location Resources referenced within the returned HealthcareService Resources | `HealthcareService.location` |
+| `&_include=HealthcareService:Location` | Include Location Resources referenced within the returned HealthcareService Resources | `HealthcareService:Location` |
+
+
+
+## _format ##
+
+The request can be formatted to the following MIME types:
+
+|--|--|
+|JSON|`_format=xml`|
+|XML|`_format=json`|
 
 ## RESTful Query ##
 
