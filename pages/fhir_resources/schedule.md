@@ -23,6 +23,15 @@ The following FHIR elements are key to this implementation :
 | --- | --- | --- | --- |
 | id | [1..1] | A unique id which identifies a schedule. The id can be a globally unique (e.g. UUID).| 12456 |
 | actor | [1..3] | Resources linked to this Schedule, can be any of the below | ... |
-| actor (HealthcareService) | [1..1] | The HealthcareService that this Schedle is part of. | `{ "reference": "HealthcareService/1231231234" }` |
-| actor (Practitioner) | [0..1] | Optionally identifies the Practitioner where one is assigned to this Schedule. | `{ "reference": "Practitioner/1231231234" }` |
-| actor (PractitionerRole) | [0..1] | Optionally identifies the PractitionerRole where a role is assigned to this Schedule. | `{ "reference": "PractitionerRole/767676767" }` |
+| actor (HealthcareService) | [1..1] | The HealthcareService that this Schedule is part of. | `{ "reference": "HealthcareService/1231231234" }` |
+| actor (Practitioner) | [0..1] | Optionally identifies the [Practitioner](#practitioner-and-practitionerrole) where one is assigned to this Schedule. | `{ "reference": "Practitioner/1231231234" }` |
+| actor (PractitionerRole) | [0..1] | Optionally identifies the [PractitionerRole](#practitioner-and-practitionerrole) where a role is assigned to this Schedule. | `{ "reference": "PractitionerRole/767676767" }` |
+
+
+### Practitioner and PractitionerRole ###
+
+The Practitioner and the PractitionerRole resources refer to the Care Connect resources developed by HL7 UK. The profiles can be found at:
+
+- [Practitioner](https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Practitioner-1)
+
+- [PractitionerRole](https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-PractitionerRole-1)
