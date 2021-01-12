@@ -52,7 +52,7 @@ Parameter values for both _include and _revinclude have three parts, separated b
 | `&_include=Schedule:actor:Practitioner` | Include Practitioner Resources referenced within the returned Schedule Resources | `Schedule:actor:Practitioner` |
 | `&_include=Schedule:actor:PractitionerRole` | Include Practitioner Role Resources referenced within the returned Schedule Resources | `Schedule:actor:PractitionerRole` |
 | `&_include=Schedule:actor:HealthcareService` | Include HealthcareService Resources referenced within the returned Schedule Resources | `Schedule:actor:HealthcareService` |
-| `&_include=HealthcareService.providedBy` | Include Organization Resources referenced within the returned HealthcareService Resources | `HealthcareService.providedBy` |
+| `&_include=HealthcareService:Organization` | Include Organization Resources referenced within the returned HealthcareService Resources | `HealthcareService:Organization` |
 | `&_include=HealthcareService:Location` | Include Location Resources referenced within the returned HealthcareService Resources | `HealthcareService:Location` |
 
 

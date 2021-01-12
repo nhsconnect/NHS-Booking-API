@@ -21,7 +21,7 @@ The following FHIR elements are key to this implementation :
 
 | Element | Cardinality | Description | Example(s) |
 | --- | --- | --- | --- |
-| id | [1..1] | An id which only need be unique within the bundle the resource is included in. | 12456 |
+| id | [1..1] | A unique id which identifies a schedule. The id can be a globally unique (e.g. UUID).| 12456 |
 | actor | [1..3] | Resources linked to this Schedule, can be any of the below | ... |
 | actor (HealthcareService) | [1..1] | The HealthcareService that this Schedle is part of. | `{ "reference": "HealthcareService/1231231234" }` |
 | actor (Practitioner) | [0..1] | Optionally identifies the Practitioner where one is assigned to this Schedule. | `{ "reference": "Practitioner/1231231234" }` |
