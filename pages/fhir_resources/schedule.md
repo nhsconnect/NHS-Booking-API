@@ -30,7 +30,10 @@ The following FHIR elements are key to this implementation :
 
 ### Practitioner and PractitionerRole ###
 
-The Practitioner and the PractitionerRole resources refer to the Care Connect resources developed by HL7 UK. The profiles can be found at:
+The Practitioner and the PractitionerRole resources refer to the Care Connect profiles developed by HL7 UK. 
+The Practitioner profile accepts a *SDS User ID* or *SDS role profile Id* as an identifier. The PractitionerRole profile only 
+accepts the *SDS role profile Id*.
+The profiles can be found at:
 
 - [Practitioner](https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Practitioner-1)
 

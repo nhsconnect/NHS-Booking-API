@@ -126,7 +126,7 @@ The Slot resource **MUST** include the following data items:
 | status | One of `busy` \| `free` | The current status of the Slot |
 | start | `2019-01-17T15:00:00.000Z` |  The start time of this Slot in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
 | end | `2019-01-17T15:00:00.000Z` |  The end time of this Slot in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
-| schedule | Reference(Schedule) |  Identifies the Schedule, which links the Slot to a HealthcareService, and optionally to a <a href='practitioner.html'>Practitioner</a> and <a href='practitioner_role.html'>PractitionerRole</a> |
+| schedule | Reference(Schedule) |  Identifies the Schedule associated to the slot.|
 
 
 ## Key FHIR Elements for Registering ##
