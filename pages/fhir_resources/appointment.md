@@ -66,7 +66,7 @@ The Appointment resource **MUST** include the following data items:
 | description | [1..1] | Text describing the need for the appointment, to be shown for example in an appointment list. Note that developers should follow guidance for their use case as to appropriate content in this field. | 111 Referral |
 | slot | [1..1] | The Slot that this appointment is booked into | [ { "reference": "#slot002" } ] |
 | supportingInformation | [1..1] | Reference to a contained resource (see below) which describes an associated document, that SHOULD be present if available. | [ { "reference": "#123" } ] |
-| incomingReferral| [0..1] | Optionally, the ReferralRequest provided as information to allocate to the Encounter. This may be ignored if not supported. | [ { “reference”: “Referral123” } ] |
+| incomingReferral| [0..1] | Optionally, the ReferralRequest provided as information to allocate to the Encounter. This may be ignored if not supported. Additional documentation can be added to the `supportingInformation` element.| [ { “reference”: “Referral123” } ]. |
 | participant | [1..1] | A reference to a contained resource (see below) which describes the Patient for whom this Appointment is being booked, that SHOULD be present if available. Further participant types may be present. | "participant":  [ {            "actor": {        "reference": "#P1"            }        }    ]|
 
 

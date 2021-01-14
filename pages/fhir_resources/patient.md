@@ -33,10 +33,13 @@ The Patient resource **MUST** include the following data items*:
 | identifier(nhsNumber).system | [1..1] | Shows that the value is an NHS Number | Fixed value: `https://fhir.nhs.uk/Id/nhs-number` |
 | identifier(nhsNumber).value | [1..1] | The Patient's NHS Number | `11122233333` |
 | name | [1..1] | The Patient's name. This element is very important if no NHS number is being supplied. | <a href='#example-resource'>see example</a> |
-| telecom | [1..1] | The number the patient can be contacted on | <a href='#example-resource'>see example</a> |
+| telecom | [1..1] | The number the patient can be contacted on. If this is populated then `contact.telecom` and `contact.name` must be populated. | <a href='#example-resource'>see example</a> |
 | gender | [1..1] | The patient's gender. This element is very important if no NHS number is being supplied. | `male` \| `female` \| `other` \| `unknown` | |
 | birthdate | [1..1] | The patient's date of birth. This element is very important if no NHS number is being supplied. | 1974-12-31 |
 | address | [1..1] | Patient's full address. This element is very important if no NHS number is being supplied. | <a href='#example-resource'>see example</a> |
+|contact.name|[0..*]|Name for the patient contact.|<a href='#example-resource'>see example</a>|
+|contact.telecom|[0..*]|The number for the patients contact.|<a href='#example-resource'>see example</a>|
+
 
 ## Example resource ##
 ```json
@@ -95,6 +98,27 @@ The Patient resource **MUST** include the following data items*:
             ],
             "city": "Leeds",
             "postalCode": "LS1 4HR"
+        }
+    ],
+	"contact":  [
+        {
+            "name": {
+                "use": "official",
+                "family": "Smith",
+                "given":  [
+                    "Mary"
+                ],
+                "prefix":  [
+                    "Mrs"
+                ]
+            },
+            "telecom":  [
+                {
+                    "system": "phone",
+                    "value": "01234 588 187",
+                    "use": "home"
+                }
+            ]
         }
     ]
 }
