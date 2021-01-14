@@ -15,9 +15,6 @@ entries:
     - title: Process
       url: /process.html
       output: web
-    - title: Appointment Registry
-      url: /registry_overview.html
-      output: web
     - title: Release Notes
       url: /overview_release_notes.html
       output: web
@@ -65,9 +62,6 @@ entries:
     - title: Book an appointment
       url: /book_an_appointment.html
       output: web
-    - title: Register an appointment
-      url: /register_an_appointment.html
-      output: web
     - title: Search for appointments
       url: /search_patient_appointments.html
       output: web
@@ -76,9 +70,6 @@ entries:
       output: web
     - title: Cancel an appointment
       url: /cancel_an_appointment.html
-      output: web
-    - title: Cancel a registered appointment
-      url: /cancel_registered_appointment.html
       output: web
 
   - title: Help & Support

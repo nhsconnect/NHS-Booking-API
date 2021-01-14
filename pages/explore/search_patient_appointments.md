@@ -8,12 +8,9 @@ summary: "Details the Search for appointments for a given Patient"
 
 {% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
-## Use cases ##
+## Use case ##
 
-1 A system requests appointments from the registry which have been registered for a specific patient.
-**NB The registry has not yet been delivered.**
-
-2 A system requests appointments which have been registered for a specific patient from a Provider system.
+A system requests appointments which have been registered for a specific patient from a Provider system.
 
 ## Security ##
 
@@ -22,7 +19,7 @@ summary: "Details the Search for appointments for a given Patient"
 
 ## Search parameters ##
 
-The registry and Provider systems support the following search parameters that SHOULD be passed to the API:
+The provider systems support the following search parameters that SHOULD be passed to the API:
 
 | Name | Type | Description | Paths |
 |---|---|---|---|
@@ -56,12 +53,6 @@ http://[FHIR base URL]/Appointment<br>
 ## Response ##
 
 ### Success ###
-The Registry:
-
-- WILL return a `200` **OK** HTTP status code on successful retrieval of Appointments.
-- WILL include the (Zero to Many) `Appointment` resources which meet the requested criteria.
-- WILL NOT implement <a href='http://hl7.org/fhir/STU3/http.html#paging'>paging as described here</a> to limit the number of resources returned.
-- WILL implement a limit such that Appointments in the past will not be returned.
 
 Provider systems:
 
@@ -71,13 +62,6 @@ Provider systems:
 - SHOULD implement a limit such that Appointments in the past will not be returned.
 
 ### Failure ###
-The registry:
-
-- If the request fails because either no valid JWT is supplied or the supplied JWT failed validation, the response WILL include a status of `403` **Forbidden**.
-This WILL be accompanied by an OperationOutcome resource providing additional detail.
-
-- If the request fails because the query string parameters were invalid or unsupported, the response WILL include a status of `400` **Bad Request**.
-- If the request fails because of a server error, the response WILL include a status of `500` **Internal Server Error**.
 
 Provider systems:
 

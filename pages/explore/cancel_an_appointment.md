@@ -35,6 +35,14 @@ Where the request succeeded, the response **MUST** include a status of `200` **O
 The response **MUST** include a Location header giving the absolute URL of the created Appointment. This URL **MUST** remain stable, and the resource **SHOULD** support RESTful updates using a PUT request to this URL.
 The response body **MUST** include the updated Appointment, this resource **MUST** include the newly assigned versionId of the resource.
 
+The following data items in the <a href='get_an_appointment.html'>retrieved Appointment</a> resource **MUST** be changed as defined:
+
+| Name | Value | Description |
+|---|---|---|
+| status | `cancelled` | Indicates that the Appointment is being changed to a `cancelled` state. |
+
+**No other elements of the Appointment resource may be changed.**
+
 ### Failure ###
 - If the request fails because of a business rule (for example if differences are detected between the existing and updated Appointment), the response **MUST** include a status of `422` **Unprocessable Entity** <a href='http://hl7.org/fhir/STU3/http.html#2.21.0.10.1'>as described here</a>.
 This **SHOULD** be accompanied by an OperationOutcome resource providing additional detail.
