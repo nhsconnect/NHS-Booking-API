@@ -23,9 +23,15 @@ The following FHIR elements are key to this implementation :
 | --- | --- | --- | --- |
 | id | [1..1] | A unique id which identifies a schedule. The id can be a globally unique (e.g. UUID).| 12456 |
 | actor | [1..3] | Resources linked to this Schedule, can be any of the below | ... |
-| actor (HealthcareService) | [1..1] | The HealthcareService that this Schedule is part of. | `{ "reference": "HealthcareService/1231231234" }` |
+| actor (HealthcareService) | [0..1] | The HealthcareService that this Schedule is part of. | `{ "reference": "HealthcareService/1231231234" }` |
+|actor(Location)|[0..1]|The Location that this Schedule is part of.|`{ "reference": "Location/1231231234" }`|
+
+Note: there *MUST* be a reference to either HealthCare service OR Location OR Both.
+
+<!--
 | actor (Practitioner) | [0..1] | Optionally identifies the [Practitioner](#practitioner-and-practitionerrole) where one is assigned to this Schedule. | `{ "reference": "Practitioner/1231231234" }` |
 | actor (PractitionerRole) | [0..1] | Optionally identifies the [PractitionerRole](#practitioner-and-practitionerrole) where a role is assigned to this Schedule. | `{ "reference": "PractitionerRole/767676767" }` |
+
 
 
 ### Practitioner and PractitionerRole ###
@@ -38,3 +44,5 @@ The profiles can be found at:
 - [Practitioner](https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Practitioner-1)
 
 - [PractitionerRole](https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-PractitionerRole-1)
+
+-->
