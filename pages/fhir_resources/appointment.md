@@ -27,18 +27,6 @@ It is sent as a POST request body from the Consumer to Provider systems in order
 
 
 
-
-
-### Registering ###
-It is sent as a POST request body from the Consumer to Registry in order to register an appointment.
-
-{% include custom/fhir.reference.html resource="Appointment" page="CareConnect-Appointment-1" fhirname="Appointment" fhirlink="appointment.html" content="-" userlink="" %}
-
-
-
-
-
-
 ## Key FHIR Elements for Booking ##
 
 The following FHIR elements are key to this implementation when <a href='book_an_appointment.html'>Booking an appointment</a>:
@@ -76,92 +64,6 @@ The Appointment resource **MUST** include the following data items:
 If supported, the appointment resource **SHOULD** have three <a href='http://hl7.org/fhir/STU3/references.html#contained'>contained</a> resources. Note that contained resources are given an identifier which is only required to be unique within the scope of the containing resource, and are referenced using that identifier prefixed with a Hash '#' character. Some use cases may not support all three contained resources. This should be documented in system guidance.
 
 
-#### Patient ####
-A contained Patient resource which conforms to the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a>.
-This resource is referenced in the Appointment's participant element, and is used to convey the details of the Patient for whom the Appointment is being booked.
-The Patient resource **MUST** include the following data items:
-
-
-| Name | Value | Description |
-|---|---|---|
-| id | Any | Any identifier, used to reference the resource from the `Appointment.Participant` element |
-| identifier | identifier | The Patient's NHS Number* as defined in the <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1'>Care Connect Patient profile</a> |
-| name | Patient's name | Name, including Prefix, Given and Family components |
-| telecom | Contact number | The number the Patient can be called back on |
-| gender | `male` \| `female` \| `other` \| `unknown` | The Patient's gender |
-| birthdate | yyyy-mm-dd | Patient's DOB |
-| address | Address | Patient's full address |
-
-*If you **DO NOT** have an NHS Number for the Patient, then you **MUST NOT** provide an identifier. **NB** If the Consumer does not provide a patient identifier, then the Provider system **MUST** populate this with their local identifier when accepting the booking, therefore making their identifier available in any subsequent requests for the appointment (e.g. <a href='search_patient_appointments.html'>search for Appointments for a Patient</a>, <a href='cancel_an_appointment.html'>cancel an Appointment</a> etc.)
-
-#### DocumentReference ####
-A contained DocumentReference resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-DocumentReference-1'>CareConnect-DocumentReference-1</a> profile.
-This resource is referenced in the appointment's supportingInformation element, it describes the type and identifier(s) of any supporting information, for example a CDA document which may be transferred separately.
-The DocumentReference resource **MUST** include the following data items:
-
-| Name | Value | Description |
-|---|---|---|
-| id | Any | Any identifier, used to reference the resource from the Appointment.supportingInformation element |
-| identifier | see below | Identifies the supporting information (i.e. CDA document) |
-| identifier.system | `https://tools.ietf.org/html/rfc4122` | Indicates that the associated value is a UUID. |
-| identifier.value | [UUID] | The UUID of the associated CDA (XPath: `/ClinicalDocument/id/@root`) |
-| status | `current` | Indicates that the associated document is current. No other value is expected. |
-| type | A value from `urn:oid:2.16.840.1.113883.2.1.3.2.4.18.17` | Indicates the type of document |
-| content | see below | Describes the actual document |
-| content.attachment | Describes the actual document |
-| content.attachment.contentType | A valid mime type | Indicates the mime type of the document |
-| content.attachment.language | `en` | States that the document is in English |
-
-
-#### Slot ####
-A contained Slot resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Slot-1'>CareConnect-Slot-1</a> profile.
-This resource is referenced in the appointment's slot element. The Slot resource must be contained to ensure that when booking an Appointment the correct Slot and Schedule combination are marked as 'busy'. 
-The Slot resource **MUST** include the following data items:
-
-| Name | Value | Description |
-|---|---|---|
-| identifier | See below | An identifier that identifies this Slot |
-| identifier.system | `https://tools.ietf.org/html/rfc4122` | Indicates that the associated value is a UUID. |
-| identifier.value | [UUID] | The UUID of the Slot |
-| status | One of `busy` \| `free` | The current status of the Slot |
-| start | `2019-01-17T15:00:00.000Z` |  The start time of this Slot in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
-| end | `2019-01-17T15:00:00.000Z` |  The end time of this Slot in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
-| schedule | Reference(Schedule) |  Identifies the Schedule associated to the slot.|
-
-
-## Key FHIR Elements for Registering ##
-
-The following FHIR elements are key to this implementation when <a href='register_an_appointment.html'>Registering an appointment</a>:
-
-See <a href='#registering-example-resource'>example resource</a>.
-
-When registering, the Appointment resource **MUST NOT** include the following data items:
-
-| Name | Description |
-|---|---|
-| id | The identity of the appointment will be assigned by the Providing system at the point of booking, and **MUST NOT** be included in the request body. |
-| contained | No additional resources should be contained in the appointment |
-| supportingInformation | No supporting Information should be included in the registry. |
-| description | No description should be included in the registry. |
-| slot | The details of the slot are irrelevant for the purposes of the registry. |
-
-When registering, the Appointment resource **MUST** include the following data items:
-
-| Element | Cardinality | Description | Example(s) |
-| --- | --- | --- | --- |
-| status | [1..1] | Status of this Appointment | **MUST** be one of: `booked` \| `cancelled` \| `entered in error` |
-| start | [1..1] | The time the Appointment starts in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:00:00.000Z` |
-| end | [1..1] | The time the Appointment ends in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:10:00.000Z` |
-| created | [1..1] | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). | `2019-01-17T15:00:00.000Z` |
-| identifier | [1..1] | The details of the appointment which is being registered |  |
-| identifier.system | [1..1] | Defines that the value is a URL | Fixed value: `urn:ietf:rfc:3986` |
-| identifier.value | [1..1] | The URL of the appointment that is being registered | `https://ProviderBaseURL/Appointment/1234567890` |
-| participant | [1..1] | A reference to a contained resource (see below) which describes the <a href='patient.html'>Patient</a> for whom this Appointment is being booked |"participant":  [ {            "actor": {        "reference": "#P1"            }        }    ] |
-
-
-
-
-
 
 
 ## Key FHIR Elements for Cancelling ##
@@ -177,28 +79,6 @@ The following data items in the <a href='get_an_appointment.html'>retrieved Appo
 | status | `cancelled` | Indicates that the Appointment is being changed to a `cancelled` state. |
 
 **No other elements of the Appointment resource may be changed**
-
-
-
-
-
-
-
-## Key FHIR Elements for Cancelling a registered Appointment ##
-
-The body is a valid Appointment resource which conforms to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1'>the relevant profile</a>. **NB The appointment resource MUST be <a href='get_an_appointment.html'>retrieved from the Registry</a> in order to ensure that no data is lost.**
-
-See <a href='#cancelling-registered-appointment-example-resource'>example resource</a>.
-
-The following data items in the <a href='get_an_appointment.html'>retrieved Appointment</a> resource **MUST** be changed as defined:
-
-| Name | Value | Description |
-|---|---|---|
-| status | `cancelled` | Indicates that the Appointment is being changed to a `cancelled` state. |
-
-**No other elements of the Appointment resource may be changed**
-
-
 
 
 
