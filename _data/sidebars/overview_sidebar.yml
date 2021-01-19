@@ -25,6 +25,9 @@ entries:
     - title: Overview FHIR Profiles
       url: /resources_overview.html
       output: web
+    - title: Bundle
+      url: /bundle.html
+      output: web      
     - title: Slot
       url: /slot.html
       output: web
