@@ -10,8 +10,7 @@ summary: "This page provides an overview of the FHIR STU3 Resources that are req
 
 ## Background ##
 
-- The “disposition” from the patient interaction (NHS111 call etc) determines the urgency (giving the time constraints).
-- In the event of a NHS111 call, the DoS (Directory of Services) will have been <a href='process.html#getservices'>searched</a> and an appropriate service for the Patient selected.
+- A service would need to have been identified prior to initialising the booking system.
 - Where the selected service offers appointment Booking, it will include an value.
 - The ASID is used <a href='process.html#find-endpoint'>to locate the FHIR endpoint</a> to be queried.
 - A FHIR RESTful <a href='search_free_slots.html'>Search request is sent</a> to the FHIR endpoint for Slots that meet the time constraints, the appropriate service id (e.g. from DoS) is passed as a constraint on the HealthcareService ID.

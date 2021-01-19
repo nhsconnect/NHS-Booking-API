@@ -11,7 +11,7 @@ summary: A Location at which an Organisation delivers one or more Healthcare Ser
 ## Introduction ##
 This resource is optionally returned linked to a <a href='healthcare_service.html'>Healthcare Service resource</a>. For more clarification see <a href='resources_overview.html#urgent--emergency-care-appointments-apis'>the diagram on the FHIR Resources overview page</a>.
 
-Location may optionally be returned with Slots following a <a href='search_free_slots.html'>search for free Slots</a>, however it is not considered important as the Location of the service has already been selected when selecting a service from the DoS.
+Location may optionally be returned with Slots following a search for free Slots, however it is not considered important as normally the Location of the service would already have been identified and selected during the service discovery process.
 
 {% include custom/fhir.reference.html resource="Location" page="CareConnect-Location-1" fhirname="HealthcareService" fhirlink="location.html" content="-" userlink="" %}
 

@@ -28,6 +28,13 @@ The update is protected using <a href='http://hl7.org/fhir/stu3/http.html#concur
 
 - Provider systems **MUST** store previous versions of the resource to defend against any such loss of data.
 
+The following data items in the <a href='get_an_appointment.html'>retrieved Appointment</a> resource **MUST** be changed as defined:
+
+| Name | Value | Description |
+|---|---|---|
+| status | `cancelled` | Indicates that the Appointment is being changed to a `cancelled` state. |
+
+
 ## Response ##
 
 ### Success ###
@@ -35,11 +42,6 @@ Where the request succeeded, the response **MUST** include a status of `200` **O
 The response **MUST** include a Location header giving the absolute URL of the created Appointment. This URL **MUST** remain stable, and the resource **SHOULD** support RESTful updates using a PUT request to this URL.
 The response body **MUST** include the updated Appointment, this resource **MUST** include the newly assigned versionId of the resource.
 
-The following data items in the <a href='get_an_appointment.html'>retrieved Appointment</a> resource **MUST** be changed as defined:
-
-| Name | Value | Description |
-|---|---|---|
-| status | `cancelled` | Indicates that the Appointment is being changed to a `cancelled` state. |
 
 **No other elements of the Appointment resource may be changed.**
 

@@ -2,7 +2,7 @@
 title: Registry Overview
 keywords: homepage
 sidebar: overview_sidebar
-permalink: registry_overview.html
+permalink: registry_overview_old.html
 toc: false
 summary: An overview of the Appointment Registry
 ---

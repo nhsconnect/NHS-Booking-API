@@ -55,6 +55,7 @@ Parameter values for both _include and _revinclude have three parts, separated b
 | `&_include=HealthcareService:Organization` | Include Organization Resources referenced within the returned HealthcareService Resources | `HealthcareService:Organization` |
 | `&_include=HealthcareService:Location` | Include Location Resources referenced within the returned HealthcareService Resources | `HealthcareService:Location` |
 
+In the event that an include is formed part of a slot request, but the providing system does not hold that the data then the providing system should return an empty element for that data item.  Available slots must still be returned to the consumer and the booking of these slots supported.  
 
 
 ## _format ##
