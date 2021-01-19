@@ -50,7 +50,7 @@ The Appointment resource **MUST** include the following data items:
 | contained[2] | [1..1] | A Contained Slot resource conforming to <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Slot-1'>CareConnect-Slot-1</a> profile. | **See example resource below** |
 | start | [1..1] | The time the Appointment starts in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:00:00.000Z` |
 | end | [1..1] | The time the Appointment ends in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) | `2019-01-17T15:10:00.000Z` |
-| created | [1..1] | The date and time the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). | `2019-01-17T14:00:00.000Z` |
+| created | [1..1] | The date and time the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). <br/>  This is set by the PROVIDER not the CONSUMER.| `2019-01-17T14:00:00.000Z` |
 | description | [1..1] | Text describing the need for the appointment, to be shown for example in an appointment list. Note that developers should follow guidance for their use case as to appropriate content in this field. | 111 Referral |
 | slot | [1..1] | The Slot that this appointment is booked into | [ { "reference": "#slot002" } ] |
 | supportingInformation | [1..1] | Reference to a contained resource (see below) which describes an associated document, that SHOULD be present if available. | [ { "reference": "#123" } ] |
