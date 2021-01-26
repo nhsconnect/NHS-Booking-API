@@ -49,11 +49,11 @@ Parameter values for both _include and _revinclude have three parts, separated b
 | Name | Description | Paths |
 |---|---|---|
 | `&_include=Slot:schedule` | Include Schedule Resources referenced within the returned Slot Resources | `Slot.schedule` |
-| `&_include=Schedule:actor:Practitioner` | Include Practitioner Resources referenced within the returned Schedule Resources | `Schedule:actor:Practitioner` |
-| `&_include=Schedule:actor:PractitionerRole` | Include Practitioner Role Resources referenced within the returned Schedule Resources | `Schedule:actor:PractitionerRole` |
-| `&_include=Schedule:actor:HealthcareService` | Include HealthcareService Resources referenced within the returned Schedule Resources | `Schedule:actor:HealthcareService` |
-| `&_include=HealthcareService:Organization` | Include Organization Resources referenced within the returned HealthcareService Resources | `HealthcareService:Organization` |
-| `&_include=HealthcareService:Location` | Include Location Resources referenced within the returned HealthcareService Resources | `HealthcareService:Location` |
+| `&_include:iterate=Schedule:actor:Practitioner` | Include Practitioner Resources referenced within the returned Schedule Resources | `Schedule:actor:Practitioner` |
+| `&_include:iterate=Schedule:actor:PractitionerRole` | Include Practitioner Role Resources referenced within the returned Schedule Resources | `Schedule:actor:PractitionerRole` |
+| `&_include:iterate=Schedule:actor:HealthcareService` | Include HealthcareService Resources referenced within the returned Schedule Resources | `Schedule:actor:HealthcareService` |
+| `&_include:iterate=HealthcareService:Organization` | Include Organization Resources referenced within the returned HealthcareService Resources | `HealthcareService:Organization` |
+| `&_include:iterate=HealthcareService:Location` | Include Location Resources referenced within the returned HealthcareService Resources | `HealthcareService:Location` |
 
 In the event that an include is formed part of a slot request, but the providing system does not hold that the data then the providing system should return an empty element for that data item.  Available slots must still be returned to the consumer and the booking of these slots supported.  
 
@@ -81,10 +81,10 @@ http://[FHIR base URL]/Slot<br />
 &start=le2019-05-09T10:30:00+00:00<br />
 &status=free<br />
 &_include=Slot:schedule<br />
-&_include=Schedule:actor:Practitioner<br />
-&_include=Schedule:actor:PractitionerRole<br />
-&_include=Schedule:actor:HealthcareService<br />
-&_include=HealthcareService.location<br />
+&_include:iterate=Schedule:actor:Practitioner<br />
+&_include:iterate=Schedule:actor:PractitionerRole<br />
+&_include:iterate=Schedule:actor:HealthcareService<br />
+&_include:iterate=HealthcareService.location<br />
 &_format=json
 </td>
 </tr>
