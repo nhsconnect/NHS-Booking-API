@@ -16,7 +16,7 @@ summary: A booking of a healthcare event among patient(s), related person(s) and
 ## Introduction ##
 This resource is used in two closely linked but very different scenarios.
 
-
+{% include custom/fhir.reference.html resource="Appointment" page="CareConnect-Appointment-1" fhirname="Appointment" fhirlink="appointment.html" content="-" userlink="" %}
 
 
 
