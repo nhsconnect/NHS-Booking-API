@@ -27,7 +27,6 @@ Servers **MUST** support the following search parameters that MAY be passed to t
 | `service` | `token` | The appropriate service id of the service for which Slots are being requested | `schedule.actor:healthcareservice` |
 | `status` | `token` | The free/busy status of the slots | `status` |
 | `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
-| `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
 
 **NB start is included twice to allow for the definition of the start and end of 'The time window within which Slots must start'.**
 **Additional query parameters MAY be used. However, if these are not supported by the Server, they SHOULD be ignored.**
@@ -48,7 +47,7 @@ Parameter values for both _include and _revinclude have three parts, separated b
 
 | Name | Description | Paths |
 |---|---|---|
-| `&_include=Slot:schedule` | Include Schedule Resources referenced within the returned Slot Resources | `Slot.schedule` |
+| `&_include=Slot:schedule` | Include Schedule Resources referenced within the returned Slot Resources | `Slot:schedule` |
 | `&_include:iterate=Schedule:actor:Practitioner` | Include Practitioner Resources referenced within the returned Schedule Resources | `Schedule:actor:Practitioner` |
 | `&_include:iterate=Schedule:actor:PractitionerRole` | Include Practitioner Role Resources referenced within the returned Schedule Resources | `Schedule:actor:PractitionerRole` |
 | `&_include:iterate=Schedule:actor:HealthcareService` | Include HealthcareService Resources referenced within the returned Schedule Resources | `Schedule:actor:HealthcareService` |
