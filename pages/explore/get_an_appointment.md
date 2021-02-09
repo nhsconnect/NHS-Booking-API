@@ -149,8 +149,7 @@ The Slot resource **MUST** include the following data items:
             "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
         ]
     },
-    "language": "en",
-    "text": {
+    "language": "en-GB
         "status": "generated",
         "div": "Appointment"
     },
@@ -184,7 +183,7 @@ The Slot resource **MUST** include the following data items:
                 {
                     "attachment": {
                         "contentType": "application/hl7-v3+xml",
-                        "language": "en"
+                        "language": "en-GB"
                     }
                 }
             ]
