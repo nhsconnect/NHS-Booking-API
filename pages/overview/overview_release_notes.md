@@ -7,6 +7,25 @@ permalink: overview_release_notes.html
 
 {% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
+## 2.0.2-beta Released: 19-10-20 ##
+
+- Resources Overview page has been updated to reflect a generic use case.
+- Guidance around Location resource has been updated.
+- Additional guidance added regarding _include_ and _revinclude_ parameters
+- Element _Id_ has been replaced with _identifier_ for HealthcareService resource.
+- Updated the description for _id_ for the Schedule resource.
+- Practitioner and PractitionerRole pages have been removed.
+- Appointment example has been fixed to reflect the correct format for references.
+- Appointment.created element datatype has been changed from Instant to dateTime to reflect the profile.
+- References to the registry function has been removed.
+- Additional guidance added to the Appointment.created element.
+- Narrative added to the diagrams on the profile overview page.
+- New page added for the the Bundle resource.
+- Addition of a new FHIR SearchParameter required for searching slots.
+- Guidance added for outputting data in different formats.
+- Additional guidance added for the patient.telecom element.
+
+
 ## 2.0.1-beta Released: 19-10-20 ##
 
 - Updated description for 'supportingInfo' element for the Appointment resource.
