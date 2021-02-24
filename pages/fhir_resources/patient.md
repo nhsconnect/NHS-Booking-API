@@ -102,6 +102,17 @@ The Patient resource **MUST** include the following data items*:
     ],
 	"contact":  [
         {
+	"relationship": [
+		{
+			"coding": [
+			{
+				"system": "http://hl7.org/fhir/v2/0131",
+				"code": "N",
+				"display": "Next-of-Kin"
+			}
+				]
+		}
+		  ],
             "name": {
                 "use": "official",
                 "family": "Smith",
@@ -116,7 +127,8 @@ The Patient resource **MUST** include the following data items*:
                 {
                     "system": "phone",
                     "value": "01234 588 187",
-                    "use": "home"
+                    "use": "home",
+		"rank": 2
                 }
             ]
         }

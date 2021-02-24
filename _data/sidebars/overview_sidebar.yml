@@ -52,7 +52,10 @@ entries:
     - title: Location
       url: /location.html
       output: web
-
+    - title: CapabilityStatement
+      url: /capabilitystatement.html
+      output: web
+      
   - title: Development
     output: web
     folderitems:

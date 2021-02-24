@@ -11,7 +11,7 @@ summary: A Healthcare Service delivered by an Organisation at a Location which p
 ## Introduction ##
 This resource is optionally returned linked to a <a href='schedule.html'>Schedule resource</a> which provides one or more <a href='slot.html'>Slots</a>. For more clarification see <a href='resources_overview.html#urgent--emergency-care-appointments-apis'>the diagram on the FHIR Resources overview page</a>.
 
-The HealthcareService.id is a key search field used when <a href='search_free_slots.html'>searching for Slots</a>. HealthcareService.id is used to discriminate between multiple clinical services which may be administered by one <a href='organisation.html'>organisation</a>, using one instance of a system. This allows the search to specify a detailed clinical service which has been located in the DoS following a clinical assessment.
+The HealthcareService.id is a key search field used when <a href='search_free_slots.html'>searching for Slots</a>. HealthcareService.id is used to discriminate between multiple clinical services which may be administered by one <a href='organisation.html'>organisation</a>, using one instance of a system. This allows the search to specify a detailed clinical service which has been located following an assessment.
 
 {% include custom/fhir.reference.html resource="HealthcareService" page="CareConnect-HealthcareService-1" fhirname="HealthcareService" fhirlink="healthcare_service.html" content="-" userlink="" %}
 

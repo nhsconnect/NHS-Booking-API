@@ -25,7 +25,7 @@ Servers **MUST** support the following search parameters that MAY be passed to t
 | Name | Type | Description | Paths |
 |---|---|---|---|
 | `service` | `token` | The appropriate service id of the service for which Slots are being requested. <br/> A FHIR SearchParameter has been defined [here](https://fhir.nhs.uk/STU3/SearchParameter/apiBooking-SearchSlots-Service-1). | `schedule.actor:healthcareservice` |
-| `status` | `token` | The free/busy status of the slots | `status` |
+| `status` | `token` | The free/busy status of the slots <br/> Servers must support searching for all statuses using the format `status=status1,status2...` <br/> | `status` |
 | `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
 | `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
 
@@ -34,11 +34,14 @@ Servers **MUST** support the following search parameters that MAY be passed to t
 
 ## _include parameters ##
 
-Provider systems **MUST** support the following include parameters. However, if a resource is not supported, then only supported resources **MUST** be returned, rather than an error: 
+Provider systems **SHOULD** support the following include parameters. However, if a resource is not supported, then only supported resources **MUST** be returned, rather than an error.
+
+Consumer systems should not expect all resources to be returned. If the resource is not supported by the provider, then the resource will simply not be returned and no error will be displayed. 
+
 
 ### Parameter format ###
 
-Parameter values for both _include and _revinclude have three parts, separated by a : character:
+Parameter values for both `_include` and `_revinclude` have three parts, separated by a `:` character:
 
 - The name of the source resource from which the join comes
 - The name of the search parameter which must be of type reference
@@ -84,7 +87,7 @@ http://[FHIR base URL]/Slot<br />
 &_include:iterate=Schedule:actor:Practitioner<br />
 &_include:iterate=Schedule:actor:PractitionerRole<br />
 &_include:iterate=Schedule:actor:HealthcareService<br />
-&_include:iterate=HealthcareService.location<br />
+&_include:iterate=HealthcareService:location<br />
 &_format=json
 </td>
 </tr>
