@@ -101,16 +101,16 @@ The Patient resource **MUST** include the following data items*:
         }
     ],
 	"contact":  [
-        {
+    {
 	"relationship": [
-		{
-			"coding": [
-			{
-				"system": "http://hl7.org/fhir/v2/0131",
-				"code": "N",
-				"display": "Next-of-Kin"
-			}
-				]
+	{
+	"coding": [
+	{
+		"system": "http://hl7.org/fhir/v2/0131",
+		"code": "N",
+		"display": "Next-of-Kin"
+	}
+		]
 		}
 		  ],
             "name": {
@@ -128,7 +128,7 @@ The Patient resource **MUST** include the following data items*:
                     "system": "phone",
                     "value": "01234 588 187",
                     "use": "home",
-		"rank": 2
+		    "rank": 2
                 }
             ]
         }
