@@ -25,7 +25,7 @@ Servers **MUST** support the following search parameters that MAY be passed to t
 | Name | Type | Description | Paths |
 |---|---|---|---|
 | `service` | `token` | The appropriate service id of the service for which Slots are being requested. <br/> A FHIR SearchParameter has been defined [here](https://fhir.nhs.uk/STU3/SearchParameter/apiBooking-SearchSlots-Service-1). | `schedule.actor:healthcareservice` |
-| `status` | `token` | The free/busy status of the slots <br/> Servers must support searching for all statuses using the format `status=status1,status2...` <br/> | `status` |
+| `status` | `token` | The free/busy status of the slots <br/> Servers must support searching for all statuses. To search for more than one status, use the format `status=status1,status2...` <br/> | `status` |
 | `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
 | `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
 
