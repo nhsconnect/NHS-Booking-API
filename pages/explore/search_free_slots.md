@@ -1,9 +1,9 @@
 ---
-title: Search for free slots
+title: Search for slots
 keywords: getcarerecord, structured, rest, resource
 sidebar: foundations_sidebar
-permalink: search_free_slots.html
-summary: "Details the Search for free slots interaction"
+permalink: search_slots.html
+summary: "Details the Search for slots interaction"
 ---
 
 {% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
@@ -98,7 +98,7 @@ http://[FHIR base URL]/Slot<br />
 ### Success ###
 Provider systems:
 
-- **MUST** return a `200` **OK** HTTP status code on successful retrieval of "free" slot details.
+- **MUST** return a `200` **OK** HTTP status code on successful retrieval of slot details.
 - **MUST** include the  `Slot` resources which meet the requested criteria.
 - **MAY** implement <a href='http://hl7.org/fhir/STU3/http.html#paging'>paging as described here</a> to limit the number of resources returned.
 - **MAY** implement an upper limit on returned Slots that excludes Slots which would fall into the requested time window.

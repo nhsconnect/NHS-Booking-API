@@ -24,7 +24,7 @@ permalink: overview_release_notes.html
 - Addition of a new FHIR SearchParameter required for searching slots.
 - Guidance added for outputting data in different formats.
 - Additional guidance added for the patient.telecom element.
-
+- CapabilityStatement page added
 
 ## 2.0.1-beta Released: 19-10-20 ##
 

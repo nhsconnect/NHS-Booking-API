@@ -62,8 +62,8 @@ entries:
     - title: Overview
       url: /developing.html
       output: web
-    - title: Search for free slots
-      url: /search_free_slots.html
+    - title: Search for slots
+      url: /search_slots.html
       output: web
     - title: Book an appointment
       url: /book_an_appointment.html
