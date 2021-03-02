@@ -25,37 +25,37 @@ entries:
     - title: Overview FHIR Profiles
       url: /resources_overview.html
       output: web
+    - title: Appointment
+      url: /appointment.html
+      output: web
     - title: Bundle
       url: /bundle.html
+      output: web  
+    - title: CapabilityStatement
+      url: /capabilitystatement.html
+      output: web
+    - title: DocumentReference
+      url: /document_reference.html
+      output: web      
+    - title: HealthcareService
+      url: /healthcare_service.html
+      output: web
+    - title: Location
+      url: /location.html
+      output: web      
+    - title: Organization
+      url: /organisation.html
+      output: web      
+    - title: Patient
+      url: /patient.html
+      output: web
+    - title: Schedule
+      url: /schedule.html
       output: web      
     - title: Slot
       url: /slot.html
       output: web
-    - title: HealthcareService
-      url: /healthcare_service.html
-      output: web
-    - title: Schedule
-      url: /schedule.html
-      output: web
-    - title: Appointment
-      url: /appointment.html
-      output: web
-    - title: Patient
-      url: /patient.html
-      output: web
-    - title: DocumentReference
-      url: /document_reference.html
-      output: web
-    - title: Organization
-      url: /organisation.html
-      output: web
-    - title: Location
-      url: /location.html
-      output: web
-    - title: CapabilityStatement
-      url: /capabilitystatement.html
-      output: web
-      
+
   - title: Development
     output: web
     folderitems:
