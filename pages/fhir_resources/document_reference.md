@@ -22,10 +22,10 @@ The DocumentReference resource **MUST** include the following data items:
 
 | Name | Value | Description |
 |---|---|---|
-| id | Any | Any identifier, used to reference the resource from the `supportingInformation` element in the containing <a href='appointment.html'>Appointment</a> resource. |
+| id | Any | An id which is unique within the containing Appointment resource. |
 | identifier | see below | Identifies the supporting information (e.g. CDA document). |
 | identifier.system | `https://tools.ietf.org/html/rfc4122` | Indicates that the associated value is a UUID. |
-| identifier.value | [UUID] | The UUID of the associated document. |
+| identifier.value | string | The UUID of the associated document. |
 | status | "current" | Indicates that the associated document is current. No other value is expected. |
 | type | A value from `urn:oid:2.16.840.1.113883.2.1.3.2.4.18.17` | Indicates the type of document. |
 | content | see below | Describes the actual document. |

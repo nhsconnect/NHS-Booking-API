@@ -2,7 +2,7 @@
 title: Practitioner | Urgent & Emergency Care Appointments
 keywords: getcarerecord, structured, rest, patient
 sidebar: accessrecord_rest_sidebar
-permalink: practitioner.html
+permalink: practitioner_old.html
 summary: A practitioner optionally linked to a Slot in Appointment booking.
 ---
 

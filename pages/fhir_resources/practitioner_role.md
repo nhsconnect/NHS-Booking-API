@@ -2,7 +2,7 @@
 title: Practitioner Role | Urgent & Emergency Care Appointments
 keywords: getcarerecord, structured, rest, patient
 sidebar: accessrecord_rest_sidebar
-permalink: practitioner_role.html
+permalink: practitioner_role_old.html
 summary: A practitioner role optionally linked to a Schedule in Appointment booking.
 ---
 

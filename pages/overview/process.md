@@ -151,9 +151,6 @@ This is the process of the Consuming system user and the Patient agreeing on the
 ### Book ###
 This is the process of sending a booked appointment, including details of the Patient and an associated (CDA) document from the Consuming system to the Provider system, and is <a href='book_an_appointment.html'>described in detail here</a>.
 
-## Registering the Appointment ##
-As described booked Appointments subsequently need to be <a href='registry.html'>registered in the Registry</a>.
-
 ## Quick Links ##
 
 FHIR Profiles: <a href="resources_overview.html">NHS Booking FHIR Profiles</a><br/>

@@ -8,12 +8,9 @@ summary: "Details the Search for appointments for a given Patient"
 
 {% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
-## Use cases ##
+## Use case ##
 
-1 A system requests appointments from the registry which have been registered for a specific patient.
-**NB The registry has not yet been delivered.**
-
-2 A system requests appointments which have been registered for a specific patient from a Provider system.
+A system requests appointments which have been registered for a specific patient from a Provider system.
 
 ## Security ##
 
@@ -22,11 +19,21 @@ summary: "Details the Search for appointments for a given Patient"
 
 ## Search parameters ##
 
-The registry and Provider systems support the following search parameters that SHOULD be passed to the API:
+The provider systems support the following search parameters that SHOULD be passed to the API:
 
 | Name | Type | Description | Paths |
 |---|---|---|---|
 | `Patient` | reference | The national service identifier of the Patient for whom Slots are being requested | `Appointment.participant.actor` |
+
+
+## _format ##
+
+The request can be formatted to the following MIME types:
+
+|--|--|
+|JSON|`_format=xml`|
+|XML|`_format=json`|
+
 
 ## RESTful Query ##
 
@@ -46,12 +53,6 @@ http://[FHIR base URL]/Appointment<br>
 ## Response ##
 
 ### Success ###
-The Registry:
-
-- WILL return a `200` **OK** HTTP status code on successful retrieval of Appointments.
-- WILL include the (Zero to Many) `Appointment` resources which meet the requested criteria.
-- WILL NOT implement <a href='http://hl7.org/fhir/STU3/http.html#paging'>paging as described here</a> to limit the number of resources returned.
-- WILL implement a limit such that Appointments in the past will not be returned.
 
 Provider systems:
 
@@ -61,13 +62,6 @@ Provider systems:
 - SHOULD implement a limit such that Appointments in the past will not be returned.
 
 ### Failure ###
-The registry:
-
-- If the request fails because either no valid JWT is supplied or the supplied JWT failed validation, the response WILL include a status of `403` **Forbidden**.
-This WILL be accompanied by an OperationOutcome resource providing additional detail.
-
-- If the request fails because the query string parameters were invalid or unsupported, the response WILL include a status of `400` **Bad Request**.
-- If the request fails because of a server error, the response WILL include a status of `500` **Internal Server Error**.
 
 Provider systems:
 
@@ -91,7 +85,7 @@ The response body WILL be a FHIR `Bundle` resource containing zero to many Appoi
 | status | `booked` \| `cancelled` \| `entered in error` | Indicates the status of the Appointment. |
 | start | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) of when the Appointment starts |
 | end | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) of when the Appointment ends |
-| created | instant | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). |
+| created | dateTime | The date and time the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). |
 | participant | reference | A <a href='https://nhsconnect.github.io/fhir-policy/national-services.html#FHIR-NAT-01'>national service reference</a> to the Patient for whom this Appointment was booked, for example: `https://demographics.spineservices.nhs.uk/1234567890` where the Patient's NHS Number is 1234567890 |
 
 ## Sample response ##

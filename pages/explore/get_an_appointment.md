@@ -10,8 +10,7 @@ summary: "Details the Get a specific appointment"
 
 ## Use case ##
 
-A system requests a specific appointment from either the registry or a Provider system.
-**NB The registry has not yet been delivered.**
+A system requests a specific appointment from a Provider system.
 
 ## Security ##
 
@@ -46,11 +45,6 @@ http://[FHIR base URL]/Appointment/eef4f241-e276-4c9e-8d1f-6d12dcdc0086/_history
 ## Response ##
 
 ### Success ###
-The Registry:
-
-- WILL return a `200` **OK** HTTP status code on successful retrieval of the Appointment.
-- WILL include the specified `Appointment` resource.
-
 A Provider system:
 
 - WILL return a `200` **OK** HTTP status code on successful retrieval of the Appointment.
@@ -72,18 +66,6 @@ Failure responses with a `500` status MAY be retried.
 ## Response body structure ##
 The successful response body WILL be a FHIR `Appointment` resource, meeting <a href='https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1'>the appropriate profile</a>.
 
-### From the registry ###
-Where the request is made against the registry, the returned resource will ONLY contain limited details as defined in <a href='register_an_appointment.html'>Register an Appointment</a>, specifically:
-
-| Name | Value | Description |
-|---|---|---|
-| id | `[id]` | Identifier of the resource |
-| versionId | `[id]` | Version specific identifier of the resource |
-| status | `booked` \| `cancelled` \| `entered in error` | Indicates the state of the Appointment. |
-| start | instant | A full timestamp in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) of when the Appointment starts |
-| created | instant | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). |
-| participant | reference | A reference to the Patient for whom this Appointment was booked, for example: `https://demographics.spineservices.nhs.uk/1234567890` where the Patient's NHS Number is 1234567890 |
-
 ### From a provider system ###
 Where the request is made against a provider system, the resource will contain the details as defined in <a href='book_an_appointment.html'>Book an Appointment</a>, specifically:
 
@@ -97,7 +79,7 @@ Where the request is made against a provider system, the resource will contain t
 | supportingInformation | reference | A reference to a contained resource (see below) which describes an associated document. |
 | description | Call reason | Text describing the need for the appointment, to be shown for example in an appointment list |
 | slot | reference | A reference to a contained resource (see below) which describes the Slot for this Appointment |
-| created | instant | The date the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
+| created | dateTime | The date and time the appointment was initially created in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601) |
 | participant | reference | A reference to a contained resource (see below) which describes the Patient for whom this Appointment is being booked |
 
 ### Contained resources ###
@@ -155,36 +137,6 @@ The Slot resource **MUST** include the following data items:
 | schedule | Reference(Schedule) |  Identifies the Schedule, which links the Slot to a HealthcareService, and optionally to a <a href='practitioner.html'>Practitioner</a> and <a href='practitioner_role.html'>PractitionerRole</a> |
 
 
-## Sample response from the registry ##
-
-```xml
-<Appointment xmlns="http://hl7.org/fhir">
-    <id value="8f9312e1-ec99-4369-a511-d8f9882d4388"></id>
-    <meta>
-        <versionId value="1"></versionId>
-        <profile value="https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"></profile>
-    </meta>
-    <identifier>
-        <system value="urn:ietf:rfc:3986"></system>
-        <value value="http://test.nhs.uk/test3"></value>
-    </identifier>
-    <status value="booked"></status>
-    <start value="2019-02-01T10:51:23.620+00:00"></start>
-    <end value="2019-02-01T11:11:23.620+00:00"></end>
-    <created value="2019-01-06T10:43:22+00:00"></created>
-    <participant>
-        <actor>
-            <identifier>
-                <use value="official"></use>
-                <system value="https://fhir.nhs.uk/Id/nhs-number"></system>
-                <value value="1234554321"></value>
-            </identifier>
-        </actor>
-        <status value="accepted"/>
-    </participant>
-</Appointment>
-```
-
 ## Sample response from a Provider system ##
 
 ```json
@@ -197,8 +149,7 @@ The Slot resource **MUST** include the following data items:
             "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Appointment-1"
         ]
     },
-    "language": "en",
-    "text": {
+    "language": "en-GB
         "status": "generated",
         "div": "Appointment"
     },
@@ -232,7 +183,7 @@ The Slot resource **MUST** include the following data items:
                 {
                     "attachment": {
                         "contentType": "application/hl7-v3+xml",
-                        "language": "en"
+                        "language": "en-GB"
                     }
                 }
             ]

@@ -25,4 +25,4 @@ The following FHIR elements are key to this implementation :
 | status | [1..1] | The current status of the Slot. | One of `busy` \| `free` |
 | start | [1..1] | The start time of this Slot in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). | `2019-01-17T15:00:00.000Z` |
 | end | [1..1] | The end time of this Slot in <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>FHIR instant</a> format (ISO 8601). | `2019-01-17T15:30:00.000Z` |
-| schedule | [1..1] | Identifies the Schedule, which links the Slot to a HealthcareService, and optionally to a <a href='practitioner.html'>Practitioner</a> and <a href='practitioner_role.html'>PractitionerRole</a>. | `{ "reference": "Schedule/0dbff4a3-fa40-4f9f-93fe-412c2a6c967e" }` |
+| schedule | [1..1] | Identifies the Schedule which is associated to the Slot.| `{ "reference": "Schedule/0dbff4a3-fa40-4f9f-93fe-412c2a6c967e" }` |

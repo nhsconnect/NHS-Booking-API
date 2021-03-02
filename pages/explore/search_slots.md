@@ -1,9 +1,9 @@
 ---
-title: Search for free slots
+title: Search for slots
 keywords: getcarerecord, structured, rest, resource
 sidebar: foundations_sidebar
-permalink: search_free_slots.html
-summary: "Details the Search for free slots interaction"
+permalink: search_slots.html
+summary: "Details the Search for slots interaction"
 ---
 
 {% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
@@ -24,8 +24,8 @@ Servers **MUST** support the following search parameters that MAY be passed to t
 
 | Name | Type | Description | Paths |
 |---|---|---|---|
-| `service` | `token` | The appropriate service id of the service for which Slots are being requested | `schedule.actor:healthcareservice` |
-| `status` | `token` | The free/busy status of the slots | `status` |
+| `service` | `token` | The appropriate service id of the service for which Slots are being requested. <br/> A FHIR SearchParameter has been defined [here](https://fhir.nhs.uk/STU3/SearchParameter/apiBooking-SearchSlots-Service-1). | `schedule.actor:healthcareservice` |
+| `status` | `token` | The free/busy status of the slots <br/> Servers must support searching for all statuses. To search for more than one status, use the format `status=status1,status2...` <br/> | `status` |
 | `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
 | `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
 
@@ -34,16 +34,40 @@ Servers **MUST** support the following search parameters that MAY be passed to t
 
 ## _include parameters ##
 
-Provider systems **MUST** support the following include parameters. However, if a resource is not supported, then only supported resources **MUST** be returned, rather than an error:
+Provider systems **SHOULD** support the following include parameters. However, if a resource is not supported, then only supported resources **MUST** be returned, rather than an error.
+
+Consumer systems should not expect all resources to be returned. If the resource is not supported by the provider, then the resource will simply not be returned and no error will be displayed. 
+
+
+### Parameter format ###
+
+Parameter values for both `_include` and `_revinclude` have three parts, separated by a `:` character:
+
+- The name of the source resource from which the join comes
+- The name of the search parameter which must be of type reference
+- (Optional) A specific of type of target resource (for when the search parameter refers to multiple possible target types)
+
+
 
 | Name | Description | Paths |
 |---|---|---|
-| `&_include=Slot:schedule` | Include Schedule Resources referenced within the returned Slot Resources | `Slot.schedule` |
-| `&_include=Schedule:actor:Practitioner` | Include Practitioner Resources referenced within the returned Schedule Resources | `Schedule:actor:Practitioner` |
-| `&_include=Schedule:actor:PractitionerRole` | Include Practitioner Role Resources referenced within the returned Schedule Resources | `Schedule:actor:PractitionerRole` |
-| `&_include=Schedule:actor:HealthcareService` | Include HealthcareService Resources referenced within the returned Schedule Resources | `Schedule:actor:HealthcareService` |
-| `&_include=HealthcareService.providedBy` | Include Organization Resources referenced within the returned HealthcareService Resources | `HealthcareService.providedBy` |
-| `&_include=HealthcareService.location` | Include Location Resources referenced within the returned HealthcareService Resources | `HealthcareService.location` |
+| `&_include=Slot:schedule` | Include Schedule Resources referenced within the returned Slot Resources | `Slot:schedule` |
+| `&_include:iterate=Schedule:actor:Practitioner` | Include Practitioner Resources referenced within the returned Schedule Resources | `Schedule:actor:Practitioner` |
+| `&_include:iterate=Schedule:actor:PractitionerRole` | Include Practitioner Role Resources referenced within the returned Schedule Resources | `Schedule:actor:PractitionerRole` |
+| `&_include:iterate=Schedule:actor:HealthcareService` | Include HealthcareService Resources referenced within the returned Schedule Resources | `Schedule:actor:HealthcareService` |
+| `&_include:iterate=HealthcareService:Organization` | Include Organization Resources referenced within the returned HealthcareService Resources | `HealthcareService:Organization` |
+| `&_include:iterate=HealthcareService:Location` | Include Location Resources referenced within the returned HealthcareService Resources | `HealthcareService:Location` |
+
+In the event that an include is formed part of a slot request, but the providing system does not hold that the data then the providing system should return an empty element for that data item.  Available slots must still be returned to the consumer and the booking of these slots supported.  
+
+
+## _format ##
+
+The request can be formatted to the following MIME types:
+
+|--|--|
+|JSON|`_format=xml`|
+|XML|`_format=json`|
 
 ## RESTful Query ##
 
@@ -60,10 +84,10 @@ http://[FHIR base URL]/Slot<br />
 &start=le2019-05-09T10:30:00+00:00<br />
 &status=free<br />
 &_include=Slot:schedule<br />
-&_include=Schedule:actor:Practitioner<br />
-&_include=Schedule:actor:PractitionerRole<br />
-&_include=Schedule:actor:HealthcareService<br />
-&_include=HealthcareService.location<br />
+&_include:iterate=Schedule:actor:Practitioner<br />
+&_include:iterate=Schedule:actor:PractitionerRole<br />
+&_include:iterate=Schedule:actor:HealthcareService<br />
+&_include:iterate=HealthcareService:location<br />
 &_format=json
 </td>
 </tr>
@@ -74,7 +98,7 @@ http://[FHIR base URL]/Slot<br />
 ### Success ###
 Provider systems:
 
-- **MUST** return a `200` **OK** HTTP status code on successful retrieval of "free" slot details.
+- **MUST** return a `200` **OK** HTTP status code on successful retrieval of slot details.
 - **MUST** include the  `Slot` resources which meet the requested criteria.
 - **MAY** implement <a href='http://hl7.org/fhir/STU3/http.html#paging'>paging as described here</a> to limit the number of resources returned.
 - **MAY** implement an upper limit on returned Slots that excludes Slots which would fall into the requested time window.

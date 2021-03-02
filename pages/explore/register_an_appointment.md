@@ -2,7 +2,7 @@
 title: Register an appointment
 keywords: getcarerecord, structured, rest, resource
 sidebar: foundations_sidebar
-permalink: register_an_appointment.html
+permalink: register_an_appointment_old.html
 summary: "Details the register an Appointment interaction"
 ---
 

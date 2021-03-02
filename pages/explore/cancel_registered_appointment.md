@@ -2,7 +2,7 @@
 title: Cancel a registered appointment
 keywords: getcarerecord, structured, rest, resource
 sidebar: foundations_sidebar
-permalink: cancel_registered_appointment.html
+permalink: cancel_registered_appointment_old.html
 summary: "Details the Cancel a Registered Appointment interaction"
 ---
 
