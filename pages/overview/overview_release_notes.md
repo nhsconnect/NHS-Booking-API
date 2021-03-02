@@ -7,7 +7,7 @@ permalink: overview_release_notes.html
 
 {% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
-## 2.0.2-beta Released: 19-10-20 ##
+## 2.0.2-beta Released: 02-03-21 ##
 
 - Resources Overview page has been updated to reflect a generic use case.
 - Guidance around Location resource has been updated.
