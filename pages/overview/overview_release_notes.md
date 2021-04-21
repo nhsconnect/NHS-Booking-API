@@ -7,6 +7,10 @@ permalink: overview_release_notes.html
 
 {% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
+## 2.0.3 Released: 23-04-21 ##
+
+- Corrected the CapabilityStatement example to add the additional 'start' search parameter.
+
 ## 2.0.2-beta Released: 02-03-21 ##
 
 - Resources Overview page has been updated to reflect a generic use case.
