@@ -11,7 +11,6 @@ permalink: overview_release_notes.html
 
 - Corrected the CapabilityStatement example to add the additional 'start' search parameter.
 
-
 ## 2.0.2-beta Released: 02-03-21 ##
 
 - Resources Overview page has been updated to reflect a generic use case.
