@@ -27,10 +27,9 @@ Servers **MUST** support the following search parameters that MAY be passed to t
 | `service` | `token` | The appropriate service id of the service for which Slots are being requested. <br/> A FHIR SearchParameter has been defined [here](https://fhir.nhs.uk/STU3/SearchParameter/apiBooking-SearchSlots-Service-1). | `schedule.actor:healthcareservice` |
 | `status` | `token` | The free/busy status of the slots <br/> Servers must support searching for all statuses. To search for more than one status, use the format `status=status1,status2...` <br/> | `status` |
 | `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
-| `start` | `dateTime` | Slot start date/time. A `dateTime` or `Instant` in the format `yyyy-mm-ddThh:mm:ss+hh:mm`. | `start` |
 
-**NB start is included twice to allow for the definition of the start and end of 'The time window within which Slots must start'.**
-**Additional query parameters MAY be used. However, if these are not supported by the Server, they SHOULD be ignored.**
+**NB to search for time windows within which Slots must start, use "greater than" and "less than" searching - for example GET [base]Slot?start=ge2010-01-01&start=le2011-12-31.**
+**Additional query parameters MAY be used. However, if these are not supported by the Server, they SHOULD be ignored**
 
 ## _include parameters ##
 

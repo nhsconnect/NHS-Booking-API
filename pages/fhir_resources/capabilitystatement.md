@@ -169,11 +169,6 @@ An example Care Connect UEC Appointment CapabilityStatement is shown below ready
               "name": "start",
               "type": "date"
             },
-            {
-              "name": "start",
-              "type": "date"
-            }
-
           ]
         }
       ],
