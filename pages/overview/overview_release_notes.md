@@ -7,9 +7,9 @@ permalink: overview_release_notes.html
 
 {% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
 
-## 2.0.4-beta Released: 04-06-21 ##
+## 2.0.4-beta Released: 08-06-21 ##
 
-- The CapabilityStatement and search for slot pages have been changed. Only one start time slot should be present and the user should use 'Greater than' or 'Less than' within a single slot value to replicate the start and end date search functionality.
+- The 'CapabilityStatement' and 'Search for slots' pages have been changed. Only one start time slot should be present and the user should use 'Greater than' or 'Less than' within a single slot value to replicate the start and end date search functionality.
 
 ## 2.0.3 Released: 23-04-21 ##
 
