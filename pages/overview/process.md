@@ -154,7 +154,7 @@ This is the process of sending a booked appointment, including details of the Pa
 ## Quick Links ##
 
 FHIR Profiles: <a href="resources_overview.html">NHS Booking FHIR Profiles</a><br/>
-How to Search for a free slot: <a href="search_free_slots.html">Search free slots</a><br/>
+How to Search for Slots: <a href="search_slots.html">Search Slots</a><br/>
 How to Book an Appointment: <a href="book_an_appointment.html">Book an Appointment</a>
 
 ## Glossary ##
