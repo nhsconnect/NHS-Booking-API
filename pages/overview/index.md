@@ -26,4 +26,4 @@ How to Book an Appointment: <a href="book_an_appointment.html">Book an Appointme
 
 ## Glossary ##
 
-A full list of Glossary terms used by NHS Projects can be found at the <a href="https://developer.nhs.uk/library/glossary/" target="_blank">NHS Developer Network - Glossary</a>.
+A full list of the Glossary terms used by NHS Projects can be found at the <a href="https://developer.nhs.uk/library/glossary/" target="_blank">NHS Developer Network - Glossary</a>.

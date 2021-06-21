@@ -21,9 +21,9 @@ This specification does not cover the transfer of the supporting information (cu
 ## Quick Links ##
 
 FHIR Profiles: <a href="resources_overview.html">NHS Booking FHIR Profiles</a><br/>
-How to Search for a free slot: <a href="search_free_slots.html">Search free slots</a><br/>
+How to Search for Slots: <a href="search_slots.html">Search Slots</a><br/>
 How to Book an Appointment: <a href="book_an_appointment.html">Book an Appointment</a>
 
 ## Glossary ##
 
-A full list of Glossary terms used by NHS Projects can be found at the <a href="https://developer.nhs.uk/library/glossary/" target="_blank">NHS Developer Network - Glossary</a>.
+A full list of the Glossary terms used by NHS Projects can be found at the <a href="https://developer.nhs.uk/library/glossary/" target="_blank">NHS Developer Network - Glossary</a>.
