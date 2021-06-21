@@ -35,6 +35,6 @@ The following FHIR elements are key to this implementation :
 
 This specification includes examples using the Bundle resource as an output for search results. They can be accessed at:
 
-- [Search for free slots](search_free_slots.html#sample-response)
+- [Search for Slots](search_slots.html#sample-response)
 
-- [Search patient appointments](search_patient_appointments.html#sample-response)
+- [Search Patient Appointments](search_patient_appointments.html#sample-response)

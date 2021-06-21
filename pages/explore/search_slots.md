@@ -250,9 +250,6 @@ Failure responses with a `500` status **MAY** be retried.
                         "value": "357"
                     }
                 ],
-                "providedBy": {
-                    "reference": "https://directory.spineservices.nhs.uk/STU3/Organization/RR8"
-                },
                 "location":  [
                     {
                         "reference": "Location/loc2222"
