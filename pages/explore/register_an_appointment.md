@@ -6,7 +6,7 @@ permalink: register_an_appointment_old.html
 summary: "Details the register an Appointment interaction"
 ---
 
-{% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This is a live release of the NHS Booking API specification. However, prior to commencing development, please contact the [Booking & Referral Team.](mailto:bookingandreferrals@nhs.net)" %}
 
 ## Use case ##
 

@@ -6,7 +6,7 @@ permalink: location.html
 summary: A Location at which an Organisation delivers one or more Healthcare Services.
 ---
 
-{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This is a live release of the NHS Booking API specification. However, prior to commencing development, please contact the [Booking & Referral Team.](mailto:bookingandreferrals@nhs.net)" %}
 
 ## Introduction ##
 This resource is optionally returned linked to a <a href='healthcare_service.html'>Healthcare Service resource</a>. For more clarification see <a href='resources_overview.html#urgent--emergency-care-appointments-apis'>the diagram on the FHIR Resources overview page</a>.

@@ -5,9 +5,9 @@ sidebar: overview_sidebar
 permalink: overview_release_notes.html
 ---
 
-{% include important.html content="Site under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This is a live release of the NHS Booking API specification. However, prior to commencing development, please contact the [Booking & Referral Team.](mailto:bookingandreferrals@nhs.net)" %}
 
-## 2.0.4-live Released: 21-06-21 ##
+## 2.0.4-live Released: 22-06-21 ##
 
 - The 'CapabilityStatement' and the 'Search for slots' pages have been updated. Only one start time slot should be present, and the user should use 'Greater than' or 'Less than' within a single slot value to replicate the start and the end date search functionality.
 

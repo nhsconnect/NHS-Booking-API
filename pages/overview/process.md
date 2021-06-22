@@ -7,7 +7,7 @@ toc: false
 summary: An overview of the end to end booking process
 ---
 
-{% include important.html content="This site is under development by NHS Digital, it is advised not to develop against these specifications until a formal announcement has been made." %}
+{% include important.html content="This is a live release of the NHS Booking API specification. However, prior to commencing development, please contact the [Booking & Referral Team.](mailto:bookingandreferrals@nhs.net)" %}
 
 # Sequence Diagram #
 
