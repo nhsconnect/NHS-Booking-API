@@ -7,7 +7,7 @@ toc: false
 summary: A brief introduction to getting started with the FHIR NHS Booking API.
 ---
 
-{% include important.html content="This is a live release of the NHS Booking API specification. However, prior to commencing development, please contact the [Booking & Referral Team.](mailto:bookingandreferrals@nhs.net)" %}
+{% include important.html content="As of 25 March 2022, this API is [deprecated](https://digital.nhs.uk/developer/guides-and-documentation/reference-guide#api-status), and will be retired in 12 t0 18 months. It is still available for use by in-flight development but not by new integrations. For details contact the [Booking & Referral Team.](mailto:bookingandreferrals@nhs.net)" %}
 
 # Introduction #
 This API was previously called "FHIR NHS Scheduling API", it has been renamed to make it more closely reflect the purpose.
