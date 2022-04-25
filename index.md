@@ -7,7 +7,7 @@ toc: false
 summary: A brief introduction to getting started with the FHIR NHS Booking API.
 ---
 
-{% include important.html content="Note that this standard is being replaced by the [Booking and Referral Standard](https://digital.nhs.uk/services/booking-and-referral-standard). If you wish to develop a solution for this standard, contact the [Booking & Referral Team.](mailto:bookingandreferralstandard@nhs.net)" %}
+{% include important.html content="This API will be retired in 12 to 18 months from March 2022. The [Booking and Referral Standard](https://digital.nhs.uk/services/booking-and-referral-standard) will replace it. The current API is still available for existing development, but not for new integrations. For more details, contact the [Booking & Referral Team.](mailto:bookingandreferralstandard@nhs.net)" %}
 
 # Introduction #
 This API was previously called "FHIR NHS Scheduling API", it has been renamed to make it more closely reflect the purpose.
